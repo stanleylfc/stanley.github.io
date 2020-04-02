@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>python on stanley的博客</title>
+    <link>https://stanleylfc.github.io/tags/python/</link>
+    <description>Recent content in python on stanley的博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 01 Apr 2020 21:00:00 +0800</lastBuildDate>
+    
+	<atom:link href="https://stanleylfc.github.io/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>python 实战（二）| virtualenv</title>
+      <link>https://stanleylfc.github.io/post/2020-04-01-python-venv/</link>
+      <pubDate>Wed, 01 Apr 2020 21:00:00 +0800</pubDate>
+      
+      <guid>https://stanleylfc.github.io/post/2020-04-01-python-venv/</guid>
+      <description>1.安装virtualenv pip install virtualenv #(python2) pip3 install virtualenv #(python3) 2.创建venv python3 -m venv venv venv就是虚拟环境的文件夹，通常取名venv(用户自定义)。 --no-site-packages表示不添加系统里面python已安装的第三方库 3.启动虚拟环境并安装第三方库 venv\Script\activate #(windows) source venv/bin/activate #(linux/macos) pip install xxx 4.部署到服务器，环境</description>
+    </item>
+    
+  </channel>
+</rss>

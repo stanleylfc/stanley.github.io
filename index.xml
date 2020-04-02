@@ -1,14 +1,60 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>My New Blog</title>
-    <link>http://example.org/</link>
-    <description>Recent content on My New Blog</description>
+    <title>stanley的博客</title>
+    <link>https://stanleylfc.github.io/</link>
+    <description>Recent content on stanley的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
+    <lastBuildDate>Wed, 01 Apr 2020 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="http://example.org/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://stanleylfc.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>python 实战（二）| virtualenv</title>
+      <link>https://stanleylfc.github.io/post/2020-04-01-python-venv/</link>
+      <pubDate>Wed, 01 Apr 2020 21:00:00 +0800</pubDate>
+      
+      <guid>https://stanleylfc.github.io/post/2020-04-01-python-venv/</guid>
+      <description>1.安装virtualenv pip install virtualenv #(python2) pip3 install virtualenv #(python3) 2.创建venv python3 -m venv venv venv就是虚拟环境的文件夹，通常取名venv(用户自定义)。 --no-site-packages表示不添加系统里面python已安装的第三方库 3.启动虚拟环境并安装第三方库 venv\Script\activate #(windows) source venv/bin/activate #(linux/macos) pip install xxx 4.部署到服务器，环境</description>
+    </item>
+    
+    <item>
+      <title>关于我</title>
+      <link>https://stanleylfc.github.io/about/</link>
+      <pubDate>Wed, 01 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://stanleylfc.github.io/about/</guid>
+      <description>数据开发工程师</description>
+    </item>
+    
+    <item>
+      <title>工具</title>
+      <link>https://stanleylfc.github.io/tools/</link>
+      <pubDate>Wed, 01 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://stanleylfc.github.io/tools/</guid>
+      <description>hugo maupassant</description>
+    </item>
+    
+    <item>
+      <title>归档</title>
+      <link>https://stanleylfc.github.io/archives/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://stanleylfc.github.io/archives/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>搜索</title>
+      <link>https://stanleylfc.github.io/search/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://stanleylfc.github.io/search/</guid>
+      <description></description>
+    </item>
     
   </channel>
 </rss>

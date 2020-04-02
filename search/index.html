@@ -1,23 +1,25 @@
 <!doctype html>
 <html lang="en-us">
 <head>
-	<meta name="generator" content="Hugo 0.68.3" />
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>stanley的博客 | 专注于Python、Go语言(golang)、项目管理、软件架构、数据分析</title>
-    <meta property="og:title" content="stanley的博客 | 专注于Python、Go语言(golang)、项目管理、软件架构、数据分析">
-    <meta property="og:type" content="website">
+    <title>搜索 | stanley的博客</title>
+    <meta property="og:title" content="搜索 - stanley的博客">
+    <meta property="og:type" content="article">
+        
+        
     <meta name="Keywords" content="golang,go语言,go语言笔记,项目管理,python,软件架构,数据分析">
-    <meta name="description" content="专注于IT互联网，包括但不限于Go语言(golang)、Java、Android、Python、项目管理、抖音分析、软件架构等">
-    <meta property="og:url" content="https://stanleylfc.github.io/">
+    <meta name="description" content="搜索页面">
+        
+    <meta name="author" content="">
+    <meta property="og:url" content="https://stanleylfc.github.io/search/">
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 
     <link rel="stylesheet" href='/css/normalize.css'>
     <link rel="stylesheet" href='/css/style.css'>
-    <link rel="alternate" type="application/rss+xml+xml" href="https://stanleylfc.github.io/index.xml" title="stanley的博客" />
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     
@@ -42,17 +44,15 @@
         <div class="col-group">
             <div class="site-name ">
                 
-                    <h1>
-                        <a id="logo" href="https://stanleylfc.github.io">
-                            stanley的博客
-                        </a>
-                    </h1>
+                    <a id="logo" href="https://stanleylfc.github.io">
+                        stanley的博客
+                    </a>
                 
                 <p class="description">专注于Python、Go语言(golang)、项目管理、软件架构、数据分析</p>
             </div>
             <div>
                 <nav id="nav-menu" class="clearfix">
-                    <a class="current" href="https://stanleylfc.github.io">首页</a>
+                    <a class="" href="https://stanleylfc.github.io">首页</a>
                     
                     <a  href="https://stanleylfc.github.io/tools/" title="工具">工具</a>
                     
@@ -73,37 +73,71 @@
                 <div class="col-8" id="main">
                     
 <div class="res-cons">
-    
+    <h3 class="archive-title">
+        搜索
+        <span class="keyword">哈哈</span>
+        的结果
+    </h3>
+
     <article class="post">
         <header>
             <h1 class="post-title">
-                <a href="https://stanleylfc.github.io/post/2020-04-01-python-venv/" title="python 实战（二）| virtualenv">python 实战（二）| virtualenv</a>
+                <a href="链接">标题</a>
             </h1>
         </header>
         <date class="post-meta meta-date">
-            2020年4月1日
+            2019年12月01日
         </date>
-        
-        <div class="post-meta">
-            <span>|</span>
-            
-            <span class="meta-category"><a href='https://stanleylfc.github.io/categories/Python'>Python</a></span>
-            
-        </div>
-        
         <div class="post-content">
-            1.安装virtualenv pip install virtualenv #(python2) pip3 install virtualenv #(python3) 2.创建venv python3 -m venv venv venv就是虚拟环境的文件夹，通常取名venv(用户自定义)。 --no-site-packages表示不添加系统里面python已安装的第三方库 3.启动虚拟环境并安装第三方库 venv\Script\activate #(windows) source venv/bin/activate #(linux/macos) pip install xxx 4.部署到服务器，环境……
+            概要……
+            <p class="readmore"><a href="链接">阅读全文</a></p>
         </div>
-        <p class="readmore"><a href="https://stanleylfc.github.io/post/2020-04-01-python-venv/">阅读全文</a></p>
     </article>
-    
-    
-
-
-
-
 
 </div>
+
+<script type="text/javascript">
+
+    var getUrlParameter = function getUrlParameter(sParam) {
+        var sPageURL = window.location.search.substring(1),
+            sURLVariables = sPageURL.split('&'),
+            sParameterName,
+            i;
+
+        for (i = 0; i < sURLVariables.length; i++) {
+            sParameterName = sURLVariables[i].split('=');
+
+            if (sParameterName[0] === sParam) {
+                return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
+            }
+        }
+    };
+
+    $(document).ready(function () {
+        var q = getUrlParameter("q");
+        $("span.keyword").text(q);
+        $("article.post").remove();
+        $.ajax({
+            url: 'https:\/\/stanleylfc.github.io\/index.xml',
+            dataType: "xml",
+            success: function (data) {
+                $(data).find("item").each(function () {
+                    var item = $(this);
+                    var title = item.find("title").text();
+                    if (title.toLowerCase().indexOf(q.toLowerCase()) >= 0) {
+                        var url = item.find("link").text();
+                        var searchItem = `<article class="post"><header><h1 class="post-title"><a href="` + url + `">` + title + `</a></h1></header>`;
+                        var pubDate = new Date(item.find("pubDate").text())
+                        searchItem += `<date class="post-meta meta-date">` + pubDate.getFullYear() + `年` + (pubDate.getMonth() + 1) + `月` + pubDate.getDate() + `日</date>`;
+                        searchItem += `<div class="post-content">` + item.find("description").text() + `……<p class="readmore"><a href="` + url + `">阅读全文</a></p></div></article>`;
+
+                        $("div.res-cons").append(searchItem);
+                    }
+                });
+            }
+        });
+    });
+</script>
 
                 </div>
 
@@ -169,6 +203,17 @@
     </div>
 </footer>
 
+
+    
+    <script type="text/javascript">
+        window.MathJax = {
+            tex2jax: {
+                inlineMath: [['$', '$']],
+                processEscapes: true
+                }
+            };
+    </script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
 
 
 <a id="rocket" href="#top"></a>
