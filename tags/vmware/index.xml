@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>vmware on stanley的博客</title>
+    <link>https://stanleylfc.github.io/tags/vmware/</link>
+    <description>Recent content in vmware on stanley的博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 03 Apr 2020 09:00:00 +0800</lastBuildDate>
+    
+	<atom:link href="https://stanleylfc.github.io/tags/vmware/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>vmware 实战（一）| 创建</title>
+      <link>https://stanleylfc.github.io/post/vmware/2020-04-03-vmware-create/</link>
+      <pubDate>Fri, 03 Apr 2020 09:00:00 +0800</pubDate>
+      
+      <guid>https://stanleylfc.github.io/post/vmware/2020-04-03-vmware-create/</guid>
+      <description>网络配置 文件 功能 /etc/hostsname 修改主机名称 /etc/sysconfig/network-scripts/ifcfg-enoN 设置网卡参数文件（网卡位置） /etc/resolv.conf 设置DNS，用于将域名到ip /etc/hosts 计算机ip对应的主机名或者域名 /ect/nsswitch.conf 优先使用DNS解析还是本地设置优先（name server switch configuration） 1.1网络接口文件 #显示网络接口文件 ip addr #编辑接口文件 vi /etc/sysconfig/network-scripts/ifcfg-ens33 #重启网卡 service network restart 1.2 ifcfg-ens33 HWADDR=00:0c:29:39:12:c7</description>
+    </item>
+    
+  </channel>
+</rss>

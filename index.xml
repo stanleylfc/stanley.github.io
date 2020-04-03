@@ -12,6 +12,42 @@
     
     
     <item>
+      <title>python 实战（四）| 基础知识02</title>
+      <link>https://stanleylfc.github.io/post/2020-04-03-python-base02/</link>
+      <pubDate>Fri, 03 Apr 2020 09:00:00 +0800</pubDate>
+      
+      <guid>https://stanleylfc.github.io/post/2020-04-03-python-base02/</guid>
+      <description>模块 1.简单模块化 把函数、类、常量拆分到不同的文件，把它们放在同一个文件夹 把函数、类、常量拆分到不同的文件，把它们放在不同的文件 sys.path.append(&amp;quot;..&amp;quot;) # 通过这种方式调用上层目录 2.项目模块化 3.神奇的 if name == &amp;lsquo;main&amp;rsquo; import 在导入文件的时候，会自动把所有暴露在外面的代码全都执行一遍。因此，如果你要把一个东西封装成</description>
+    </item>
+    
+    <item>
+      <title>vmware 实战（一）| 创建</title>
+      <link>https://stanleylfc.github.io/post/vmware/2020-04-03-vmware-create/</link>
+      <pubDate>Fri, 03 Apr 2020 09:00:00 +0800</pubDate>
+      
+      <guid>https://stanleylfc.github.io/post/vmware/2020-04-03-vmware-create/</guid>
+      <description>网络配置 文件 功能 /etc/hostsname 修改主机名称 /etc/sysconfig/network-scripts/ifcfg-enoN 设置网卡参数文件（网卡位置） /etc/resolv.conf 设置DNS，用于将域名到ip /etc/hosts 计算机ip对应的主机名或者域名 /ect/nsswitch.conf 优先使用DNS解析还是本地设置优先（name server switch configuration） 1.1网络接口文件 #显示网络接口文件 ip addr #编辑接口文件 vi /etc/sysconfig/network-scripts/ifcfg-ens33 #重启网卡 service network restart 1.2 ifcfg-ens33 HWADDR=00:0c:29:39:12:c7</description>
+    </item>
+    
+    <item>
+      <title>python 实战（四）| 基础知识01</title>
+      <link>https://stanleylfc.github.io/post/2020-04-02-python-base01/</link>
+      <pubDate>Thu, 02 Apr 2020 09:00:00 +0800</pubDate>
+      
+      <guid>https://stanleylfc.github.io/post/2020-04-02-python-base01/</guid>
+      <description>数据类型 1.1数字（int, float, bool) int 底层实现上， 通过不定长结构体按需分配内存 2.数字还可以有二进制(bin)，八进制(oct)，以及十六进制(hex)表示0b110011, 0o12, 0x64 3.内置函数将整数转换为指定进制字符串，或反向int 还原 bin(100) &amp;lsquo;0b1100100&amp;rsquo; int(&amp;lsquo;0b1100100&amp;rsquo;, 2) 100 4.python3不支持数字和非数字类型</description>
+    </item>
+    
+    <item>
+      <title>python 实战（三）| docker 安装</title>
+      <link>https://stanleylfc.github.io/post/2020-04-02-python-docker/</link>
+      <pubDate>Thu, 02 Apr 2020 00:00:00 +0800</pubDate>
+      
+      <guid>https://stanleylfc.github.io/post/2020-04-02-python-docker/</guid>
+      <description>基础环境 - macOS - Python 3.8 - Docker 1. 容器 docker $ docker pull ubuntu $ docker images REPOSITORY TAG IMAGE ID CREATED SIZE ubuntu latest 4e5021d210f6 13 days ago 64.2MB 创建容器 $ docker create -ti --privileged --name py3 -p 10000:80 -p 10001:8888 -v /mac/py3:/root/py3 -w /root ubuntu bash -l 启动 $ docker start -ai py3 安装 $ apt update $ apt install curl $ apt install python3.8 python3.8-distutils</description>
+    </item>
+    
+    <item>
       <title>python 实战（二）| virtualenv</title>
       <link>https://stanleylfc.github.io/post/2020-04-01-python-venv/</link>
       <pubDate>Wed, 01 Apr 2020 21:00:00 +0800</pubDate>

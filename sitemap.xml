@@ -4,31 +4,61 @@
   
   <url>
     <loc>https://stanleylfc.github.io/categories/</loc>
-    <lastmod>2020-04-01T21:00:00+08:00</lastmod>
+    <lastmod>2020-04-03T09:00:00+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://stanleylfc.github.io/post/</loc>
-    <lastmod>2020-04-01T21:00:00+08:00</lastmod>
+    <lastmod>2020-04-03T09:00:00+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://stanleylfc.github.io/categories/Python/</loc>
-    <lastmod>2020-04-01T21:00:00+08:00</lastmod>
+    <lastmod>2020-04-03T09:00:00+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://stanleylfc.github.io/tags/python/</loc>
-    <lastmod>2020-04-01T21:00:00+08:00</lastmod>
+    <lastmod>2020-04-03T09:00:00+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://stanleylfc.github.io/post/2020-04-01-python-venv/</loc>
-    <lastmod>2020-04-01T21:00:00+08:00</lastmod>
+    <loc>https://stanleylfc.github.io/post/2020-04-03-python-base02/</loc>
+    <lastmod>2020-04-03T09:00:00+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://stanleylfc.github.io/tags/</loc>
+    <lastmod>2020-04-03T09:00:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://stanleylfc.github.io/tags/vmware/</loc>
+    <lastmod>2020-04-03T09:00:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://stanleylfc.github.io/categories/vmware/</loc>
+    <lastmod>2020-04-03T09:00:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://stanleylfc.github.io/post/vmware/2020-04-03-vmware-create/</loc>
+    <lastmod>2020-04-03T09:00:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://stanleylfc.github.io/post/2020-04-02-python-base01/</loc>
+    <lastmod>2020-04-02T09:00:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://stanleylfc.github.io/post/2020-04-02-python-docker/</loc>
+    <lastmod>2020-04-02T00:00:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://stanleylfc.github.io/post/2020-04-01-python-venv/</loc>
     <lastmod>2020-04-01T21:00:00+08:00</lastmod>
   </url>
   
