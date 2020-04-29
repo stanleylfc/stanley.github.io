@@ -1,0 +1,373 @@
+<!doctype html>
+<html lang="en-us">
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>go | stanley的博客</title>
+    <meta property="og:title" content="go - stanley的博客">
+    <meta property="og:type" content="article">
+        
+        
+    <meta name="Keywords" content="golang,go语言,go语言笔记,项目管理,python,软件架构,数据分析">
+    <meta name="description" content="go">
+        
+    <meta name="author" content="">
+    <meta property="og:url" content="https://stanleylfc.github.io/tags/go/">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href='/css/normalize.css'>
+    <link rel="stylesheet" href='/css/style.css'>
+    <link rel="alternate" type="application/rss+xml+xml" href="https://stanleylfc.github.io/tags/go/index.xml" title="stanley的博客" />
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+    (adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-4031353640611810",
+        enable_page_level_ads: true
+    });
+    </script>
+    
+
+
+    
+    
+        <link rel="stylesheet" href='/css/douban.css'>
+    
+        <link rel="stylesheet" href='/css/other.css'>
+    
+</head>
+
+
+<body>
+    <header id="header" class="clearfix">
+    <div class="container">
+        <div class="col-group">
+            <div class="site-name ">
+                
+                    <a id="logo" href="https://stanleylfc.github.io">
+                        stanley的博客
+                    </a>
+                
+                <p class="description">专注于Python、Go语言(golang)、项目管理、软件架构、数据分析</p>
+            </div>
+            <div>
+                <nav id="nav-menu" class="clearfix">
+                    <a class="" href="https://stanleylfc.github.io">首页</a>
+                    
+                    <a  href="https://stanleylfc.github.io/tools/" title="工具">工具</a>
+                    
+                    <a  href="https://stanleylfc.github.io/archives/" title="归档">归档</a>
+                    
+                    <a  href="https://stanleylfc.github.io/about/" title="关于">关于</a>
+                    
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+
+    <div id="body">
+        <div class="container">
+            <div class="col-group">
+
+                <div class="col-8" id="main">
+                    
+<div class="res-cons">
+    
+    <h3 class="archive-title">
+        包含标签
+        <span class="keyword">go</span>
+        的文章
+    </h3>
+    
+
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://stanleylfc.github.io/post/golang/2020-04-28-golang-gpc/">go 实战（十二）| go grpc开发</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2020年4月28日
+        </date>
+        
+        <div class="post-meta meta-category">
+            |
+            
+            <a href='https://stanleylfc.github.io/categories/go'>go</a>
+            
+        </div>
+        
+        <div class="post-content">
+            1. RPC 远程调用 https://github.com/grpc/grpc-go go get -u google.golang.org/grpc 2. Protobuf Google Protocol Buffer 2.1 安装 protobuf 下载对应版本解压后配置环境变量 https://github.com/protocolbuffers/protobuf/releases 2.2 protocol 格式教程 https://developers.google.com/protocol-buffers/docs/gotutorial 3. 中间文件 3.1 安装插件 在GOPATH的bin目录下生产可执行文件.protobuf的编译器插件protoc-gen-go go get github.com/golang/protobuf/protoc-gen-go 3.2书写中间文件 syntax=&quot;proto3&quot; package services message ProdRequest { int32 prod_id=1 } message ProdResponse { int32 prod_stock=1 } 3.3 编译安装 在pbfil……
+            <p class="readmore"><a href="https://stanleylfc.github.io/post/golang/2020-04-28-golang-gpc/">阅读全文</a></p>
+        </div>
+    </article>
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://stanleylfc.github.io/post/golang/2020-04-27-golang-web%E5%BC%80%E5%8F%91/">go 实战（十一）| go web开发</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2020年4月27日
+        </date>
+        
+        <div class="post-meta meta-category">
+            |
+            
+            <a href='https://stanleylfc.github.io/categories/go'>go</a>
+            
+        </div>
+        
+        <div class="post-content">
+            1.web服务器 1.1 创建web服务器 只要调用ListenAndServe 并传入网络地址以及负责处理请求的处理器（handler）作为参数就可以了 // http.ListenAndServe(&quot;&quot;, nil) 1.2 带有附加配置的Web服务器 server := http.Server{ Addr: &quot;127.0.0.1:8080&quot;, Handler: nil, } server.ListenAndServe() 2.处理器 一个处理器就是一个拥有ServeHTTP 方法的接口。 任何接口只要拥有一个Se……
+            <p class="readmore"><a href="https://stanleylfc.github.io/post/golang/2020-04-27-golang-web%E5%BC%80%E5%8F%91/">阅读全文</a></p>
+        </div>
+    </article>
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://stanleylfc.github.io/post/golang/2020-04-16-golang-%E5%86%85%E5%AD%98%E8%AF%A6%E8%A7%A3/">go 实战（七）| 内存详解</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2020年4月21日
+        </date>
+        
+        <div class="post-meta meta-category">
+            |
+            
+            <a href='https://stanleylfc.github.io/categories/go'>go</a>
+            
+        </div>
+        
+        <div class="post-content">
+            ……
+            <p class="readmore"><a href="https://stanleylfc.github.io/post/golang/2020-04-16-golang-%E5%86%85%E5%AD%98%E8%AF%A6%E8%A7%A3/">阅读全文</a></p>
+        </div>
+    </article>
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://stanleylfc.github.io/post/golang/2020-04-16-golang-goroutine%E5%8E%9F%E7%90%86/">go 实战（九）| goroutine原理</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2020年4月21日
+        </date>
+        
+        <div class="post-meta meta-category">
+            |
+            
+            <a href='https://stanleylfc.github.io/categories/go'>go</a>
+            
+        </div>
+        
+        <div class="post-content">
+            ……
+            <p class="readmore"><a href="https://stanleylfc.github.io/post/golang/2020-04-16-golang-goroutine%E5%8E%9F%E7%90%86/">阅读全文</a></p>
+        </div>
+    </article>
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://stanleylfc.github.io/post/golang/2020-04-14-golang-%E5%90%AF%E5%8A%A8%E8%84%9A%E6%9C%AC/">go 实战（五）| go 编译和启动</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2020年4月21日
+        </date>
+        
+        <div class="post-meta meta-category">
+            |
+            
+            <a href='https://stanleylfc.github.io/categories/go'>go</a>
+            
+        </div>
+        
+        <div class="post-content">
+            1. 启动脚本 1.1 编译好的二进制 #!/bin/bash SERVER=&quot;apiserver&quot; BASE_DIR=$PWD INTERVAL=2 # 命令行参数，需要手动指定 ARGS=&quot;&quot; function start() { if [ &quot;`pgrep $SERVER -u $UID`&quot; != &quot;&quot; ];then echo &quot;$SERVER already running&quot; exit 1 fi nohup $BASE_DIR/$SERVER $ARGS server &amp;&gt;/dev/null &amp; echo &quot;sleeping...&quot; &amp;&amp; sleep $INTERVAL # check status if [ &quot;`pgrep $SERVER -u $UID`&quot; == &quot;&quot; ];then echo &quot;$SERVER start failed&quot; exit 1 fi } function status() { if [ &quot;`pgrep $SERVER -u $UID`&quot; != &quot;&quot; ];then echo $SERVER is running else echo $SERVER is not running fi } function stop() { if [ &quot;`pgrep $SERVER -u $UID`&quot; != &quot;&quot; ];then kill -9 `pgrep $SERVER -u $UID` fi echo &quot;sleeping...&quot; &amp;&amp; sleep $INTERVAL if [ &quot;`pgrep $SERVER -u $UID`&quot; != &quot;&quot; ];then echo &quot;$SERVER……
+            <p class="readmore"><a href="https://stanleylfc.github.io/post/golang/2020-04-14-golang-%E5%90%AF%E5%8A%A8%E8%84%9A%E6%9C%AC/">阅读全文</a></p>
+        </div>
+    </article>
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://stanleylfc.github.io/post/golang/2020-04-15-golang-GC%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/">go 实战（八）| GC 垃圾回收</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2020年4月21日
+        </date>
+        
+        <div class="post-meta meta-category">
+            |
+            
+            <a href='https://stanleylfc.github.io/categories/go'>go</a>
+            
+        </div>
+        
+        <div class="post-content">
+            Go GC 垃圾回收 垃圾回收机制 引用计数 标志清楚 三色标志 分代收集 GO GC 发展 1.1 1.2 三色标记 2.1 写屏障 2.2 三色状态 GC 执行流程 3.1 启动 3.2 标记 3.3 清理……
+            <p class="readmore"><a href="https://stanleylfc.github.io/post/golang/2020-04-15-golang-GC%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/">阅读全文</a></p>
+        </div>
+    </article>
+    
+
+    
+
+
+
+
+
+</div>
+
+                </div>
+
+                <div id="secondary">
+    <section class="widget">
+        <form id="search" action='https://stanleylfc.github.io/search/' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
+      
+      <input type="text" name="q" maxlength="20" placeholder="Search">
+      <input type="hidden" name="sitesearch" value="https://stanleylfc.github.io">
+      <button type="submit" class="submit icon-search"></button>
+</form>
+    </section>
+    
+    <section class="widget">
+        <h3 class="widget-title">最近文章</h3>
+<ul class="widget-list">
+    
+    <li>
+        <a href="https://stanleylfc.github.io/post/golang/2020-04-28-golang-gpc/" title="go 实战（十二）| go grpc开发">go 实战（十二）| go grpc开发</a>
+    </li>
+    
+    <li>
+        <a href="https://stanleylfc.github.io/post/golang/2020-04-27-golang-web%E5%BC%80%E5%8F%91/" title="go 实战（十一）| go web开发">go 实战（十一）| go web开发</a>
+    </li>
+    
+    <li>
+        <a href="https://stanleylfc.github.io/post/vue/2020-04-23-vue-vue/" title="vue 实战（一）| vue">vue 实战（一）| vue</a>
+    </li>
+    
+    <li>
+        <a href="https://stanleylfc.github.io/post/vue/2020-04-23-vue-vuecli/" title="vue 实战（三）| vuecli">vue 实战（三）| vuecli</a>
+    </li>
+    
+    <li>
+        <a href="https://stanleylfc.github.io/post/vue/2020-04-22-vue-node/" title="vue 实战（二）| node">vue 实战（二）| node</a>
+    </li>
+    
+    <li>
+        <a href="https://stanleylfc.github.io/post/git/2020-04-22-git-%E4%BD%BF%E7%94%A8%E8%A7%84%E8%8C%83/" title="git 实战（二）| git 提交分支">git 实战（二）| git 提交分支</a>
+    </li>
+    
+    <li>
+        <a href="https://stanleylfc.github.io/post/golang/2020-04-16-golang-%E5%86%85%E5%AD%98%E8%AF%A6%E8%A7%A3/" title="go 实战（七）| 内存详解">go 实战（七）| 内存详解</a>
+    </li>
+    
+    <li>
+        <a href="https://stanleylfc.github.io/post/golang/2020-04-16-golang-goroutine%E5%8E%9F%E7%90%86/" title="go 实战（九）| goroutine原理">go 实战（九）| goroutine原理</a>
+    </li>
+    
+    <li>
+        <a href="https://stanleylfc.github.io/post/golang/2020-04-14-golang-%E5%90%AF%E5%8A%A8%E8%84%9A%E6%9C%AC/" title="go 实战（五）| go 编译和启动">go 实战（五）| go 编译和启动</a>
+    </li>
+    
+    <li>
+        <a href="https://stanleylfc.github.io/post/golang/2020-04-15-golang-GC%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/" title="go 实战（八）| GC 垃圾回收">go 实战（八）| GC 垃圾回收</a>
+    </li>
+    
+</ul>
+    </section>
+
+    
+
+    <section class="widget">
+        <h3 class="widget-title">分类</h3>
+<ul class="widget-list">
+    
+    <li><a href="https://stanleylfc.github.io/categories/Python/">Python (5)</a></li>
+    
+    <li><a href="https://stanleylfc.github.io/categories/git/">git (1)</a></li>
+    
+    <li><a href="https://stanleylfc.github.io/categories/go/">go (6)</a></li>
+    
+    <li><a href="https://stanleylfc.github.io/categories/hadoop/">hadoop (1)</a></li>
+    
+    <li><a href="https://stanleylfc.github.io/categories/vmware/">vmware (1)</a></li>
+    
+    <li><a href="https://stanleylfc.github.io/categories/vue/">vue (4)</a></li>
+    
+</ul>
+    </section>
+
+    <section class="widget">
+        <h3 class="widget-title">标签</h3>
+<div class="tagcloud">
+    
+    <a href="https://stanleylfc.github.io/tags/git/">git</a>
+    
+    <a href="https://stanleylfc.github.io/tags/go/">go</a>
+    
+    <a href="https://stanleylfc.github.io/tags/hadoop/">hadoop</a>
+    
+    <a href="https://stanleylfc.github.io/tags/python/">python</a>
+    
+    <a href="https://stanleylfc.github.io/tags/vmware/">vmware</a>
+    
+    <a href="https://stanleylfc.github.io/tags/vue/">vue</a>
+    
+</div>
+    </section>
+
+    
+
+    <section class="widget">
+        <h3 class="widget-title">其它</h3>
+        <ul class="widget-list">
+            <li><a href="https://stanleylfc.github.io/index.xml">文章 RSS</a></li>
+        </ul>
+    </section>
+</div>
+            </div>
+        </div>
+    </div>
+    <footer id="footer">
+    <div class="container">
+        &copy; 2020 <a href="https://stanleylfc.github.io">stanley的博客 By </a>.
+        Powered by <a rel="nofollow noreferer noopener" href="https://gohugo.io" target="_blank">Hugo</a>.
+        <a href="https://www.flysnow.org/" target="_blank">Theme</a> based on <a href="https://github.com/flysnow-org/maupassant-hugo" target="_blank">maupassant</a>.
+        
+    </div>
+</footer>
+
+
+
+<a id="rocket" href="#top"></a>
+<script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>
+
+
+
+    <script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
+
+
+
+
+    <script src='/js/douban.js'></script>
+
+</body>
+
+</html>

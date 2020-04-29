@@ -36,6 +36,10 @@
 
     
     
+        <link rel="stylesheet" href='/css/douban.css'>
+    
+        <link rel="stylesheet" href='/css/other.css'>
+    
 </head>
 
 
@@ -79,24 +83,24 @@
     <article class="post">
         <header>
             <h1 class="post-title">
-                <a href="https://stanleylfc.github.io/post/vmware/2020-04-03-vmware-create/" title="vmware 实战（一）| 创建">vmware 实战（一）| 创建</a>
+                <a href="https://stanleylfc.github.io/post/golang/2020-04-28-golang-gpc/" title="go 实战（十二）| go grpc开发">go 实战（十二）| go grpc开发</a>
             </h1>
         </header>
         <date class="post-meta meta-date">
-            2020年4月3日
+            2020年4月28日
         </date>
         
         <div class="post-meta">
             <span>|</span>
             
-            <span class="meta-category"><a href='https://stanleylfc.github.io/categories/vmware'>vmware</a></span>
+            <span class="meta-category"><a href='https://stanleylfc.github.io/categories/go'>go</a></span>
             
         </div>
         
         <div class="post-content">
-            网络配置 文件 功能 /etc/hostsname 修改主机名称 /etc/sysconfig/network-scripts/ifcfg-enoN 设置网卡参数文件（网卡位置） /etc/resolv.conf 设置DNS，用于将域名到ip /etc/hosts 计算机ip对应的主机名或者域名 /ect/nsswitch.conf 优先使用DNS解析还是本地设置优先（name server switch configuration） 1.1网络接口文件 #显示网络接口文件 ip addr #编辑接口文件 vi /etc/sysconfig/network-scripts/ifcfg-ens33 #重启网卡 service network restart 1.2 ifcfg-ens33 HWADDR=00:0c:29:39:12:c7……
+            1. RPC 远程调用 https://github.com/grpc/grpc-go go get -u google.golang.org/grpc 2. Protobuf Google Protocol Buffer 2.1 安装 protobuf 下载对应版本解压后配置环境变量 https://github.com/protocolbuffers/protobuf/releases 2.2 protocol 格式教程 https://developers.google.com/protocol-buffers/docs/gotutorial 3. 中间文件 3.1 安装插件 在GOPATH的bin目录下生产可执行文件.protobuf的编译器插件protoc-gen-go go get github.com/golang/protobuf/protoc-gen-go 3.2书写中间文件 syntax=&quot;proto3&quot; package services message ProdRequest { int32 prod_id=1 } message ProdResponse { int32 prod_stock=1 } 3.3 编译安装 在pbfil……
         </div>
-        <p class="readmore"><a href="https://stanleylfc.github.io/post/vmware/2020-04-03-vmware-create/">阅读全文</a></p>
+        <p class="readmore"><a href="https://stanleylfc.github.io/post/golang/2020-04-28-golang-gpc/">阅读全文</a></p>
     </article>
     
     
@@ -104,24 +108,24 @@
     <article class="post">
         <header>
             <h1 class="post-title">
-                <a href="https://stanleylfc.github.io/post/2020-04-03-python-base02/" title="python 实战（四）| 基础知识02">python 实战（四）| 基础知识02</a>
+                <a href="https://stanleylfc.github.io/post/golang/2020-04-27-golang-web%E5%BC%80%E5%8F%91/" title="go 实战（十一）| go web开发">go 实战（十一）| go web开发</a>
             </h1>
         </header>
         <date class="post-meta meta-date">
-            2020年4月3日
+            2020年4月27日
         </date>
         
         <div class="post-meta">
             <span>|</span>
             
-            <span class="meta-category"><a href='https://stanleylfc.github.io/categories/Python'>Python</a></span>
+            <span class="meta-category"><a href='https://stanleylfc.github.io/categories/go'>go</a></span>
             
         </div>
         
         <div class="post-content">
-            模块 1.简单模块化 把函数、类、常量拆分到不同的文件，把它们放在同一个文件夹 把函数、类、常量拆分到不同的文件，把它们放在不同的文件 sys.path.append(&quot;..&quot;) # 通过这种方式调用上层目录 2.项目模块化 3.神奇的 if name == &lsquo;main&rsquo; import 在导入文件的时候，会自动把所有暴露在外面的代码全都执行一遍。因此，如果你要把一个东西封装成……
+            1.web服务器 1.1 创建web服务器 只要调用ListenAndServe 并传入网络地址以及负责处理请求的处理器（handler）作为参数就可以了 // http.ListenAndServe(&quot;&quot;, nil) 1.2 带有附加配置的Web服务器 server := http.Server{ Addr: &quot;127.0.0.1:8080&quot;, Handler: nil, } server.ListenAndServe() 2.处理器 一个处理器就是一个拥有ServeHTTP 方法的接口。 任何接口只要拥有一个Se……
         </div>
-        <p class="readmore"><a href="https://stanleylfc.github.io/post/2020-04-03-python-base02/">阅读全文</a></p>
+        <p class="readmore"><a href="https://stanleylfc.github.io/post/golang/2020-04-27-golang-web%E5%BC%80%E5%8F%91/">阅读全文</a></p>
     </article>
     
     
@@ -129,24 +133,24 @@
     <article class="post">
         <header>
             <h1 class="post-title">
-                <a href="https://stanleylfc.github.io/post/2020-04-02-python-base01/" title="python 实战（四）| 基础知识01">python 实战（四）| 基础知识01</a>
+                <a href="https://stanleylfc.github.io/post/vue/2020-04-23-vue-vuecli/" title="vue 实战（三）| vuecli">vue 实战（三）| vuecli</a>
             </h1>
         </header>
         <date class="post-meta meta-date">
-            2020年4月2日
+            2020年4月23日
         </date>
         
         <div class="post-meta">
             <span>|</span>
             
-            <span class="meta-category"><a href='https://stanleylfc.github.io/categories/Python'>Python</a></span>
+            <span class="meta-category"><a href='https://stanleylfc.github.io/categories/vue'>vue</a></span>
             
         </div>
         
         <div class="post-content">
-            数据类型 1.1数字（int, float, bool) int 底层实现上， 通过不定长结构体按需分配内存 2.数字还可以有二进制(bin)，八进制(oct)，以及十六进制(hex)表示0b110011, 0o12, 0x64 3.内置函数将整数转换为指定进制字符串，或反向int 还原 bin(100) &lsquo;0b1100100&rsquo; int(&lsquo;0b1100100&rsquo;, 2) 100 4.python3不支持数字和非数字类型……
+            1. 安装 1.1 安装vue-cli npm install -g @vue/cli # -g 全局安装 1.2 版本查看 这个命令来检查其版本是否正确 vue --version 2. 创建项目 2.1 创建项目命令 vue create testapp 2.2 选择自定义 default (babel, eslint) ❯ Manually select features 2.3 空格选择，enter确认 ❯◉ Babel ◯ TypeScript ◯ Progressive Web App (PWA) Support ◯ Router ◯ Vuex ◯ CSS Pre-processors ◉ Linter / Formatter ◯ Unit Testing ◯ E2E Testing 2.4 配置独立一个文件还是一个文件 In dedicated config files &gt; In package.json 2.5 tree -L 1 查……
         </div>
-        <p class="readmore"><a href="https://stanleylfc.github.io/post/2020-04-02-python-base01/">阅读全文</a></p>
+        <p class="readmore"><a href="https://stanleylfc.github.io/post/vue/2020-04-23-vue-vuecli/">阅读全文</a></p>
     </article>
     
     
@@ -154,24 +158,24 @@
     <article class="post">
         <header>
             <h1 class="post-title">
-                <a href="https://stanleylfc.github.io/post/2020-04-02-python-docker/" title="python 实战（三）| docker 安装">python 实战（三）| docker 安装</a>
+                <a href="https://stanleylfc.github.io/post/vue/2020-04-23-vue-vue/" title="vue 实战（一）| vue">vue 实战（一）| vue</a>
             </h1>
         </header>
         <date class="post-meta meta-date">
-            2020年4月2日
+            2020年4月23日
         </date>
         
         <div class="post-meta">
             <span>|</span>
             
-            <span class="meta-category"><a href='https://stanleylfc.github.io/categories/Python'>Python</a></span>
+            <span class="meta-category"><a href='https://stanleylfc.github.io/categories/vue'>vue</a></span>
             
         </div>
         
         <div class="post-content">
-            基础环境 - macOS - Python 3.8 - Docker 1. 容器 docker $ docker pull ubuntu $ docker images REPOSITORY TAG IMAGE ID CREATED SIZE ubuntu latest 4e5021d210f6 13 days ago 64.2MB 创建容器 $ docker create -ti --privileged --name py3 -p 10000:80 -p 10001:8888 -v /mac/py3:/root/py3 -w /root ubuntu bash -l 启动 $ docker start -ai py3 安装 $ apt update $ apt install curl $ apt install python3.8 python3.8-distutils……
+            VUEX中的dispatch()和commit() commit: 同步操作 存储 this.$store.commit('changeValue',name) 取值 this.$store.state.changeValue dispatch: 异步操作 存储 this.$store.dispatch('getlists',name) 取值 this.$store.getters.getlists this.$store.dispatch('user/login', this.loginForm) 访问store 下面user 模块的login 方法 router.push('/login') '/login'前端路由……
         </div>
-        <p class="readmore"><a href="https://stanleylfc.github.io/post/2020-04-02-python-docker/">阅读全文</a></p>
+        <p class="readmore"><a href="https://stanleylfc.github.io/post/vue/2020-04-23-vue-vue/">阅读全文</a></p>
     </article>
     
     
@@ -179,30 +183,175 @@
     <article class="post">
         <header>
             <h1 class="post-title">
-                <a href="https://stanleylfc.github.io/post/2020-04-01-python-venv/" title="python 实战（二）| virtualenv">python 实战（二）| virtualenv</a>
+                <a href="https://stanleylfc.github.io/post/vue/2020-04-22-vue-node/" title="vue 实战（二）| node">vue 实战（二）| node</a>
             </h1>
         </header>
         <date class="post-meta meta-date">
-            2020年4月1日
+            2020年4月22日
         </date>
         
         <div class="post-meta">
             <span>|</span>
             
-            <span class="meta-category"><a href='https://stanleylfc.github.io/categories/Python'>Python</a></span>
+            <span class="meta-category"><a href='https://stanleylfc.github.io/categories/vue'>vue</a></span>
             
         </div>
         
         <div class="post-content">
-            1.安装virtualenv pip install virtualenv #(python2) pip3 install virtualenv #(python3) 2.创建venv python3 -m venv venv venv就是虚拟环境的文件夹，通常取名venv(用户自定义)。 --no-site-packages表示不添加系统里面python已安装的第三方库 3.启动虚拟环境并安装第三方库 venv\Script\activate #(windows) source venv/bin/activate #(linux/macos) pip install xxx 4.部署到服务器，环境……
+            ……
         </div>
-        <p class="readmore"><a href="https://stanleylfc.github.io/post/2020-04-01-python-venv/">阅读全文</a></p>
+        <p class="readmore"><a href="https://stanleylfc.github.io/post/vue/2020-04-22-vue-node/">阅读全文</a></p>
+    </article>
+    
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://stanleylfc.github.io/post/%E5%A4%A7%E6%95%B0%E6%8D%AE/2020-04-27-hadoop2.7.7%E5%AE%89%E8%A3%85/" title="hadoop 实战（一）| hadoop 安装">hadoop 实战（一）| hadoop 安装</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2020年4月21日
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://stanleylfc.github.io/categories/hadoop'>hadoop</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            1.环境准备 1.1 服务器规划 # -u root -p centosdata 172.16.232.130 centos701 172.16.232.131 centos702 172.16.232.132 centos703 1.2 关闭所有服务器的防火墙 systemctl stop firewalld.service # 停止firewall。 systemctl disable firewalld.service # 禁止firewall开机启动。 firewall-cmd --state # 查看默认防火墙装状态(关闭后显示notrunning, 开启显示running)。 1.3 关闭服务器的SLNEX vim /etc/selinux/config SELINUX=disabled 1.4 服务器ssh 安装 所有服务……
+        </div>
+        <p class="readmore"><a href="https://stanleylfc.github.io/post/%E5%A4%A7%E6%95%B0%E6%8D%AE/2020-04-27-hadoop2.7.7%E5%AE%89%E8%A3%85/">阅读全文</a></p>
+    </article>
+    
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://stanleylfc.github.io/post/golang/2020-04-15-golang-GC%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/" title="go 实战（八）| GC 垃圾回收">go 实战（八）| GC 垃圾回收</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2020年4月21日
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://stanleylfc.github.io/categories/go'>go</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            Go GC 垃圾回收 垃圾回收机制 引用计数 标志清楚 三色标志 分代收集 GO GC 发展 1.1 1.2 三色标记 2.1 写屏障 2.2 三色状态 GC 执行流程 3.1 启动 3.2 标记 3.3 清理……
+        </div>
+        <p class="readmore"><a href="https://stanleylfc.github.io/post/golang/2020-04-15-golang-GC%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/">阅读全文</a></p>
+    </article>
+    
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://stanleylfc.github.io/post/golang/2020-04-14-golang-%E5%90%AF%E5%8A%A8%E8%84%9A%E6%9C%AC/" title="go 实战（五）| go 编译和启动">go 实战（五）| go 编译和启动</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2020年4月21日
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://stanleylfc.github.io/categories/go'>go</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            1. 启动脚本 1.1 编译好的二进制 #!/bin/bash SERVER=&quot;apiserver&quot; BASE_DIR=$PWD INTERVAL=2 # 命令行参数，需要手动指定 ARGS=&quot;&quot; function start() { if [ &quot;`pgrep $SERVER -u $UID`&quot; != &quot;&quot; ];then echo &quot;$SERVER already running&quot; exit 1 fi nohup $BASE_DIR/$SERVER $ARGS server &amp;&gt;/dev/null &amp; echo &quot;sleeping...&quot; &amp;&amp; sleep $INTERVAL # check status if [ &quot;`pgrep $SERVER -u $UID`&quot; == &quot;&quot; ];then echo &quot;$SERVER start failed&quot; exit 1 fi } function status() { if [ &quot;`pgrep $SERVER -u $UID`&quot; != &quot;&quot; ];then echo $SERVER is running else echo $SERVER is not running fi } function stop() { if [ &quot;`pgrep $SERVER -u $UID`&quot; != &quot;&quot; ];then kill -9 `pgrep $SERVER -u $UID` fi echo &quot;sleeping...&quot; &amp;&amp; sleep $INTERVAL if [ &quot;`pgrep $SERVER -u $UID`&quot; != &quot;&quot; ];then echo &quot;$SERVER……
+        </div>
+        <p class="readmore"><a href="https://stanleylfc.github.io/post/golang/2020-04-14-golang-%E5%90%AF%E5%8A%A8%E8%84%9A%E6%9C%AC/">阅读全文</a></p>
+    </article>
+    
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://stanleylfc.github.io/post/golang/2020-04-16-golang-goroutine%E5%8E%9F%E7%90%86/" title="go 实战（九）| goroutine原理">go 实战（九）| goroutine原理</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2020年4月21日
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://stanleylfc.github.io/categories/go'>go</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            ……
+        </div>
+        <p class="readmore"><a href="https://stanleylfc.github.io/post/golang/2020-04-16-golang-goroutine%E5%8E%9F%E7%90%86/">阅读全文</a></p>
+    </article>
+    
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://stanleylfc.github.io/post/golang/2020-04-16-golang-%E5%86%85%E5%AD%98%E8%AF%A6%E8%A7%A3/" title="go 实战（七）| 内存详解">go 实战（七）| 内存详解</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2020年4月21日
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://stanleylfc.github.io/categories/go'>go</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            ……
+        </div>
+        <p class="readmore"><a href="https://stanleylfc.github.io/post/golang/2020-04-16-golang-%E5%86%85%E5%AD%98%E8%AF%A6%E8%A7%A3/">阅读全文</a></p>
     </article>
     
     
     
 
 
+
+<ol class="page-navigator">
+    
+
+    
+    <li  class="current">
+        <a href="https://stanleylfc.github.io/post/">1</a>
+    </li>
+    
+    <li >
+        <a href="https://stanleylfc.github.io/post/page/2/">2</a>
+    </li>
+    
+
+    
+    <li class="next">
+        <a href="https://stanleylfc.github.io/post/page/2/">下一页</a>
+    </li>
+    
+</ol>
 
 
 
@@ -225,23 +374,43 @@
 <ul class="widget-list">
     
     <li>
-        <a href="https://stanleylfc.github.io/post/2020-04-03-python-base02/" title="python 实战（四）| 基础知识02">python 实战（四）| 基础知识02</a>
+        <a href="https://stanleylfc.github.io/post/golang/2020-04-28-golang-gpc/" title="go 实战（十二）| go grpc开发">go 实战（十二）| go grpc开发</a>
     </li>
     
     <li>
-        <a href="https://stanleylfc.github.io/post/vmware/2020-04-03-vmware-create/" title="vmware 实战（一）| 创建">vmware 实战（一）| 创建</a>
+        <a href="https://stanleylfc.github.io/post/golang/2020-04-27-golang-web%E5%BC%80%E5%8F%91/" title="go 实战（十一）| go web开发">go 实战（十一）| go web开发</a>
     </li>
     
     <li>
-        <a href="https://stanleylfc.github.io/post/2020-04-02-python-base01/" title="python 实战（四）| 基础知识01">python 实战（四）| 基础知识01</a>
+        <a href="https://stanleylfc.github.io/post/vue/2020-04-23-vue-vue/" title="vue 实战（一）| vue">vue 实战（一）| vue</a>
     </li>
     
     <li>
-        <a href="https://stanleylfc.github.io/post/2020-04-02-python-docker/" title="python 实战（三）| docker 安装">python 实战（三）| docker 安装</a>
+        <a href="https://stanleylfc.github.io/post/vue/2020-04-23-vue-vuecli/" title="vue 实战（三）| vuecli">vue 实战（三）| vuecli</a>
     </li>
     
     <li>
-        <a href="https://stanleylfc.github.io/post/2020-04-01-python-venv/" title="python 实战（二）| virtualenv">python 实战（二）| virtualenv</a>
+        <a href="https://stanleylfc.github.io/post/vue/2020-04-22-vue-node/" title="vue 实战（二）| node">vue 实战（二）| node</a>
+    </li>
+    
+    <li>
+        <a href="https://stanleylfc.github.io/post/git/2020-04-22-git-%E4%BD%BF%E7%94%A8%E8%A7%84%E8%8C%83/" title="git 实战（二）| git 提交分支">git 实战（二）| git 提交分支</a>
+    </li>
+    
+    <li>
+        <a href="https://stanleylfc.github.io/post/golang/2020-04-16-golang-%E5%86%85%E5%AD%98%E8%AF%A6%E8%A7%A3/" title="go 实战（七）| 内存详解">go 实战（七）| 内存详解</a>
+    </li>
+    
+    <li>
+        <a href="https://stanleylfc.github.io/post/golang/2020-04-16-golang-goroutine%E5%8E%9F%E7%90%86/" title="go 实战（九）| goroutine原理">go 实战（九）| goroutine原理</a>
+    </li>
+    
+    <li>
+        <a href="https://stanleylfc.github.io/post/golang/2020-04-14-golang-%E5%90%AF%E5%8A%A8%E8%84%9A%E6%9C%AC/" title="go 实战（五）| go 编译和启动">go 实战（五）| go 编译和启动</a>
+    </li>
+    
+    <li>
+        <a href="https://stanleylfc.github.io/post/golang/2020-04-15-golang-GC%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/" title="go 实战（八）| GC 垃圾回收">go 实战（八）| GC 垃圾回收</a>
     </li>
     
 </ul>
@@ -253,9 +422,17 @@
         <h3 class="widget-title">分类</h3>
 <ul class="widget-list">
     
-    <li><a href="https://stanleylfc.github.io/categories/Python/">Python (4)</a></li>
+    <li><a href="https://stanleylfc.github.io/categories/Python/">Python (5)</a></li>
+    
+    <li><a href="https://stanleylfc.github.io/categories/git/">git (1)</a></li>
+    
+    <li><a href="https://stanleylfc.github.io/categories/go/">go (6)</a></li>
+    
+    <li><a href="https://stanleylfc.github.io/categories/hadoop/">hadoop (1)</a></li>
     
     <li><a href="https://stanleylfc.github.io/categories/vmware/">vmware (1)</a></li>
+    
+    <li><a href="https://stanleylfc.github.io/categories/vue/">vue (4)</a></li>
     
 </ul>
     </section>
@@ -264,9 +441,17 @@
         <h3 class="widget-title">标签</h3>
 <div class="tagcloud">
     
+    <a href="https://stanleylfc.github.io/tags/git/">git</a>
+    
+    <a href="https://stanleylfc.github.io/tags/go/">go</a>
+    
+    <a href="https://stanleylfc.github.io/tags/hadoop/">hadoop</a>
+    
     <a href="https://stanleylfc.github.io/tags/python/">python</a>
     
     <a href="https://stanleylfc.github.io/tags/vmware/">vmware</a>
+    
+    <a href="https://stanleylfc.github.io/tags/vue/">vue</a>
     
 </div>
     </section>
@@ -303,6 +488,8 @@
 
 
 
+
+    <script src='/js/douban.js'></script>
 
 </body>
 

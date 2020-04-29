@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>git on stanley的博客</title>
+    <link>https://stanleylfc.github.io/tags/git/</link>
+    <description>Recent content in git on stanley的博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 21 Apr 2020 21:00:00 +0800</lastBuildDate>
+    
+	<atom:link href="https://stanleylfc.github.io/tags/git/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>git 实战（二）| git 提交分支</title>
+      <link>https://stanleylfc.github.io/post/git/2020-04-22-git-%E4%BD%BF%E7%94%A8%E8%A7%84%E8%8C%83/</link>
+      <pubDate>Tue, 21 Apr 2020 21:00:00 +0800</pubDate>
+      
+      <guid>https://stanleylfc.github.io/post/git/2020-04-22-git-%E4%BD%BF%E7%94%A8%E8%A7%84%E8%8C%83/</guid>
+      <description>1. Commit message 的格式 每次提交，Commit message 都包括三个部分：Header，Body 和 Footer。 其中，Header 是必需的，Body 和 Footer 可以省略。 不管是哪一个部分，任何一行都不得超过72个字符（或100个字符）。这是为了避免自动换行影响美观。 格式如下： &amp;lt;type&amp;gt;(&amp;lt;scope&amp;gt;):&amp;lt;subject&amp;gt; // 空一行 &amp;lt;body&amp;gt; // 空一行 &amp;lt;footer&amp;gt; 1.1 Header Head</description>
+    </item>
+    
+  </channel>
+</rss>
