@@ -12,6 +12,24 @@
     
     
     <item>
+      <title>go 实战（十三）| go probuf</title>
+      <link>https://stanleylfc.github.io/post/golang/2020-05-05-golang-probuf/</link>
+      <pubDate>Tue, 05 May 2020 21:00:00 +0800</pubDate>
+      
+      <guid>https://stanleylfc.github.io/post/golang/2020-05-05-golang-probuf/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>go 包练习（一）| go viper cron cobra</title>
+      <link>https://stanleylfc.github.io/post/golang/2020-04-30-goalng-%E5%8C%8501/</link>
+      <pubDate>Tue, 28 Apr 2020 21:00:00 +0800</pubDate>
+      
+      <guid>https://stanleylfc.github.io/post/golang/2020-04-30-goalng-%E5%8C%8501/</guid>
+      <description>1.读取配置文件viper 2.定时任务cron github.com/gogits/cron 3.子命令cobra</description>
+    </item>
+    
+    <item>
       <title>go 实战（十二）| go grpc开发</title>
       <link>https://stanleylfc.github.io/post/golang/2020-04-28-golang-gpc/</link>
       <pubDate>Tue, 28 Apr 2020 21:00:00 +0800</pubDate>
@@ -111,6 +129,15 @@
     </item>
     
     <item>
+      <title>hadoop 实战（一）| hadoop 安装</title>
+      <link>https://stanleylfc.github.io/post/%E5%A4%A7%E6%95%B0%E6%8D%AE/2020-04-27-live2.7.7%E5%AE%89%E8%A3%85/</link>
+      <pubDate>Tue, 21 Apr 2020 21:00:00 +0800</pubDate>
+      
+      <guid>https://stanleylfc.github.io/post/%E5%A4%A7%E6%95%B0%E6%8D%AE/2020-04-27-live2.7.7%E5%AE%89%E8%A3%85/</guid>
+      <description>1.环境准备 1.1 服务器规划 # -u root -p centosdata 172.16.232.130 centos701 172.16.232.131 centos702 172.16.232.132 centos703 1.2 关闭所有服务器的防火墙 systemctl stop firewalld.service # 停止firewall。 systemctl disable firewalld.service # 禁止firewall开机启动。 firewall-cmd --state # 查看默认防火墙装状态(关闭后显示notrunning, 开启显示running)。 1.3 关闭服务器的SLNEX vim /etc/selinux/config SELINUX=disabled 1.4 服务器ssh 安装 所有服务</description>
+    </item>
+    
+    <item>
       <title>vue 实战（六）| Vue Router</title>
       <link>https://stanleylfc.github.io/post/vue/2020-04-22-vue-Vue-Router/</link>
       <pubDate>Sun, 19 Apr 2020 09:00:00 +0800</pubDate>
@@ -126,6 +153,15 @@
       
       <guid>https://stanleylfc.github.io/post/python/2020-04-05-python-base05/</guid>
       <description>1.迭代器 1.1 迭代是指重复对象中获取数据，直至结束。 1.2 迭代协议 用__iter__方法返回一个实现了__next__方法的迭代对象，__next__抛出StopIteration 异常表示结束 1.3 自定义类型 class Data: def __init__(self, n): self.data = list(range(n)) def __iter__(self): return DataIter(self.data) #每次新建一个 class DataIter: def __init__(self, data): self.data = data self.index = 0 # 无法通过__next</description>
+    </item>
+    
+    <item>
+      <title>linux 实战（一）| syslog</title>
+      <link>https://stanleylfc.github.io/post/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/2020-05-06-linux-syslog/</link>
+      <pubDate>Fri, 03 Apr 2020 09:00:00 +0800</pubDate>
+      
+      <guid>https://stanleylfc.github.io/post/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/2020-05-06-linux-syslog/</guid>
+      <description>1. 安装 一般来说centos都自带了rsyslog, 通过源码包来安装 源码包下载地址:http://www.rsyslog.com/downloads/download-v8-stable/ 使用yum sudo yum install rsyslog 2. 开启我们的rsyslog远程服务 2.1 编辑配置文件 sudo vim /etc/rsyslog.conf 并将以下注释打开 # Provides UDP</description>
     </item>
     
     <item>

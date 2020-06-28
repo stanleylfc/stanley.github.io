@@ -6,10 +6,28 @@
     <description>Recent content in go on stanley的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 28 Apr 2020 21:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 05 May 2020 21:00:00 +0800</lastBuildDate>
     
 	<atom:link href="https://stanleylfc.github.io/categories/go/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>go 实战（十三）| go probuf</title>
+      <link>https://stanleylfc.github.io/post/golang/2020-05-05-golang-probuf/</link>
+      <pubDate>Tue, 05 May 2020 21:00:00 +0800</pubDate>
+      
+      <guid>https://stanleylfc.github.io/post/golang/2020-05-05-golang-probuf/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>go 包练习（一）| go viper cron cobra</title>
+      <link>https://stanleylfc.github.io/post/golang/2020-04-30-goalng-%E5%8C%8501/</link>
+      <pubDate>Tue, 28 Apr 2020 21:00:00 +0800</pubDate>
+      
+      <guid>https://stanleylfc.github.io/post/golang/2020-04-30-goalng-%E5%8C%8501/</guid>
+      <description>1.读取配置文件viper 2.定时任务cron github.com/gogits/cron 3.子命令cobra</description>
+    </item>
     
     <item>
       <title>go 实战（十二）| go grpc开发</title>

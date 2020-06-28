@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>linux on stanley的博客</title>
+    <link>https://stanleylfc.github.io/categories/linux/</link>
+    <description>Recent content in linux on stanley的博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 03 Apr 2020 09:00:00 +0800</lastBuildDate>
+    
+	<atom:link href="https://stanleylfc.github.io/categories/linux/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>linux 实战（一）| syslog</title>
+      <link>https://stanleylfc.github.io/post/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/2020-05-06-linux-syslog/</link>
+      <pubDate>Fri, 03 Apr 2020 09:00:00 +0800</pubDate>
+      
+      <guid>https://stanleylfc.github.io/post/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/2020-05-06-linux-syslog/</guid>
+      <description>1. 安装 一般来说centos都自带了rsyslog, 通过源码包来安装 源码包下载地址:http://www.rsyslog.com/downloads/download-v8-stable/ 使用yum sudo yum install rsyslog 2. 开启我们的rsyslog远程服务 2.1 编辑配置文件 sudo vim /etc/rsyslog.conf 并将以下注释打开 # Provides UDP</description>
+    </item>
+    
+  </channel>
+</rss>

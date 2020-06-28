@@ -124,6 +124,34 @@ server.ListenAndServe()
 <li>任何接口只要拥有一个ServeHTTP 方法，那么它就是一个处理器。</li>
 </ul>
 <pre><code>ServeHTTP(http.ResponseWriter, *http.Request)
+</code></pre><h3 id="3多路复用器">3.多路复用器</h3>
+<pre><code>muxServer  defaultMuxServer
+</code></pre><h2 id="4-web客户端">4. web客户端</h2>
+<h3 id="41-web客户端请求流程">4.1 web客户端请求流程</h3>
+<pre><code>func fetch(url string) string {
+    // 1. 创建请求
+    request, _ := http.NewRequest(&quot;GET&quot;, url, nil)
+    // 2. 创建客户端
+    client := http.Client{}
+    // 3. 发出请求
+    resp, err := client.Do(request)
+    if err != nil {
+        fmt.Println(&quot;Http get err:&quot;, err)
+        return &quot;&quot;
+    }
+    if resp.StatusCode != http.StatusOK {
+        fmt.Println(&quot;Http status code:&quot;, resp.StatusCode)
+        return &quot;&quot;
+    }
+    // 4. 读取http 响应正文
+    defer resp.Body.Close()
+    body, err := ioutil.ReadAll(resp.Body)
+    if err != nil {
+        fmt.Println(&quot;Read error&quot;, err)
+        return &quot;&quot;
+    }
+    return string(body)
+}
 </code></pre>
         </div>
 
@@ -213,6 +241,14 @@ server.ListenAndServe()
 <ul class="widget-list">
     
     <li>
+        <a href="https://stanleylfc.github.io/post/golang/2020-05-05-golang-probuf/" title="go 实战（十三）| go probuf">go 实战（十三）| go probuf</a>
+    </li>
+    
+    <li>
+        <a href="https://stanleylfc.github.io/post/golang/2020-04-30-goalng-%E5%8C%8501/" title="go 包练习（一）| go viper cron cobra">go 包练习（一）| go viper cron cobra</a>
+    </li>
+    
+    <li>
         <a href="https://stanleylfc.github.io/post/golang/2020-04-28-golang-gpc/" title="go 实战（十二）| go grpc开发">go 实战（十二）| go grpc开发</a>
     </li>
     
@@ -244,14 +280,6 @@ server.ListenAndServe()
         <a href="https://stanleylfc.github.io/post/golang/2020-04-16-golang-goroutine%E5%8E%9F%E7%90%86/" title="go 实战（九）| goroutine原理">go 实战（九）| goroutine原理</a>
     </li>
     
-    <li>
-        <a href="https://stanleylfc.github.io/post/golang/2020-04-14-golang-%E5%90%AF%E5%8A%A8%E8%84%9A%E6%9C%AC/" title="go 实战（五）| go 编译和启动">go 实战（五）| go 编译和启动</a>
-    </li>
-    
-    <li>
-        <a href="https://stanleylfc.github.io/post/golang/2020-04-15-golang-GC%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/" title="go 实战（八）| GC 垃圾回收">go 实战（八）| GC 垃圾回收</a>
-    </li>
-    
 </ul>
     </section>
 
@@ -265,9 +293,11 @@ server.ListenAndServe()
     
     <li><a href="https://stanleylfc.github.io/categories/git/">git (1)</a></li>
     
-    <li><a href="https://stanleylfc.github.io/categories/go/">go (6)</a></li>
+    <li><a href="https://stanleylfc.github.io/categories/go/">go (8)</a></li>
     
-    <li><a href="https://stanleylfc.github.io/categories/hadoop/">hadoop (1)</a></li>
+    <li><a href="https://stanleylfc.github.io/categories/hadoop/">hadoop (2)</a></li>
+    
+    <li><a href="https://stanleylfc.github.io/categories/linux/">linux (1)</a></li>
     
     <li><a href="https://stanleylfc.github.io/categories/vmware/">vmware (1)</a></li>
     
@@ -285,6 +315,8 @@ server.ListenAndServe()
     <a href="https://stanleylfc.github.io/tags/go/">go</a>
     
     <a href="https://stanleylfc.github.io/tags/hadoop/">hadoop</a>
+    
+    <a href="https://stanleylfc.github.io/tags/linux/">linux</a>
     
     <a href="https://stanleylfc.github.io/tags/python/">python</a>
     

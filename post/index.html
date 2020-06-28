@@ -83,6 +83,31 @@
     <article class="post">
         <header>
             <h1 class="post-title">
+                <a href="https://stanleylfc.github.io/post/golang/2020-05-05-golang-probuf/" title="go 实战（十三）| go probuf">go 实战（十三）| go probuf</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2020年5月5日
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://stanleylfc.github.io/categories/go'>go</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            ……
+        </div>
+        <p class="readmore"><a href="https://stanleylfc.github.io/post/golang/2020-05-05-golang-probuf/">阅读全文</a></p>
+    </article>
+    
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
                 <a href="https://stanleylfc.github.io/post/golang/2020-04-28-golang-gpc/" title="go 实战（十二）| go grpc开发">go 实战（十二）| go grpc开发</a>
             </h1>
         </header>
@@ -101,6 +126,31 @@
             1. RPC 远程调用 https://github.com/grpc/grpc-go go get -u google.golang.org/grpc 2. Protobuf Google Protocol Buffer 2.1 安装 protobuf 下载对应版本解压后配置环境变量 https://github.com/protocolbuffers/protobuf/releases 2.2 protocol 格式教程 https://developers.google.com/protocol-buffers/docs/gotutorial 3. 中间文件 3.1 安装插件 在GOPATH的bin目录下生产可执行文件.protobuf的编译器插件protoc-gen-go go get github.com/golang/protobuf/protoc-gen-go 3.2书写中间文件 syntax=&quot;proto3&quot; package services message ProdRequest { int32 prod_id=1 } message ProdResponse { int32 prod_stock=1 } 3.3 编译安装 在pbfil……
         </div>
         <p class="readmore"><a href="https://stanleylfc.github.io/post/golang/2020-04-28-golang-gpc/">阅读全文</a></p>
+    </article>
+    
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://stanleylfc.github.io/post/golang/2020-04-30-goalng-%E5%8C%8501/" title="go 包练习（一）| go viper cron cobra">go 包练习（一）| go viper cron cobra</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2020年4月28日
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://stanleylfc.github.io/categories/go'>go</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            1.读取配置文件viper 2.定时任务cron github.com/gogits/cron 3.子命令cobra……
+        </div>
+        <p class="readmore"><a href="https://stanleylfc.github.io/post/golang/2020-04-30-goalng-%E5%8C%8501/">阅读全文</a></p>
     </article>
     
     
@@ -208,6 +258,31 @@
     <article class="post">
         <header>
             <h1 class="post-title">
+                <a href="https://stanleylfc.github.io/post/%E5%A4%A7%E6%95%B0%E6%8D%AE/2020-04-27-live2.7.7%E5%AE%89%E8%A3%85/" title="hadoop 实战（一）| hadoop 安装">hadoop 实战（一）| hadoop 安装</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2020年4月21日
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://stanleylfc.github.io/categories/hadoop'>hadoop</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            1.环境准备 1.1 服务器规划 # -u root -p centosdata 172.16.232.130 centos701 172.16.232.131 centos702 172.16.232.132 centos703 1.2 关闭所有服务器的防火墙 systemctl stop firewalld.service # 停止firewall。 systemctl disable firewalld.service # 禁止firewall开机启动。 firewall-cmd --state # 查看默认防火墙装状态(关闭后显示notrunning, 开启显示running)。 1.3 关闭服务器的SLNEX vim /etc/selinux/config SELINUX=disabled 1.4 服务器ssh 安装 所有服务……
+        </div>
+        <p class="readmore"><a href="https://stanleylfc.github.io/post/%E5%A4%A7%E6%95%B0%E6%8D%AE/2020-04-27-live2.7.7%E5%AE%89%E8%A3%85/">阅读全文</a></p>
+    </article>
+    
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
                 <a href="https://stanleylfc.github.io/post/%E5%A4%A7%E6%95%B0%E6%8D%AE/2020-04-27-hadoop2.7.7%E5%AE%89%E8%A3%85/" title="hadoop 实战（一）| hadoop 安装">hadoop 实战（一）| hadoop 安装</a>
             </h1>
         </header>
@@ -255,81 +330,6 @@
     
     
     
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://stanleylfc.github.io/post/golang/2020-04-14-golang-%E5%90%AF%E5%8A%A8%E8%84%9A%E6%9C%AC/" title="go 实战（五）| go 编译和启动">go 实战（五）| go 编译和启动</a>
-            </h1>
-        </header>
-        <date class="post-meta meta-date">
-            2020年4月21日
-        </date>
-        
-        <div class="post-meta">
-            <span>|</span>
-            
-            <span class="meta-category"><a href='https://stanleylfc.github.io/categories/go'>go</a></span>
-            
-        </div>
-        
-        <div class="post-content">
-            1. 启动脚本 1.1 编译好的二进制 #!/bin/bash SERVER=&quot;apiserver&quot; BASE_DIR=$PWD INTERVAL=2 # 命令行参数，需要手动指定 ARGS=&quot;&quot; function start() { if [ &quot;`pgrep $SERVER -u $UID`&quot; != &quot;&quot; ];then echo &quot;$SERVER already running&quot; exit 1 fi nohup $BASE_DIR/$SERVER $ARGS server &amp;&gt;/dev/null &amp; echo &quot;sleeping...&quot; &amp;&amp; sleep $INTERVAL # check status if [ &quot;`pgrep $SERVER -u $UID`&quot; == &quot;&quot; ];then echo &quot;$SERVER start failed&quot; exit 1 fi } function status() { if [ &quot;`pgrep $SERVER -u $UID`&quot; != &quot;&quot; ];then echo $SERVER is running else echo $SERVER is not running fi } function stop() { if [ &quot;`pgrep $SERVER -u $UID`&quot; != &quot;&quot; ];then kill -9 `pgrep $SERVER -u $UID` fi echo &quot;sleeping...&quot; &amp;&amp; sleep $INTERVAL if [ &quot;`pgrep $SERVER -u $UID`&quot; != &quot;&quot; ];then echo &quot;$SERVER……
-        </div>
-        <p class="readmore"><a href="https://stanleylfc.github.io/post/golang/2020-04-14-golang-%E5%90%AF%E5%8A%A8%E8%84%9A%E6%9C%AC/">阅读全文</a></p>
-    </article>
-    
-    
-    
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://stanleylfc.github.io/post/golang/2020-04-16-golang-goroutine%E5%8E%9F%E7%90%86/" title="go 实战（九）| goroutine原理">go 实战（九）| goroutine原理</a>
-            </h1>
-        </header>
-        <date class="post-meta meta-date">
-            2020年4月21日
-        </date>
-        
-        <div class="post-meta">
-            <span>|</span>
-            
-            <span class="meta-category"><a href='https://stanleylfc.github.io/categories/go'>go</a></span>
-            
-        </div>
-        
-        <div class="post-content">
-            ……
-        </div>
-        <p class="readmore"><a href="https://stanleylfc.github.io/post/golang/2020-04-16-golang-goroutine%E5%8E%9F%E7%90%86/">阅读全文</a></p>
-    </article>
-    
-    
-    
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://stanleylfc.github.io/post/golang/2020-04-16-golang-%E5%86%85%E5%AD%98%E8%AF%A6%E8%A7%A3/" title="go 实战（七）| 内存详解">go 实战（七）| 内存详解</a>
-            </h1>
-        </header>
-        <date class="post-meta meta-date">
-            2020年4月21日
-        </date>
-        
-        <div class="post-meta">
-            <span>|</span>
-            
-            <span class="meta-category"><a href='https://stanleylfc.github.io/categories/go'>go</a></span>
-            
-        </div>
-        
-        <div class="post-content">
-            ……
-        </div>
-        <p class="readmore"><a href="https://stanleylfc.github.io/post/golang/2020-04-16-golang-%E5%86%85%E5%AD%98%E8%AF%A6%E8%A7%A3/">阅读全文</a></p>
-    </article>
-    
-    
-    
 
 
 
@@ -343,6 +343,10 @@
     
     <li >
         <a href="https://stanleylfc.github.io/post/page/2/">2</a>
+    </li>
+    
+    <li >
+        <a href="https://stanleylfc.github.io/post/page/3/">3</a>
     </li>
     
 
@@ -372,6 +376,14 @@
     <section class="widget">
         <h3 class="widget-title">最近文章</h3>
 <ul class="widget-list">
+    
+    <li>
+        <a href="https://stanleylfc.github.io/post/golang/2020-05-05-golang-probuf/" title="go 实战（十三）| go probuf">go 实战（十三）| go probuf</a>
+    </li>
+    
+    <li>
+        <a href="https://stanleylfc.github.io/post/golang/2020-04-30-goalng-%E5%8C%8501/" title="go 包练习（一）| go viper cron cobra">go 包练习（一）| go viper cron cobra</a>
+    </li>
     
     <li>
         <a href="https://stanleylfc.github.io/post/golang/2020-04-28-golang-gpc/" title="go 实战（十二）| go grpc开发">go 实战（十二）| go grpc开发</a>
@@ -405,14 +417,6 @@
         <a href="https://stanleylfc.github.io/post/golang/2020-04-16-golang-goroutine%E5%8E%9F%E7%90%86/" title="go 实战（九）| goroutine原理">go 实战（九）| goroutine原理</a>
     </li>
     
-    <li>
-        <a href="https://stanleylfc.github.io/post/golang/2020-04-14-golang-%E5%90%AF%E5%8A%A8%E8%84%9A%E6%9C%AC/" title="go 实战（五）| go 编译和启动">go 实战（五）| go 编译和启动</a>
-    </li>
-    
-    <li>
-        <a href="https://stanleylfc.github.io/post/golang/2020-04-15-golang-GC%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/" title="go 实战（八）| GC 垃圾回收">go 实战（八）| GC 垃圾回收</a>
-    </li>
-    
 </ul>
     </section>
 
@@ -426,9 +430,11 @@
     
     <li><a href="https://stanleylfc.github.io/categories/git/">git (1)</a></li>
     
-    <li><a href="https://stanleylfc.github.io/categories/go/">go (6)</a></li>
+    <li><a href="https://stanleylfc.github.io/categories/go/">go (8)</a></li>
     
-    <li><a href="https://stanleylfc.github.io/categories/hadoop/">hadoop (1)</a></li>
+    <li><a href="https://stanleylfc.github.io/categories/hadoop/">hadoop (2)</a></li>
+    
+    <li><a href="https://stanleylfc.github.io/categories/linux/">linux (1)</a></li>
     
     <li><a href="https://stanleylfc.github.io/categories/vmware/">vmware (1)</a></li>
     
@@ -446,6 +452,8 @@
     <a href="https://stanleylfc.github.io/tags/go/">go</a>
     
     <a href="https://stanleylfc.github.io/tags/hadoop/">hadoop</a>
+    
+    <a href="https://stanleylfc.github.io/tags/linux/">linux</a>
     
     <a href="https://stanleylfc.github.io/tags/python/">python</a>
     

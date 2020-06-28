@@ -81,6 +81,52 @@
     <article class="post">
         <header>
             <h1 class="post-title">
+                <a href="https://stanleylfc.github.io/post/golang/2020-05-05-golang-probuf/" title="go 实战（十三）| go probuf">go 实战（十三）| go probuf</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2020年5月5日
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://stanleylfc.github.io/categories/go'>go</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            ……
+        </div>
+        <p class="readmore"><a href="https://stanleylfc.github.io/post/golang/2020-05-05-golang-probuf/">阅读全文</a></p>
+    </article>
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://stanleylfc.github.io/post/golang/2020-04-30-goalng-%E5%8C%8501/" title="go 包练习（一）| go viper cron cobra">go 包练习（一）| go viper cron cobra</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2020年4月28日
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://stanleylfc.github.io/categories/go'>go</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            1.读取配置文件viper 2.定时任务cron github.com/gogits/cron 3.子命令cobra……
+        </div>
+        <p class="readmore"><a href="https://stanleylfc.github.io/post/golang/2020-04-30-goalng-%E5%8C%8501/">阅读全文</a></p>
+    </article>
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
                 <a href="https://stanleylfc.github.io/post/golang/2020-04-28-golang-gpc/" title="go 实战（十二）| go grpc开发">go 实战（十二）| go grpc开发</a>
             </h1>
         </header>
@@ -262,52 +308,6 @@
         <p class="readmore"><a href="https://stanleylfc.github.io/post/golang/2020-04-16-golang-goroutine%E5%8E%9F%E7%90%86/">阅读全文</a></p>
     </article>
     
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://stanleylfc.github.io/post/golang/2020-04-14-golang-%E5%90%AF%E5%8A%A8%E8%84%9A%E6%9C%AC/" title="go 实战（五）| go 编译和启动">go 实战（五）| go 编译和启动</a>
-            </h1>
-        </header>
-        <date class="post-meta meta-date">
-            2020年4月21日
-        </date>
-        
-        <div class="post-meta">
-            <span>|</span>
-            
-            <span class="meta-category"><a href='https://stanleylfc.github.io/categories/go'>go</a></span>
-            
-        </div>
-        
-        <div class="post-content">
-            1. 启动脚本 1.1 编译好的二进制 #!/bin/bash SERVER=&quot;apiserver&quot; BASE_DIR=$PWD INTERVAL=2 # 命令行参数，需要手动指定 ARGS=&quot;&quot; function start() { if [ &quot;`pgrep $SERVER -u $UID`&quot; != &quot;&quot; ];then echo &quot;$SERVER already running&quot; exit 1 fi nohup $BASE_DIR/$SERVER $ARGS server &amp;&gt;/dev/null &amp; echo &quot;sleeping...&quot; &amp;&amp; sleep $INTERVAL # check status if [ &quot;`pgrep $SERVER -u $UID`&quot; == &quot;&quot; ];then echo &quot;$SERVER start failed&quot; exit 1 fi } function status() { if [ &quot;`pgrep $SERVER -u $UID`&quot; != &quot;&quot; ];then echo $SERVER is running else echo $SERVER is not running fi } function stop() { if [ &quot;`pgrep $SERVER -u $UID`&quot; != &quot;&quot; ];then kill -9 `pgrep $SERVER -u $UID` fi echo &quot;sleeping...&quot; &amp;&amp; sleep $INTERVAL if [ &quot;`pgrep $SERVER -u $UID`&quot; != &quot;&quot; ];then echo &quot;$SERVER……
-        </div>
-        <p class="readmore"><a href="https://stanleylfc.github.io/post/golang/2020-04-14-golang-%E5%90%AF%E5%8A%A8%E8%84%9A%E6%9C%AC/">阅读全文</a></p>
-    </article>
-    
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://stanleylfc.github.io/post/golang/2020-04-15-golang-GC%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/" title="go 实战（八）| GC 垃圾回收">go 实战（八）| GC 垃圾回收</a>
-            </h1>
-        </header>
-        <date class="post-meta meta-date">
-            2020年4月21日
-        </date>
-        
-        <div class="post-meta">
-            <span>|</span>
-            
-            <span class="meta-category"><a href='https://stanleylfc.github.io/categories/go'>go</a></span>
-            
-        </div>
-        
-        <div class="post-content">
-            Go GC 垃圾回收 垃圾回收机制 引用计数 标志清楚 三色标志 分代收集 GO GC 发展 1.1 1.2 三色标记 2.1 写屏障 2.2 三色状态 GC 执行流程 3.1 启动 3.2 标记 3.3 清理……
-        </div>
-        <p class="readmore"><a href="https://stanleylfc.github.io/post/golang/2020-04-15-golang-GC%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/">阅读全文</a></p>
-    </article>
-    
     
 
 
@@ -322,6 +322,10 @@
     
     <li >
         <a href="https://stanleylfc.github.io/page/2/">2</a>
+    </li>
+    
+    <li >
+        <a href="https://stanleylfc.github.io/page/3/">3</a>
     </li>
     
 
@@ -351,6 +355,14 @@
     <section class="widget">
         <h3 class="widget-title">最近文章</h3>
 <ul class="widget-list">
+    
+    <li>
+        <a href="https://stanleylfc.github.io/post/golang/2020-05-05-golang-probuf/" title="go 实战（十三）| go probuf">go 实战（十三）| go probuf</a>
+    </li>
+    
+    <li>
+        <a href="https://stanleylfc.github.io/post/golang/2020-04-30-goalng-%E5%8C%8501/" title="go 包练习（一）| go viper cron cobra">go 包练习（一）| go viper cron cobra</a>
+    </li>
     
     <li>
         <a href="https://stanleylfc.github.io/post/golang/2020-04-28-golang-gpc/" title="go 实战（十二）| go grpc开发">go 实战（十二）| go grpc开发</a>
@@ -384,14 +396,6 @@
         <a href="https://stanleylfc.github.io/post/golang/2020-04-16-golang-goroutine%E5%8E%9F%E7%90%86/" title="go 实战（九）| goroutine原理">go 实战（九）| goroutine原理</a>
     </li>
     
-    <li>
-        <a href="https://stanleylfc.github.io/post/golang/2020-04-14-golang-%E5%90%AF%E5%8A%A8%E8%84%9A%E6%9C%AC/" title="go 实战（五）| go 编译和启动">go 实战（五）| go 编译和启动</a>
-    </li>
-    
-    <li>
-        <a href="https://stanleylfc.github.io/post/golang/2020-04-15-golang-GC%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/" title="go 实战（八）| GC 垃圾回收">go 实战（八）| GC 垃圾回收</a>
-    </li>
-    
 </ul>
     </section>
 
@@ -405,9 +409,11 @@
     
     <li><a href="https://stanleylfc.github.io/categories/git/">git (1)</a></li>
     
-    <li><a href="https://stanleylfc.github.io/categories/go/">go (6)</a></li>
+    <li><a href="https://stanleylfc.github.io/categories/go/">go (8)</a></li>
     
-    <li><a href="https://stanleylfc.github.io/categories/hadoop/">hadoop (1)</a></li>
+    <li><a href="https://stanleylfc.github.io/categories/hadoop/">hadoop (2)</a></li>
+    
+    <li><a href="https://stanleylfc.github.io/categories/linux/">linux (1)</a></li>
     
     <li><a href="https://stanleylfc.github.io/categories/vmware/">vmware (1)</a></li>
     
@@ -425,6 +431,8 @@
     <a href="https://stanleylfc.github.io/tags/go/">go</a>
     
     <a href="https://stanleylfc.github.io/tags/hadoop/">hadoop</a>
+    
+    <a href="https://stanleylfc.github.io/tags/linux/">linux</a>
     
     <a href="https://stanleylfc.github.io/tags/python/">python</a>
     

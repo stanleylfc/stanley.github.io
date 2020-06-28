@@ -83,6 +83,81 @@
     <article class="post">
         <header>
             <h1 class="post-title">
+                <a href="https://stanleylfc.github.io/post/golang/2020-04-14-golang-%E5%90%AF%E5%8A%A8%E8%84%9A%E6%9C%AC/" title="go 实战（五）| go 编译和启动">go 实战（五）| go 编译和启动</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2020年4月21日
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://stanleylfc.github.io/categories/go'>go</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            1. 启动脚本 1.1 编译好的二进制 #!/bin/bash SERVER=&quot;apiserver&quot; BASE_DIR=$PWD INTERVAL=2 # 命令行参数，需要手动指定 ARGS=&quot;&quot; function start() { if [ &quot;`pgrep $SERVER -u $UID`&quot; != &quot;&quot; ];then echo &quot;$SERVER already running&quot; exit 1 fi nohup $BASE_DIR/$SERVER $ARGS server &amp;&gt;/dev/null &amp; echo &quot;sleeping...&quot; &amp;&amp; sleep $INTERVAL # check status if [ &quot;`pgrep $SERVER -u $UID`&quot; == &quot;&quot; ];then echo &quot;$SERVER start failed&quot; exit 1 fi } function status() { if [ &quot;`pgrep $SERVER -u $UID`&quot; != &quot;&quot; ];then echo $SERVER is running else echo $SERVER is not running fi } function stop() { if [ &quot;`pgrep $SERVER -u $UID`&quot; != &quot;&quot; ];then kill -9 `pgrep $SERVER -u $UID` fi echo &quot;sleeping...&quot; &amp;&amp; sleep $INTERVAL if [ &quot;`pgrep $SERVER -u $UID`&quot; != &quot;&quot; ];then echo &quot;$SERVER……
+        </div>
+        <p class="readmore"><a href="https://stanleylfc.github.io/post/golang/2020-04-14-golang-%E5%90%AF%E5%8A%A8%E8%84%9A%E6%9C%AC/">阅读全文</a></p>
+    </article>
+    
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://stanleylfc.github.io/post/golang/2020-04-16-golang-goroutine%E5%8E%9F%E7%90%86/" title="go 实战（九）| goroutine原理">go 实战（九）| goroutine原理</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2020年4月21日
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://stanleylfc.github.io/categories/go'>go</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            ……
+        </div>
+        <p class="readmore"><a href="https://stanleylfc.github.io/post/golang/2020-04-16-golang-goroutine%E5%8E%9F%E7%90%86/">阅读全文</a></p>
+    </article>
+    
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://stanleylfc.github.io/post/golang/2020-04-16-golang-%E5%86%85%E5%AD%98%E8%AF%A6%E8%A7%A3/" title="go 实战（七）| 内存详解">go 实战（七）| 内存详解</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2020年4月21日
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://stanleylfc.github.io/categories/go'>go</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            ……
+        </div>
+        <p class="readmore"><a href="https://stanleylfc.github.io/post/golang/2020-04-16-golang-%E5%86%85%E5%AD%98%E8%AF%A6%E8%A7%A3/">阅读全文</a></p>
+    </article>
+    
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
                 <a href="https://stanleylfc.github.io/post/git/2020-04-22-git-%E4%BD%BF%E7%94%A8%E8%A7%84%E8%8C%83/" title="git 实战（二）| git 提交分支">git 实战（二）| git 提交分支</a>
             </h1>
         </header>
@@ -208,6 +283,31 @@
     <article class="post">
         <header>
             <h1 class="post-title">
+                <a href="https://stanleylfc.github.io/post/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/2020-05-06-linux-syslog/" title="linux 实战（一）| syslog">linux 实战（一）| syslog</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2020年4月3日
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://stanleylfc.github.io/categories/linux'>linux</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            1. 安装 一般来说centos都自带了rsyslog, 通过源码包来安装 源码包下载地址:http://www.rsyslog.com/downloads/download-v8-stable/ 使用yum sudo yum install rsyslog 2. 开启我们的rsyslog远程服务 2.1 编辑配置文件 sudo vim /etc/rsyslog.conf 并将以下注释打开 # Provides UDP……
+        </div>
+        <p class="readmore"><a href="https://stanleylfc.github.io/post/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/2020-05-06-linux-syslog/">阅读全文</a></p>
+    </article>
+    
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
                 <a href="https://stanleylfc.github.io/post/python/2020-04-02-python-base01/" title="python 实战（四）| 基础知识01">python 实战（四）| 基础知识01</a>
             </h1>
         </header>
@@ -226,74 +326,6 @@
             数据类型 1.1数字（int, float, bool) int 底层实现上， 通过不定长结构体按需分配内存 2.数字还可以有二进制(bin)，八进制(oct)，以及十六进制(hex)表示0b110011, 0o12, 0x64 3.内置函数将整数转换为指定进制字符串，或反向int 还原 bin(100) &lsquo;0b1100100&rsquo; int(&lsquo;0b1100100&rsquo;, 2) 100 4.python3不支持数字和非数字类型……
         </div>
         <p class="readmore"><a href="https://stanleylfc.github.io/post/python/2020-04-02-python-base01/">阅读全文</a></p>
-    </article>
-    
-    
-    
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://stanleylfc.github.io/post/python/2020-04-02-python-docker/" title="python 实战（三）| python 用docker安装">python 实战（三）| python 用docker安装</a>
-            </h1>
-        </header>
-        <date class="post-meta meta-date">
-            2020年4月2日
-        </date>
-        
-        <div class="post-meta">
-            <span>|</span>
-            
-            <span class="meta-category"><a href='https://stanleylfc.github.io/categories/Python'>Python</a></span>
-            
-        </div>
-        
-        <div class="post-content">
-            基础环境 - Linux - Python 3.8 - Docker 1. 容器 docker $ docker pull ubuntu $ docker images REPOSITORY TAG IMAGE ID CREATED SIZE ubuntu latest 4e5021d210f6 13 days ago 64.2MB 创建容器 $ docker create -ti --privileged --name py3 -p 10000:80 -p 10001:8888 -v /mac/py3:/root/py3 -w /root ubuntu bash -l 启动 $ docker start -ai py3 Docker 后台运行的快捷键是：Ctrl P + Ctrl Q 安装 更新源，安装 Python 3.8 $ apt update $ apt install curl $ apt install python3.8 python3.8-distutils 安装 pip 包管理器 $ curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py $ python3.8 get-pip.py $ pip3 -V pip 20.0.2 from /usr/local/lib/python3.8/dist-packages/pip (python 3.8) 安装附加工具 $ pip3 install ipython ipdb……
-        </div>
-        <p class="readmore"><a href="https://stanleylfc.github.io/post/python/2020-04-02-python-docker/">阅读全文</a></p>
-    </article>
-    
-    
-    
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://stanleylfc.github.io/post/python/2020-04-01-python-venv/" title="python 实战（二）| virtualenv">python 实战（二）| virtualenv</a>
-            </h1>
-        </header>
-        <date class="post-meta meta-date">
-            2020年4月1日
-        </date>
-        
-        <div class="post-meta">
-            <span>|</span>
-            
-            <span class="meta-category"><a href='https://stanleylfc.github.io/categories/Python'>Python</a></span>
-            
-        </div>
-        
-        <div class="post-content">
-            1.安装virtualenv pip install virtualenv #(python2) pip3 install virtualenv #(python3) 2.创建venv python3 -m venv venv venv就是虚拟环境的文件夹，通常取名venv(用户自定义)。 --no-site-packages表示不添加系统里面python已安装的第三方库 3.启动虚拟环境并安装第三方库 venv\Script\activate #(windows) source venv/bin/activate #(linux/macos) pip install xxx 4.部署到服务器，环境……
-        </div>
-        <p class="readmore"><a href="https://stanleylfc.github.io/post/python/2020-04-01-python-venv/">阅读全文</a></p>
-    </article>
-    
-    
-    
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://stanleylfc.github.io/post/%E5%BE%AE%E7%A7%AF%E5%88%86/%E6%9E%81%E9%99%90%E5%92%8C%E8%BF%9E%E7%BB%AD%E6%80%A7/" title=""></a>
-            </h1>
-        </header>
-        <date class="post-meta meta-date">
-            1年1月1日
-        </date>
-        
-        <div class="post-content">
-            ……
-        </div>
-        <p class="readmore"><a href="https://stanleylfc.github.io/post/%E5%BE%AE%E7%A7%AF%E5%88%86/%E6%9E%81%E9%99%90%E5%92%8C%E8%BF%9E%E7%BB%AD%E6%80%A7/">阅读全文</a></p>
     </article>
     
     
@@ -317,7 +349,15 @@
         <a href="https://stanleylfc.github.io/post/page/2/">2</a>
     </li>
     
+    <li >
+        <a href="https://stanleylfc.github.io/post/page/3/">3</a>
+    </li>
+    
 
+    
+    <li class="next">
+        <a href="https://stanleylfc.github.io/post/page/3/">下一页</a>
+    </li>
     
 </ol>
 
@@ -340,6 +380,14 @@
     <section class="widget">
         <h3 class="widget-title">最近文章</h3>
 <ul class="widget-list">
+    
+    <li>
+        <a href="https://stanleylfc.github.io/post/golang/2020-05-05-golang-probuf/" title="go 实战（十三）| go probuf">go 实战（十三）| go probuf</a>
+    </li>
+    
+    <li>
+        <a href="https://stanleylfc.github.io/post/golang/2020-04-30-goalng-%E5%8C%8501/" title="go 包练习（一）| go viper cron cobra">go 包练习（一）| go viper cron cobra</a>
+    </li>
     
     <li>
         <a href="https://stanleylfc.github.io/post/golang/2020-04-28-golang-gpc/" title="go 实战（十二）| go grpc开发">go 实战（十二）| go grpc开发</a>
@@ -373,14 +421,6 @@
         <a href="https://stanleylfc.github.io/post/golang/2020-04-16-golang-goroutine%E5%8E%9F%E7%90%86/" title="go 实战（九）| goroutine原理">go 实战（九）| goroutine原理</a>
     </li>
     
-    <li>
-        <a href="https://stanleylfc.github.io/post/golang/2020-04-14-golang-%E5%90%AF%E5%8A%A8%E8%84%9A%E6%9C%AC/" title="go 实战（五）| go 编译和启动">go 实战（五）| go 编译和启动</a>
-    </li>
-    
-    <li>
-        <a href="https://stanleylfc.github.io/post/golang/2020-04-15-golang-GC%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/" title="go 实战（八）| GC 垃圾回收">go 实战（八）| GC 垃圾回收</a>
-    </li>
-    
 </ul>
     </section>
 
@@ -394,9 +434,11 @@
     
     <li><a href="https://stanleylfc.github.io/categories/git/">git (1)</a></li>
     
-    <li><a href="https://stanleylfc.github.io/categories/go/">go (6)</a></li>
+    <li><a href="https://stanleylfc.github.io/categories/go/">go (8)</a></li>
     
-    <li><a href="https://stanleylfc.github.io/categories/hadoop/">hadoop (1)</a></li>
+    <li><a href="https://stanleylfc.github.io/categories/hadoop/">hadoop (2)</a></li>
+    
+    <li><a href="https://stanleylfc.github.io/categories/linux/">linux (1)</a></li>
     
     <li><a href="https://stanleylfc.github.io/categories/vmware/">vmware (1)</a></li>
     
@@ -414,6 +456,8 @@
     <a href="https://stanleylfc.github.io/tags/go/">go</a>
     
     <a href="https://stanleylfc.github.io/tags/hadoop/">hadoop</a>
+    
+    <a href="https://stanleylfc.github.io/tags/linux/">linux</a>
     
     <a href="https://stanleylfc.github.io/tags/python/">python</a>
     
