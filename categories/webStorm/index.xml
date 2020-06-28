@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>webStorm on stanley的博客</title>
+    <link>https://stanleylfc.github.io/categories/webStorm/</link>
+    <description>Recent content in webStorm on stanley的博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 23 Apr 2020 09:00:00 +0800</lastBuildDate>
+    
+	<atom:link href="https://stanleylfc.github.io/categories/webStorm/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>webStorm 实战（一）| webStorm</title>
+      <link>https://stanleylfc.github.io/post/%E7%BC%96%E7%A8%8B/web%E5%89%8D%E7%AB%AF/2020-05-12-vue-webstorm/</link>
+      <pubDate>Thu, 23 Apr 2020 09:00:00 +0800</pubDate>
+      
+      <guid>https://stanleylfc.github.io/post/%E7%BC%96%E7%A8%8B/web%E5%89%8D%E7%AB%AF/2020-05-12-vue-webstorm/</guid>
+      <description>1.新版WebStorm Tab键的缩进问题 以前WebStorm设置好code style中的Tab size 和indent后就会默认是这个设置的值,但是新版的WebStorm出现了一个怪现象,无论如何设置Tab size 和indent, tab的缩进永远都是2个字符,让习惯了4个字符缩进的开发者十分</description>
+    </item>
+    
+  </channel>
+</rss>

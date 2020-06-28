@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>es6 on stanley的博客</title>
+    <link>https://stanleylfc.github.io/tags/es6/</link>
+    <description>Recent content in es6 on stanley的博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="https://stanleylfc.github.io/tags/es6/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>es6 实战（一）| 基础语法</title>
+      <link>https://stanleylfc.github.io/post/%E7%BC%96%E7%A8%8B/web%E5%89%8D%E7%AB%AF/es6/2020-05-20-es6-base/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://stanleylfc.github.io/post/%E7%BC%96%E7%A8%8B/web%E5%89%8D%E7%AB%AF/es6/2020-05-20-es6-base/</guid>
+      <description>1. let, const 关键字 支持块作用域 不重复定义变量 const 定义不可修改变量</description>
+    </item>
+    
+    <item>
+      <title>es6 实战（三）| 类</title>
+      <link>https://stanleylfc.github.io/post/%E7%BC%96%E7%A8%8B/web%E5%89%8D%E7%AB%AF/es6/2020-05-20-es6-class/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://stanleylfc.github.io/post/%E7%BC%96%E7%A8%8B/web%E5%89%8D%E7%AB%AF/es6/2020-05-20-es6-class/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>es6 实战（二）| 函数</title>
+      <link>https://stanleylfc.github.io/post/%E7%BC%96%E7%A8%8B/web%E5%89%8D%E7%AB%AF/es6/2020-05-20-es6-function/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://stanleylfc.github.io/post/%E7%BC%96%E7%A8%8B/web%E5%89%8D%E7%AB%AF/es6/2020-05-20-es6-function/</guid>
+      <description>1. 函数 函数声明是 2. 函数表达式 3. 箭头函数 4. 函数参数内使用解构 4.1 function( 接收可选参数的函数，是很棒的。对于这种用法，你也可以添加默认参数值来填充调用者没有传递或忘记传递的参数值 。 var sayHello = function({ name, surname }) { console.log(`Hello ${name} ${surname}! How are you?`); }; sayHello({ name: &#39;John&#39;, surname: &#39;Smith&#39; }) // -&amp;gt; Hello John Smith! How are you? 4.2 function({}= 表示此参数需要解构的默认对象是一个{}，以防调用者</description>
+    </item>
+    
+    <item>
+      <title>es6 实战（五）| 异步函数</title>
+      <link>https://stanleylfc.github.io/post/%E7%BC%96%E7%A8%8B/web%E5%89%8D%E7%AB%AF/es6/2020-05-20-es6-asynchronous/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://stanleylfc.github.io/post/%E7%BC%96%E7%A8%8B/web%E5%89%8D%E7%AB%AF/es6/2020-05-20-es6-asynchronous/</guid>
+      <description>1. callback 1.1 callback 回调函数 封装 function add(){ // 这里走接口 let parameter = { // 接口参数 } api(parameter).then(res =&amp;gt; { // 接口成功要执行的代码 // 接口成功后如果有回调函数就执行回调函数如果没有就不执行 callback &amp;amp;&amp;amp; callback() }).catch(e =&amp;gt;{ console.log(e) }) } 调用接口 add(() =&amp;gt;{ // 写接口成功后要执行的代码 }) 2.Promise 解决异步代码 2.1 封装 变量写法： let promise = new Promise((resolve, reject) =&amp;gt;{ api(parameter).then(res =&amp;gt; { // 成功就把res返回出去 resolve(res) }).catch(e =&amp;gt;{ // 失</description>
+    </item>
+    
+    <item>
+      <title>es6 实战（四）| import 和 export</title>
+      <link>https://stanleylfc.github.io/post/%E7%BC%96%E7%A8%8B/web%E5%89%8D%E7%AB%AF/es6/2020-05-20-es6-import/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://stanleylfc.github.io/post/%E7%BC%96%E7%A8%8B/web%E5%89%8D%E7%AB%AF/es6/2020-05-20-es6-import/</guid>
+      <description>1. export 用于对外输出本模块（一个文件可以理解为一个模块）变量的接口。 1.1 export export 可以导出多个命名模块 //demo1.js export const str = &#39;hello world&#39; export function f(a){ return a+1 } //demo2.js import { str, f } from &#39;demo1&#39; 1.2 export default export default 只能导出一个默认模块，这个模块可以匿名 使用import命令的时候，用户需要知道所要加载的变量名或函数名，否则无法加载。但是，用户肯定希望快</description>
+    </item>
+    
+  </channel>
+</rss>

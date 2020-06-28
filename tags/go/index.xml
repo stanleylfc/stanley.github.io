@@ -6,80 +6,80 @@
     <description>Recent content in go on stanley的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 05 May 2020 21:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 01 Jun 2020 11:00:00 +0800</lastBuildDate>
     
 	<atom:link href="https://stanleylfc.github.io/tags/go/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>go 实战（十三）| go probuf</title>
-      <link>https://stanleylfc.github.io/post/golang/2020-05-05-golang-probuf/</link>
+      <link>https://stanleylfc.github.io/post/%E7%BC%96%E7%A8%8B/golang/2020-05-05-golang-probuf/</link>
       <pubDate>Tue, 05 May 2020 21:00:00 +0800</pubDate>
       
-      <guid>https://stanleylfc.github.io/post/golang/2020-05-05-golang-probuf/</guid>
+      <guid>https://stanleylfc.github.io/post/%E7%BC%96%E7%A8%8B/golang/2020-05-05-golang-probuf/</guid>
       <description></description>
     </item>
     
     <item>
       <title>go 包练习（一）| go viper cron cobra</title>
-      <link>https://stanleylfc.github.io/post/golang/2020-04-30-goalng-%E5%8C%8501/</link>
+      <link>https://stanleylfc.github.io/post/%E7%BC%96%E7%A8%8B/golang/2020-04-30-goalng-%E5%8C%8501/</link>
       <pubDate>Tue, 28 Apr 2020 21:00:00 +0800</pubDate>
       
-      <guid>https://stanleylfc.github.io/post/golang/2020-04-30-goalng-%E5%8C%8501/</guid>
-      <description>1.读取配置文件viper 2.定时任务cron github.com/gogits/cron 3.子命令cobra</description>
+      <guid>https://stanleylfc.github.io/post/%E7%BC%96%E7%A8%8B/golang/2020-04-30-goalng-%E5%8C%8501/</guid>
+      <description>1.读取配置文件viper https://github.com/spf13/viper // 部分代码 cfgFile := &amp;#34;/etc/local/go.yaml&amp;#34; _, err := os.Stat(cfgFile) if err != nil { t.Fatal(fmt.Sprintf(&amp;#34;-_- miss : %s -_- &amp;#34;, cfgFile)) } f, err := os.Open(cfgFile) if err != nil { log.Fatal(errors.ErrorStack(err)) } defer f.Close() viper.SetConfigType(&amp;#34;yaml&amp;#34;) if err = viper.ReadConfig(f); err != nil { log.Fatal(errors.ErrorStack(err)) } viper.Get(&amp;#34;name&amp;#34;) 2.定时任务cron github.com/gogits/cron 3.子命令cobra</description>
     </item>
     
     <item>
       <title>go 实战（十二）| go grpc开发</title>
-      <link>https://stanleylfc.github.io/post/golang/2020-04-28-golang-gpc/</link>
+      <link>https://stanleylfc.github.io/post/%E7%BC%96%E7%A8%8B/golang/2020-04-28-golang-gpc/</link>
       <pubDate>Tue, 28 Apr 2020 21:00:00 +0800</pubDate>
       
-      <guid>https://stanleylfc.github.io/post/golang/2020-04-28-golang-gpc/</guid>
+      <guid>https://stanleylfc.github.io/post/%E7%BC%96%E7%A8%8B/golang/2020-04-28-golang-gpc/</guid>
       <description>1. RPC 远程调用 https://github.com/grpc/grpc-go go get -u google.golang.org/grpc 2. Protobuf Google Protocol Buffer 2.1 安装 protobuf 下载对应版本解压后配置环境变量 https://github.com/protocolbuffers/protobuf/releases 2.2 protocol 格式教程 https://developers.google.com/protocol-buffers/docs/gotutorial 3. 中间文件 3.1 安装插件 在GOPATH的bin目录下生产可执行文件.protobuf的编译器插件protoc-gen-go go get github.com/golang/protobuf/protoc-gen-go 3.2书写中间文件 syntax=&amp;quot;proto3&amp;quot; package services message ProdRequest { int32 prod_id=1 } message ProdResponse { int32 prod_stock=1 } 3.3 编译安装 在pbfil</description>
     </item>
     
     <item>
       <title>go 实战（十一）| go web开发</title>
-      <link>https://stanleylfc.github.io/post/golang/2020-04-27-golang-web%E5%BC%80%E5%8F%91/</link>
+      <link>https://stanleylfc.github.io/post/%E7%BC%96%E7%A8%8B/golang/2020-04-27-golang-web%E5%BC%80%E5%8F%91/</link>
       <pubDate>Mon, 27 Apr 2020 21:00:00 +0800</pubDate>
       
-      <guid>https://stanleylfc.github.io/post/golang/2020-04-27-golang-web%E5%BC%80%E5%8F%91/</guid>
+      <guid>https://stanleylfc.github.io/post/%E7%BC%96%E7%A8%8B/golang/2020-04-27-golang-web%E5%BC%80%E5%8F%91/</guid>
       <description>1.web服务器 1.1 创建web服务器 只要调用ListenAndServe 并传入网络地址以及负责处理请求的处理器（handler）作为参数就可以了 // http.ListenAndServe(&amp;quot;&amp;quot;, nil) 1.2 带有附加配置的Web服务器 server := http.Server{ Addr: &amp;quot;127.0.0.1:8080&amp;quot;, Handler: nil, } server.ListenAndServe() 2.处理器 一个处理器就是一个拥有ServeHTTP 方法的接口。 任何接口只要拥有一个Se</description>
     </item>
     
     <item>
       <title>go 实战（七）| 内存详解</title>
-      <link>https://stanleylfc.github.io/post/golang/2020-04-16-golang-%E5%86%85%E5%AD%98%E8%AF%A6%E8%A7%A3/</link>
+      <link>https://stanleylfc.github.io/post/%E7%BC%96%E7%A8%8B/golang/2020-04-16-golang-%E5%86%85%E5%AD%98%E8%AF%A6%E8%A7%A3/</link>
       <pubDate>Tue, 21 Apr 2020 21:00:00 +0800</pubDate>
       
-      <guid>https://stanleylfc.github.io/post/golang/2020-04-16-golang-%E5%86%85%E5%AD%98%E8%AF%A6%E8%A7%A3/</guid>
+      <guid>https://stanleylfc.github.io/post/%E7%BC%96%E7%A8%8B/golang/2020-04-16-golang-%E5%86%85%E5%AD%98%E8%AF%A6%E8%A7%A3/</guid>
       <description></description>
     </item>
     
     <item>
       <title>go 实战（九）| goroutine原理</title>
-      <link>https://stanleylfc.github.io/post/golang/2020-04-16-golang-goroutine%E5%8E%9F%E7%90%86/</link>
+      <link>https://stanleylfc.github.io/post/%E7%BC%96%E7%A8%8B/golang/2020-04-16-golang-goroutine%E5%8E%9F%E7%90%86/</link>
       <pubDate>Tue, 21 Apr 2020 21:00:00 +0800</pubDate>
       
-      <guid>https://stanleylfc.github.io/post/golang/2020-04-16-golang-goroutine%E5%8E%9F%E7%90%86/</guid>
+      <guid>https://stanleylfc.github.io/post/%E7%BC%96%E7%A8%8B/golang/2020-04-16-golang-goroutine%E5%8E%9F%E7%90%86/</guid>
       <description></description>
     </item>
     
     <item>
       <title>go 实战（五）| go 编译和启动</title>
-      <link>https://stanleylfc.github.io/post/golang/2020-04-14-golang-%E5%90%AF%E5%8A%A8%E8%84%9A%E6%9C%AC/</link>
+      <link>https://stanleylfc.github.io/post/%E7%BC%96%E7%A8%8B/golang/2020-04-14-golang-%E5%90%AF%E5%8A%A8%E8%84%9A%E6%9C%AC/</link>
       <pubDate>Tue, 21 Apr 2020 21:00:00 +0800</pubDate>
       
-      <guid>https://stanleylfc.github.io/post/golang/2020-04-14-golang-%E5%90%AF%E5%8A%A8%E8%84%9A%E6%9C%AC/</guid>
+      <guid>https://stanleylfc.github.io/post/%E7%BC%96%E7%A8%8B/golang/2020-04-14-golang-%E5%90%AF%E5%8A%A8%E8%84%9A%E6%9C%AC/</guid>
       <description>1. 启动脚本 1.1 编译好的二进制 #!/bin/bash SERVER=&amp;quot;apiserver&amp;quot; BASE_DIR=$PWD INTERVAL=2 # 命令行参数，需要手动指定 ARGS=&amp;quot;&amp;quot; function start() { if [ &amp;quot;`pgrep $SERVER -u $UID`&amp;quot; != &amp;quot;&amp;quot; ];then echo &amp;quot;$SERVER already running&amp;quot; exit 1 fi nohup $BASE_DIR/$SERVER $ARGS server &amp;amp;&amp;gt;/dev/null &amp;amp; echo &amp;quot;sleeping...&amp;quot; &amp;amp;&amp;amp; sleep $INTERVAL # check status if [ &amp;quot;`pgrep $SERVER -u $UID`&amp;quot; == &amp;quot;&amp;quot; ];then echo &amp;quot;$SERVER start failed&amp;quot; exit 1 fi } function status() { if [ &amp;quot;`pgrep $SERVER -u $UID`&amp;quot; != &amp;quot;&amp;quot; ];then echo $SERVER is running else echo $SERVER is not running fi } function stop() { if [ &amp;quot;`pgrep $SERVER -u $UID`&amp;quot; != &amp;quot;&amp;quot; ];then kill -9 `pgrep $SERVER -u $UID` fi echo &amp;quot;sleeping...&amp;quot; &amp;amp;&amp;amp; sleep $INTERVAL if [ &amp;quot;`pgrep $SERVER -u $UID`&amp;quot; != &amp;quot;&amp;quot; ];then echo &amp;quot;$SERVER</description>
     </item>
     
     <item>
       <title>go 实战（八）| GC 垃圾回收</title>
-      <link>https://stanleylfc.github.io/post/golang/2020-04-15-golang-GC%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/</link>
+      <link>https://stanleylfc.github.io/post/%E7%BC%96%E7%A8%8B/golang/2020-04-15-golang-GC%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/</link>
       <pubDate>Tue, 21 Apr 2020 21:00:00 +0800</pubDate>
       
-      <guid>https://stanleylfc.github.io/post/golang/2020-04-15-golang-GC%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/</guid>
+      <guid>https://stanleylfc.github.io/post/%E7%BC%96%E7%A8%8B/golang/2020-04-15-golang-GC%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/</guid>
       <description>Go GC 垃圾回收 垃圾回收机制 引用计数 标志清楚 三色标志 分代收集 GO GC 发展 1.1 1.2 三色标记 2.1 写屏障 2.2 三色状态 GC 执行流程 3.1 启动 3.2 标记 3.3 清理</description>
     </item>
     

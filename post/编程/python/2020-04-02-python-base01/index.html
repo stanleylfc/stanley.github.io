@@ -1,0 +1,550 @@
+<!doctype html>
+<html lang="en-us">
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>python 实战（四）| 基础知识01 | stanley的博客</title>
+    <meta property="og:title" content="python 实战（四）| 基础知识01 - stanley的博客">
+    <meta property="og:type" content="article">
+        
+    <meta property="article:published_time" content='2020-04-02T09:00:00&#43;08:00'>
+        
+        
+    <meta property="article:modified_time" content='2020-04-02T09:00:00&#43;08:00'>
+        
+    <meta name="Keywords" content="golang,go语言,go语言笔记,项目管理,python,软件架构,数据分析">
+    <meta name="description" content="python 实战（四）| 基础知识01">
+        
+    <meta name="author" content="">
+    <meta property="og:url" content="https://stanleylfc.github.io/post/%E7%BC%96%E7%A8%8B/python/2020-04-02-python-base01/">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href='/css/normalize.css'>
+    <link rel="stylesheet" href='/css/style.css'>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+    (adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-4031353640611810",
+        enable_page_level_ads: true
+    });
+    </script>
+    
+
+
+    
+    
+        <link rel="stylesheet" href='/css/douban.css'>
+    
+        <link rel="stylesheet" href='/css/other.css'>
+    
+</head>
+
+
+<body>
+    <header id="header" class="clearfix">
+    <div class="container">
+        <div class="col-group">
+            <div class="site-name ">
+                
+                    <a id="logo" href="https://stanleylfc.github.io">
+                        stanley的博客
+                    </a>
+                
+                <p class="description">专注于Python、Go语言(golang)、项目管理、软件架构、数据分析</p>
+            </div>
+            <div>
+                <nav id="nav-menu" class="clearfix">
+                    <a class="current" href="https://stanleylfc.github.io">首页</a>
+                    
+                    <a  href="https://stanleylfc.github.io/tools/" title="工具">工具</a>
+                    
+                    <a  href="https://stanleylfc.github.io/archives/" title="归档">归档</a>
+                    
+                    <a  href="https://stanleylfc.github.io/about/" title="关于">关于</a>
+                    
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+
+    <div id="body">
+        <div class="container">
+            <div class="col-group">
+
+                <div class="col-8" id="main">
+                    
+<div class="res-cons">
+    <style type="text/css">
+    .post-toc {
+        position: fixed;
+        width: 200px;
+        margin-left: -210px;
+        padding: 5px 10px;
+        font-family: Athelas, STHeiti, Microsoft Yahei, serif;
+        font-size: 12px;
+        border: 1px solid rgba(0, 0, 0, .07);
+        border-radius: 5px;
+        background-color: rgba(255, 255, 255, 0.98);
+        background-clip: padding-box;
+        -webkit-box-shadow: 1px 1px 2px rgba(0, 0, 0, .125);
+        box-shadow: 1px 1px 2px rgba(0, 0, 0, .125);
+        word-wrap: break-word;
+        white-space: nowrap;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        z-index: 999;
+        cursor: pointer;
+        max-height: 70%;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+
+    .post-toc .post-toc-title {
+        width: 100%;
+        margin: 0 auto;
+        font-size: 20px;
+        font-weight: 400;
+        text-transform: uppercase;
+        text-align: center;
+    }
+
+    .post-toc .post-toc-content {
+        font-size: 15px;
+    }
+
+    .post-toc .post-toc-content>nav>ul {
+        margin: 10px 0;
+    }
+
+    .post-toc .post-toc-content ul {
+        padding-left: 20px;
+        list-style: square;
+        margin: 0.5em;
+        line-height: 1.8em;
+    }
+
+    .post-toc .post-toc-content ul ul {
+        padding-left: 15px;
+        display: none;
+    }
+
+    @media print,
+    screen and (max-width:1057px) {
+        .post-toc {
+            display: none;
+        }
+    }
+</style>
+<div class="post-toc" style="position: absolute; top: 188px;">
+    <h2 class="post-toc-title">文章目录</h2>
+    <div class="post-toc-content">
+        <nav id="TableOfContents"></nav>
+    </div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        var postToc = $(".post-toc");
+        if (postToc.length) {
+            var leftPos = $("#main").offset().left;
+            if(leftPos<220){
+                postToc.css({"width":leftPos-10,"margin-left":(0-leftPos)})
+            }
+
+            var t = postToc.offset().top - 20,
+                a = {
+                    start: {
+                        position: "absolute",
+                        top: t
+                    },
+                    process: {
+                        position: "fixed",
+                        top: 20
+                    },
+                };
+            $(window).scroll(function () {
+                var e = $(window).scrollTop();
+                e < t ? postToc.css(a.start) : postToc.css(a.process)
+            })
+        }
+    })
+</script>
+    <article class="post">
+        <header>
+            <h1 class="post-title">python 实战（四）| 基础知识01</h1>
+        </header>
+        <date class="post-meta meta-date">
+            2020年4月2日
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://stanleylfc.github.io/categories/Python'>Python</a></span>
+            
+        </div>
+        
+        
+        <div class="post-meta">
+            <span id="busuanzi_container_page_pv">|<span id="busuanzi_value_page_pv"></span><span>
+                    阅读</span></span>
+        </div>
+        
+        
+        <div class="clear" style="display: none">
+            <div class="toc-article">
+                <div class="toc-title">文章目录</div>
+            </div>
+        </div>
+        
+        <div class="post-content">
+            <ol>
+<li>数据类型
+1.1数字（int, float, bool)</li>
+<li>int 底层实现上， 通过不定长结构体按需分配内存
+2.数字还可以有二进制(bin)，八进制(oct)，以及十六进制(hex)表示0b110011, 0o12, 0x64
+3.内置函数将整数转换为指定进制字符串，或反向int 还原</li>
+</ol>
+<blockquote>
+<p>bin(100)
+&lsquo;0b1100100&rsquo;
+int(&lsquo;0b1100100&rsquo;, 2)
+100</p>
+</blockquote>
+<p>4.python3不支持数字和非数字类型比较操作
+5.布尔是整数子类型</p>
+<blockquote>
+<p>True === 1
+True
+data=(0,0.0,None,&quot;&quot;,list(),tuple(),dict(),set(), frozenset())</p>
+<blockquote>
+<blockquote>
+<p>any(map(bool, data))
+False</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>6.浮点数对精度有严格要求的场合，应选择固定精度类型</p>
+<p>1.2 序列(str, bytes, bytearray,list,tuple)</p>
+<p>1.3 映射(dict)</p>
+<p>1.4 集合(set, frozenset)</p>
+<p>2.数据结构
+2.1列表(list)
+1.列表是动态的，长度大小不固定，可以随意地增加、删减或者改变元素（mutable）
+2.列表和元组都支持负数索引，-1 表示最后一个元素，-2 表示倒数第二个元素
+3.list()与 [] 比较 list()有函数的调用
+4.列表是动态的，长度可变，可以随意的增加、删减或改变元素。列表的存储空间略大于元组，性能略逊于元组。
+5.列表是动态的，所以它需要存储指针，来指向对应的元素。另外，由于列表可变，所以需要额外存储已经分配的长度大小。每次分配空间时都会额外多分配一些，这样的机制（over-allocating）保证了其操作的高效性</p>
+<p>2.2元组(tuple)
+1.元组是静态的，长度大小固定，不可以对元素进行增加、删减或者改变操作。元组相对于列表更加轻量级，性能稍优。（immutable）
+2.元组不被使用并且占用空间不大时，Python 会暂时缓存这部分内存。这样，下次我们再创建同样大小的元组时，Python 就可以不用再向操作系统发出请求，去寻找内存，而是可以直接分配之前缓存的内存空间，这样就能大大加快程序的运行速度。
+3.元组是不可变的，对已有的元组做任何&quot;改变&rdquo;，该怎么办呢？那就只能重新开辟一块内存，创建新的元组了。
+#python3 -m timeit  #性能测试
+python3 -m timeit &lsquo;x=(1,2,3,4,5,6)&rsquo;
+python3 -m timeit &lsquo;x=[1,2,3,4,5,6]&rsquo;</p>
+<p>2.3集合(set)
+1. 集合并不支持索引操作，因为集合本质上是一个哈希表，和列表不一样</p>
+<p>2.4字典(dict)
+1. 字典访问可以直接索引键，如果不存在，就会抛出异常;也可以使用 get(key, default) 函数来进行索引。</p>
+<p>2.5字符串(str)
+1. Python 中字符串使用单引号、双引号或三引号表示，三者意义相同，并没有什么区别。其中，三引号的字符串通常用在多行字符串的场景。
+2. Python 中字符串是不可变的（前面所讲的新版本 Python 中拼接操作’+='是个例外）。因此，随意改变字符串中字符的值，是不被允许的。
+3. Python 新版本（2.5+）中，字符串的拼接变得比以前高效了许多，你可以放心使用。
+4. Python 中字符串的格式化（string.format）常常用在输出、日志的记录等场景
+5. 三引号字符串，则主要应用于多行字符串的情境，比如函数的注释</p>
+<p>3.条件与循环
+1.条件与循环并做一行
+expression1 if condition else expression2 for item in iterable</p>
+<p>for item in iterable:
+if condition:
+expression1
+else:
+expression2</p>
+<p>y = [value * 2 + 5 if value &gt; 0 else -value * 2 + 5 for value in x]</p>
+<p>2.没有 else 语句
+expression for item in iterable if condition</p>
+<p>for item in iterable:
+if condition:
+expression</p>
+<p>text = ' Today,  is, Sunday&rsquo;
+text_list = [s.strip() for s in text.split(',') if len(s.strip()) &gt; 5]
+print(text_list)
+[&lsquo;Today&rsquo;, &lsquo;Sunday&rsquo;]</p>
+
+        </div>
+
+        
+
+
+        
+
+<div class="post-archive">
+    <h2>See Also</h2>
+    <ul class="listing">
+        
+        <li><a href="/post/%E7%BC%96%E7%A8%8B/python/2020-04-02-python-docker/">python 实战（三）| python 用docker安装</a></li>
+        
+        <li><a href="/post/%E7%BC%96%E7%A8%8B/python/2020-04-01-python-venv/">python 实战（二）| virtualenv</a></li>
+        
+        <li><a href="/about/">关于我</a></li>
+        
+        <li><a href="/tools/">工具</a></li>
+        
+        <li><a href="/post/%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8/2019-05-23-redis-command/">redis 实战（一）| redis 安装</a></li>
+        
+    </ul>
+</div>
+
+
+        <div class="post-meta meta-tags">
+            
+            <ul class="clearfix">
+                
+                <li><a href='https://stanleylfc.github.io/tags/python'>python</a></li>
+                
+            </ul>
+            
+        </div>
+    </article>
+    
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "stanley" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+    
+    
+    <div class="post bg-white">
+      <script src="https://utteranc.es/client.js"
+            repo= "https://github.com/stanleylfc/stanleylfc.github.io.git"
+            issue-term="pathname"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+      </script>
+    </div>
+    
+</div>
+
+                </div>
+
+                <div id="secondary">
+    <section class="widget">
+        <form id="search" action='https://stanleylfc.github.io/search/' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
+      
+      <input type="text" name="q" maxlength="20" placeholder="Search">
+      <input type="hidden" name="sitesearch" value="https://stanleylfc.github.io">
+      <button type="submit" class="submit icon-search"></button>
+</form>
+    </section>
+    
+    <section class="widget">
+        <h3 class="widget-title">最近文章</h3>
+<ul class="widget-list">
+    
+    <li>
+        <a href="https://stanleylfc.github.io/post/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%B8%88/2020-06-03-bigquery-command/" title="bigquery 实战（二）| bigquery 命令">bigquery 实战（二）| bigquery 命令</a>
+    </li>
+    
+    <li>
+        <a href="https://stanleylfc.github.io/post/%E8%BF%90%E7%BB%B4/2020-05-09-linux%E8%BF%90%E7%BB%B4-jenkins/" title="Linux运维 实战（二）| jenkins">Linux运维 实战（二）| jenkins</a>
+    </li>
+    
+    <li>
+        <a href="https://stanleylfc.github.io/post/%E7%BC%96%E7%A8%8B/golang/2020-06-01-golang-goland/" title="go 实战（一）| go goloand">go 实战（一）| go goloand</a>
+    </li>
+    
+    <li>
+        <a href="https://stanleylfc.github.io/post/%E8%BF%90%E7%BB%B4/2020-06-01-linux%E8%BF%90%E7%BB%B4-promethus/" title="Linux运维 实战（五）| promethus">Linux运维 实战（五）| promethus</a>
+    </li>
+    
+    <li>
+        <a href="https://stanleylfc.github.io/post/%E8%BF%90%E7%BB%B4/2019-12-20-linux%E8%BF%90%E7%BB%B4-rsyslog/" title="Linux运维 实战（六）| rsyslog">Linux运维 实战（六）| rsyslog</a>
+    </li>
+    
+    <li>
+        <a href="https://stanleylfc.github.io/post/%E8%BF%90%E7%BB%B4/2020-06-01-linux%E8%BF%90%E7%BB%B4-grafana/" title="Linux运维 实战（四）| grafana">Linux运维 实战（四）| grafana</a>
+    </li>
+    
+    <li>
+        <a href="https://stanleylfc.github.io/post/%E8%BF%90%E7%BB%B4/2019-12-15-linux%E8%BF%90%E7%BB%B4-fluentd/" title="Linux运维 实战（三）| fluentd">Linux运维 实战（三）| fluentd</a>
+    </li>
+    
+    <li>
+        <a href="https://stanleylfc.github.io/post/%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8/2020-05-19-redis-cluster/" title="redis 实战（一）| redis 集群搭建">redis 实战（一）| redis 集群搭建</a>
+    </li>
+    
+    <li>
+        <a href="https://stanleylfc.github.io/post/%E4%B8%AD%E9%97%B4%E4%BB%B6/2020-05-22-rocketmq-rocket-%E4%BF%9D%E8%AF%81%E6%B6%88%E6%81%AF%E4%B8%8D%E4%B8%A2%E5%A4%B1/" title="rocket 实战（三）| RocketMQ保证消息不丢失">rocket 实战（三）| RocketMQ保证消息不丢失</a>
+    </li>
+    
+    <li>
+        <a href="https://stanleylfc.github.io/post/%E7%BC%96%E7%A8%8B/java/2020-05-22-java-spring-boot/" title="java sprint boot实战（一）| ">java sprint boot实战（一）| </a>
+    </li>
+    
+</ul>
+    </section>
+
+    
+
+    <section class="widget">
+        <h3 class="widget-title">分类</h3>
+<ul class="widget-list">
+    
+    <li><a href="https://stanleylfc.github.io/categories/Linux%E8%BF%90%E7%BB%B4/">Linux运维 (6)</a></li>
+    
+    <li><a href="https://stanleylfc.github.io/categories/Python/">Python (5)</a></li>
+    
+    <li><a href="https://stanleylfc.github.io/categories/bigquery/">bigquery (1)</a></li>
+    
+    <li><a href="https://stanleylfc.github.io/categories/es6/">es6 (5)</a></li>
+    
+    <li><a href="https://stanleylfc.github.io/categories/git/">git (2)</a></li>
+    
+    <li><a href="https://stanleylfc.github.io/categories/go/">go (8)</a></li>
+    
+    <li><a href="https://stanleylfc.github.io/categories/goloand/">goloand (1)</a></li>
+    
+    <li><a href="https://stanleylfc.github.io/categories/hadoop/">hadoop (3)</a></li>
+    
+    <li><a href="https://stanleylfc.github.io/categories/java/">java (1)</a></li>
+    
+    <li><a href="https://stanleylfc.github.io/categories/linux/">linux (5)</a></li>
+    
+    <li><a href="https://stanleylfc.github.io/categories/linux-%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/">linux 网络编程 (2)</a></li>
+    
+    <li><a href="https://stanleylfc.github.io/categories/redis/">redis (2)</a></li>
+    
+    <li><a href="https://stanleylfc.github.io/categories/spring-boot/">spring boot (1)</a></li>
+    
+    <li><a href="https://stanleylfc.github.io/categories/vmware/">vmware (2)</a></li>
+    
+    <li><a href="https://stanleylfc.github.io/categories/vue/">vue (5)</a></li>
+    
+    <li><a href="https://stanleylfc.github.io/categories/webStorm/">webStorm (1)</a></li>
+    
+    <li><a href="https://stanleylfc.github.io/categories/%E5%BE%AE%E7%A7%AF%E5%88%86/">微积分 (2)</a></li>
+    
+    <li><a href="https://stanleylfc.github.io/categories/%E6%94%B6%E8%97%8F/">收藏 (1)</a></li>
+    
+    <li><a href="https://stanleylfc.github.io/categories/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/">消息队列 (1)</a></li>
+    
+</ul>
+    </section>
+
+    <section class="widget">
+        <h3 class="widget-title">标签</h3>
+<div class="tagcloud">
+    
+    <a href="https://stanleylfc.github.io/tags/Linux%E8%BF%90%E7%BB%B4/">Linux运维</a>
+    
+    <a href="https://stanleylfc.github.io/tags/bigquery/">bigquery</a>
+    
+    <a href="https://stanleylfc.github.io/tags/es6/">es6</a>
+    
+    <a href="https://stanleylfc.github.io/tags/git/">git</a>
+    
+    <a href="https://stanleylfc.github.io/tags/go/">go</a>
+    
+    <a href="https://stanleylfc.github.io/tags/goloand/">goloand</a>
+    
+    <a href="https://stanleylfc.github.io/tags/hadoop/">hadoop</a>
+    
+    <a href="https://stanleylfc.github.io/tags/java/">java</a>
+    
+    <a href="https://stanleylfc.github.io/tags/linux/">linux</a>
+    
+    <a href="https://stanleylfc.github.io/tags/linux-%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/">linux 网络编程</a>
+    
+    <a href="https://stanleylfc.github.io/tags/python/">python</a>
+    
+    <a href="https://stanleylfc.github.io/tags/redis/">redis</a>
+    
+    <a href="https://stanleylfc.github.io/tags/spring-boot/">spring boot</a>
+    
+    <a href="https://stanleylfc.github.io/tags/vmware/">vmware</a>
+    
+    <a href="https://stanleylfc.github.io/tags/vue/">vue</a>
+    
+    <a href="https://stanleylfc.github.io/tags/webStorm/">webStorm</a>
+    
+    <a href="https://stanleylfc.github.io/tags/%E5%BE%AE%E7%A7%AF%E5%88%86/">微积分</a>
+    
+    <a href="https://stanleylfc.github.io/tags/%E6%94%B6%E8%97%8F/">收藏</a>
+    
+    <a href="https://stanleylfc.github.io/tags/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/">消息队列</a>
+    
+</div>
+    </section>
+
+    
+
+    <section class="widget">
+        <h3 class="widget-title">其它</h3>
+        <ul class="widget-list">
+            <li><a href="https://stanleylfc.github.io/index.xml">文章 RSS</a></li>
+        </ul>
+    </section>
+</div>
+            </div>
+        </div>
+    </div>
+    <footer id="footer">
+    <div class="container">
+        &copy; 2020 <a href="https://stanleylfc.github.io">stanley的博客 By </a>.
+        Powered by <a rel="nofollow noreferer noopener" href="https://gohugo.io" target="_blank">Hugo</a>.
+        <a href="https://www.flysnow.org/" target="_blank">Theme</a> based on <a href="https://github.com/flysnow-org/maupassant-hugo" target="_blank">maupassant</a>.
+        
+    </div>
+</footer>
+
+
+    
+    <script type="text/javascript">
+        window.MathJax = {
+            tex2jax: {
+                inlineMath: [['$', '$']],
+                processEscapes: true
+                }
+            };
+    </script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
+
+
+<a id="rocket" href="#top"></a>
+<script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>
+
+
+
+    <script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
+
+
+
+
+    <script src='/js/douban.js'></script>
+
+</body>
+
+</html>

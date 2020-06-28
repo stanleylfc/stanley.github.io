@@ -12,164 +12,389 @@
     
     
     <item>
-      <title>go 实战（十三）| go probuf</title>
-      <link>https://stanleylfc.github.io/post/golang/2020-05-05-golang-probuf/</link>
-      <pubDate>Tue, 05 May 2020 21:00:00 +0800</pubDate>
+      <title>bigquery 实战（二）| bigquery 命令</title>
+      <link>https://stanleylfc.github.io/post/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%B8%88/2020-06-03-bigquery-command/</link>
+      <pubDate>Wed, 03 Jun 2020 21:00:00 +0800</pubDate>
       
-      <guid>https://stanleylfc.github.io/post/golang/2020-05-05-golang-probuf/</guid>
+      <guid>https://stanleylfc.github.io/post/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%B8%88/2020-06-03-bigquery-command/</guid>
+      <description>2. bigquery 表 2.1 显示表结构 bq show --schema --format=prettyjson projectId:dataset.tablename &amp;gt; tablename.json 2.2 创建表 bq mk --table projectId:dataset.tablename /data/tablename.json 2.3 自动加载数据创建表 bq load --autodetect --source_format=NEWLINE_DELIMITED_JSON projectId:dataset.tablename data.json bq load --autodetect --source_format=CSV --skip_leading_rows=1 projectId:dataset.tablename data.csv 3. bigquery 查询</description>
+    </item>
+    
+    <item>
+      <title>Linux运维 实战（二）| jenkins</title>
+      <link>https://stanleylfc.github.io/post/%E8%BF%90%E7%BB%B4/2020-05-09-linux%E8%BF%90%E7%BB%B4-jenkins/</link>
+      <pubDate>Tue, 02 Jun 2020 21:00:00 +0800</pubDate>
+      
+      <guid>https://stanleylfc.github.io/post/%E8%BF%90%E7%BB%B4/2020-05-09-linux%E8%BF%90%E7%BB%B4-jenkins/</guid>
       <description></description>
     </item>
     
     <item>
+      <title>go 实战（一）| go goloand</title>
+      <link>https://stanleylfc.github.io/post/%E7%BC%96%E7%A8%8B/golang/2020-06-01-golang-goland/</link>
+      <pubDate>Mon, 01 Jun 2020 11:00:00 +0800</pubDate>
+      
+      <guid>https://stanleylfc.github.io/post/%E7%BC%96%E7%A8%8B/golang/2020-06-01-golang-goland/</guid>
+      <description>1.IDEA对选中的多行代码上下左右移动 一、选中代码 二、代码右移：TAB键 三、代码左移：shift+TAB键 四、代码上移：shift+alt+方向键上 五、代码下移：shift+alt+方向键下 2.</description>
+    </item>
+    
+    <item>
+      <title>Linux运维 实战（五）| promethus</title>
+      <link>https://stanleylfc.github.io/post/%E8%BF%90%E7%BB%B4/2020-06-01-linux%E8%BF%90%E7%BB%B4-promethus/</link>
+      <pubDate>Sun, 31 May 2020 21:00:00 +0800</pubDate>
+      
+      <guid>https://stanleylfc.github.io/post/%E8%BF%90%E7%BB%B4/2020-06-01-linux%E8%BF%90%E7%BB%B4-promethus/</guid>
+      <description>1.Prometheus 系统知识要点 1.1 Prometheus Server Prometheus Server 是 Prometheus 组件中的核心部分，负责实现对监控数据的获取，存储以及查询。 Prometheus Server 可以通过静态配置管理监控目标，也可以配合使用 Service Discovery 的方式动态管理监控目标，并从这些监控目标中获取数据。其次 Prometheus Server 需要对采集到的监控数据进行存储，Prometheus Server 本身就是一个时序数据库，将采</description>
+    </item>
+    
+    <item>
+      <title>Linux运维 实战（六）| rsyslog</title>
+      <link>https://stanleylfc.github.io/post/%E8%BF%90%E7%BB%B4/2019-12-20-linux%E8%BF%90%E7%BB%B4-rsyslog/</link>
+      <pubDate>Sun, 31 May 2020 21:00:00 +0800</pubDate>
+      
+      <guid>https://stanleylfc.github.io/post/%E8%BF%90%E7%BB%B4/2019-12-20-linux%E8%BF%90%E7%BB%B4-rsyslog/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Linux运维 实战（四）| grafana</title>
+      <link>https://stanleylfc.github.io/post/%E8%BF%90%E7%BB%B4/2020-06-01-linux%E8%BF%90%E7%BB%B4-grafana/</link>
+      <pubDate>Sun, 31 May 2020 21:00:00 +0800</pubDate>
+      
+      <guid>https://stanleylfc.github.io/post/%E8%BF%90%E7%BB%B4/2020-06-01-linux%E8%BF%90%E7%BB%B4-grafana/</guid>
+      <description>2.安装 2.1 安装地址 wget https://dl.grafana.com/oss/release/grafana-7.0.1-1.x86_64.rpm yum install grafana-7.0.1-1.x86_64.rpm 2.2 启动 service grafana-server start 2.3 验证 http://centos7:3000 3 配置promethus 【Configration】- 【Data Sources】 然后可以按照下图所示进行配置，需要注意的是 prometheus 的地址需要根据实际情况做修改。 4.添加node_expoter 面板 grafana 的数据源配置完成后，可以导入一个 dashboard 模板文</description>
+    </item>
+    
+    <item>
+      <title>Linux运维 实战（三）| fluentd</title>
+      <link>https://stanleylfc.github.io/post/%E8%BF%90%E7%BB%B4/2019-12-15-linux%E8%BF%90%E7%BB%B4-fluentd/</link>
+      <pubDate>Sat, 30 May 2020 21:00:00 +0800</pubDate>
+      
+      <guid>https://stanleylfc.github.io/post/%E8%BF%90%E7%BB%B4/2019-12-15-linux%E8%BF%90%E7%BB%B4-fluentd/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>redis 实战（一）| redis 集群搭建</title>
+      <link>https://stanleylfc.github.io/post/%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8/2020-05-19-redis-cluster/</link>
+      <pubDate>Sat, 23 May 2020 21:00:00 +0800</pubDate>
+      
+      <guid>https://stanleylfc.github.io/post/%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8/2020-05-19-redis-cluster/</guid>
+      <description>5.测试环境启动集群 启动服务 加入集群 $ redis-server /etc/redis/6378.conf $ redis-server /etc/redis/6379.conf $ redis-server /etc/redis/6380.conf $ /usr/local/bin/redis-cli -a Q1fkAxyVq4cIC2Bb --cluster create --cluster-replicas 0 173.255.204.159:6379 173.255.204.159:6378 173.255.204.159:6380</description>
+    </item>
+    
+    <item>
+      <title>rocket 实战（三）| RocketMQ保证消息不丢失</title>
+      <link>https://stanleylfc.github.io/post/%E4%B8%AD%E9%97%B4%E4%BB%B6/2020-05-22-rocketmq-rocket-%E4%BF%9D%E8%AF%81%E6%B6%88%E6%81%AF%E4%B8%8D%E4%B8%A2%E5%A4%B1/</link>
+      <pubDate>Fri, 22 May 2020 09:00:00 +0800</pubDate>
+      
+      <guid>https://stanleylfc.github.io/post/%E4%B8%AD%E9%97%B4%E4%BB%B6/2020-05-22-rocketmq-rocket-%E4%BF%9D%E8%AF%81%E6%B6%88%E6%81%AF%E4%B8%8D%E4%B8%A2%E5%A4%B1/</guid>
+      <description>1. 消息整体处理过程 Producer发送消息阶段。 Broker处理消息阶段。 Consumer消费消息阶段。 2. Producer发送消息阶段 发送消息阶段涉及到Producer到broker的网络通信，因此丢失消息的几率一定会有，那RocketMQ在此阶段用了哪些手段保证消息不丢失了（或</description>
+    </item>
+    
+    <item>
+      <title>java sprint boot实战（一）| </title>
+      <link>https://stanleylfc.github.io/post/%E7%BC%96%E7%A8%8B/java/2020-05-22-java-spring-boot/</link>
+      <pubDate>Wed, 20 May 2020 21:00:00 +0800</pubDate>
+      
+      <guid>https://stanleylfc.github.io/post/%E7%BC%96%E7%A8%8B/java/2020-05-22-java-spring-boot/</guid>
+      <description>1. spring boot 创建 2. maven spring boot helloworld 2.1 创建一个maven工程 启用maven 自动加载 2.2 导入spring 相关依赖 &amp;lt;parent&amp;gt; &amp;lt;groupId&amp;gt;org.springframework.boot&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;spring-boot-starter-parent&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;2.0.5.RELEASE&amp;lt;/version&amp;gt; &amp;lt;/parent&amp;gt; &amp;lt;dependencies&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.springframework.boot&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;spring-boot-starter-web&amp;lt;/artifactId&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;/dependencies&amp;gt; 2.3 编写主程序,启动spring boot应用 import org.springframework.boot.SpringApplication; import org.springframework.boot.autoconfigure.SpringBootApplication; @SpringBootApplication public class HelloWorldMainApplication { public static void main(String[] args) { SpringApplication.run(HelloWorldMainApplication.class, args); } } 2.4 编写相关controller, service import org.springframework.boot.SpringApplication; import org.springframework.boot.autoconfigure.SpringBootApplication; @SpringBootApplication public class HelloWorldMainApplication { public static void main(String[] args) { SpringApplication.run(HelloWorldMainApplication.class, args); } } 2.5 运行主程序 2.6</description>
+    </item>
+    
+    <item>
+      <title>java 实战（一）| java 环境安装</title>
+      <link>https://stanleylfc.github.io/post/%E7%BC%96%E7%A8%8B/java/2020-05-21-java-java-install/</link>
+      <pubDate>Wed, 20 May 2020 21:00:00 +0800</pubDate>
+      
+      <guid>https://stanleylfc.github.io/post/%E7%BC%96%E7%A8%8B/java/2020-05-21-java-java-install/</guid>
+      <description>1. 安装Java 1.1 下载JDK 1.2 配置环境变量 安装好JDK后，通过&amp;rdquo;/usr/libexec/java_home -V&amp;quot;查看安装路径 在mac上配置Java环境变量 vim ~/.zshrc export JAVA_HOME=&amp;quot;/Library/Java/JavaVirtualMachines/jdk1.8.0_201.jdk/Contents/Home&amp;quot; CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar PATH=$JAVA_HOME/bin:$PATH export JAVA_HOME export CLASSPATH export PATH 测试配置 $ java -version 2. 安装idea 3. 安装tomcat 3.1 下载 登录Apache Tomcat</description>
+    </item>
+    
+    <item>
+      <title>linux 基础实战（一）| linux 基本命令</title>
+      <link>https://stanleylfc.github.io/post/linux/2020-05-10-linux-base/</link>
+      <pubDate>Sun, 10 May 2020 09:00:00 +0800</pubDate>
+      
+      <guid>https://stanleylfc.github.io/post/linux/2020-05-10-linux-base/</guid>
+      <description>1. 用户管理 1.1 查询某个用户是否存在 $ id -u root 1.2 用户ssh 免密码失败 $ tail -10f /var/log/secure Authentication refused: bad ownership or modes for file /home/xxxxxx/.ssh/authorized_keys # 解决方法：chmod 600 /home/hadoop/.ssh/authorized_keys 1.3 机器时钟同步 # 安装ntpdate工具 $ yum -y install ntp ntpdate # 设置系统时间与网络时间同步 $ ntpdate 0.asia.pool.ntp.org # 将系统时间写入硬件时间 $ hwclock --systohc 修改时区 # 1.查看当前时区 date -R # 2.修改设置时区 方法</description>
+    </item>
+    
+    <item>
+      <title>linux 调优实战（一）| RocketMQ 调优</title>
+      <link>https://stanleylfc.github.io/post/linux/2020-05-14-linux-%E8%B0%83%E4%BC%98/</link>
+      <pubDate>Sun, 10 May 2020 09:00:00 +0800</pubDate>
+      
+      <guid>https://stanleylfc.github.io/post/linux/2020-05-14-linux-%E8%B0%83%E4%BC%98/</guid>
+      <description>1.RocketMQ集群进行OS内核参数调整 1.1 vm.max_map_count 中间件系统可以开启的线程的数量 默认值是65536， 建议可以把这个参数调大10倍，比如655360这样的值，保证中间件可以开启足够多的线程。 $ echo &#39;vm.max_map_count=655360&#39; &amp;gt;&amp;gt; /etc/sysctl.conf 1.2 vm.swappiness $ echo &#39;vm.swappiness=10&#39; &amp;gt;&amp;gt; /etc/sysctl.conf 1.3 vm.overcommit_memory 中间件系统申请内存的时候，os内核会检查可用内存是否足够 vm.overcommit_memory 这个参数</description>
+    </item>
+    
+    <item>
+      <title>微积分 (十一) | 逆函数和对数函数</title>
+      <link>https://stanleylfc.github.io/post/%E6%95%B0%E5%AD%A6/2020-05-08-%E5%BE%AE%E7%A7%AF%E5%88%86-%E9%80%86%E5%87%BD%E6%95%B0%E5%92%8C%E5%AF%B9%E6%95%B0%E5%87%BD%E6%95%B0/</link>
+      <pubDate>Sat, 09 May 2020 12:00:00 +0800</pubDate>
+      
+      <guid>https://stanleylfc.github.io/post/%E6%95%B0%E5%AD%A6/2020-05-08-%E5%BE%AE%E7%A7%AF%E5%88%86-%E9%80%86%E5%87%BD%E6%95%B0%E5%92%8C%E5%AF%B9%E6%95%B0%E5%87%BD%E6%95%B0/</guid>
+      <description>$$a + b$$ 参考文献： markdown插入数学公式</description>
+    </item>
+    
+    <item>
+      <title>微积分 (十三) | 负增长率和对数图</title>
+      <link>https://stanleylfc.github.io/post/%E6%95%B0%E5%AD%A6/2020-05-09-%E5%BE%AE%E7%A7%AF%E5%88%86-%E8%B4%9F%E5%A2%9E%E9%95%BF%E7%8E%87%E5%92%8C%E5%AF%B9%E6%95%B0%E5%9B%BE/</link>
+      <pubDate>Sat, 09 May 2020 12:00:00 +0800</pubDate>
+      
+      <guid>https://stanleylfc.github.io/post/%E6%95%B0%E5%AD%A6/2020-05-09-%E5%BE%AE%E7%A7%AF%E5%88%86-%E8%B4%9F%E5%A2%9E%E9%95%BF%E7%8E%87%E5%92%8C%E5%AF%B9%E6%95%B0%E5%9B%BE/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>linux 网络编程实战（二）| socket编程</title>
+      <link>https://stanleylfc.github.io/post/linux/linux-%E5%BC%80%E5%8F%91/2020-05-09-socket/</link>
+      <pubDate>Sat, 09 May 2020 07:00:00 +0800</pubDate>
+      
+      <guid>https://stanleylfc.github.io/post/linux/linux-%E5%BC%80%E5%8F%91/2020-05-09-socket/</guid>
+      <description>1. scoket 什么是socket socket 可以看成是用户进程与内核网络协议栈的编程接口 socket 不仅可以用于本机的进程间通信，还可以用于网络不同主机的进程间通信 Application Application Socket Socket TCP TCP Ip channel(Ethernet) &amp;mdash; ip(rounter) &amp;mdash; channel IP 2.IPv4 套接口地址结构 &amp;lt;netinet/in.h&amp;gt; struct sockaddr_in { uint8_t sin_len //结构体的长度 sa_family_t sin_family // 地址家族 in_port sin_port // 端口 struct in_addr sin_addr // ip v4 地址 char sin_zero[8]; // } 3 通用地址结构 4.网络字节序</description>
+    </item>
+    
+    <item>
+      <title>linux 网络编程实战（一））| tcpip</title>
+      <link>https://stanleylfc.github.io/post/linux/linux-%E5%BC%80%E5%8F%91/2020-05-08-tcpip/</link>
+      <pubDate>Fri, 08 May 2020 21:00:00 +0800</pubDate>
+      
+      <guid>https://stanleylfc.github.io/post/linux/linux-%E5%BC%80%E5%8F%91/2020-05-08-tcpip/</guid>
+      <description>2. 以太网帧格式 2.1 以太网的封装格式（RFC 894) | 目的地址 6 | 源地址 6 | 类型 2 | 数据 [46 1500] | CRC 4 | 数据 长度至少46字节 最多1500字节 最大传输单元MTU / 路径 MTU 发送端：封装 打上对应层的协议 接收端：分用（解封） 2.1.1 类型和数据分解 ip数据报（MTU)： | 类型0800 | ip 数据报 [46 1500] | ARP数据报</description>
+    </item>
+    
+    <item>
+      <title>文章收藏 （一）| 分布式唯一ID</title>
+      <link>https://stanleylfc.github.io/post/%E6%94%B6%E8%97%8F/2020-05-08-%E5%88%86%E5%B8%83%E5%BC%8F%E5%94%AF%E4%B8%80id-%E7%94%9F%E6%88%90%E6%96%B9%E6%A1%88/</link>
+      <pubDate>Fri, 08 May 2020 21:00:00 +0800</pubDate>
+      
+      <guid>https://stanleylfc.github.io/post/%E6%94%B6%E8%97%8F/2020-05-08-%E5%88%86%E5%B8%83%E5%BC%8F%E5%94%AF%E4%B8%80id-%E7%94%9F%E6%88%90%E6%96%B9%E6%A1%88/</guid>
+      <description>分布式唯一ID的生成方案 原创 杜亦舒 性能与架构 2019-12-03 1.分布式ID的特性 全局唯一 不能出现重复的ID，这是最基本的要求。 递增 有利于关系数据库索引性能。 高可用 既然是服务于分布式系统，为多个服务提供ID服务，访问压力一定很大，所以需要保证高可用。 信息安全 如果ID是有规律的，就容易被恶意操作，</description>
+    </item>
+    
+    <item>
+      <title>linux 服务实战（二）| syslog</title>
+      <link>https://stanleylfc.github.io/post/linux/2020-05-08-linux-sshd/</link>
+      <pubDate>Fri, 08 May 2020 09:00:00 +0800</pubDate>
+      
+      <guid>https://stanleylfc.github.io/post/linux/2020-05-08-linux-sshd/</guid>
+      <description>1. 系统中的ssh与sshd服务 1.1 概念简介 openssh在主机中开启了openssh服务，那么就对外开放了远程连接的接口 1.2 架构模式 openssh的服务端：sshd openssh的客户端：ssh 2. 服务端 查看sshd服务状态 service sshd status 停止sshd服务 service sshd stop 启动sshd服务 service sshd start 2.1 修改端口 默</description>
+    </item>
+    
+    <item>
+      <title>linux 服务实战（三）| syslog</title>
+      <link>https://stanleylfc.github.io/post/linux/2020-05-06-linux-syslog/</link>
+      <pubDate>Wed, 06 May 2020 09:00:00 +0800</pubDate>
+      
+      <guid>https://stanleylfc.github.io/post/linux/2020-05-06-linux-syslog/</guid>
+      <description>1. 安装 一般来说centos都自带了rsyslog, 通过源码包来安装 源码包下载地址:http://www.rsyslog.com/downloads/download-v8-stable/ 使用yum sudo yum install rsyslog 2. 开启我们的rsyslog远程服务 2.1 编辑配置文件 sudo vim /etc/rsyslog.conf 并将以下注释打开 # Provides UDP</description>
+    </item>
+    
+    <item>
+      <title>go 实战（十三）| go probuf</title>
+      <link>https://stanleylfc.github.io/post/%E7%BC%96%E7%A8%8B/golang/2020-05-05-golang-probuf/</link>
+      <pubDate>Tue, 05 May 2020 21:00:00 +0800</pubDate>
+      
+      <guid>https://stanleylfc.github.io/post/%E7%BC%96%E7%A8%8B/golang/2020-05-05-golang-probuf/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>linux 服务实战（一）| Systemd</title>
+      <link>https://stanleylfc.github.io/post/linux/2020-05-03-linux-systemd/</link>
+      <pubDate>Sun, 03 May 2020 09:00:00 +0800</pubDate>
+      
+      <guid>https://stanleylfc.github.io/post/linux/2020-05-03-linux-systemd/</guid>
+      <description>1. 配置文件 1.1 查看配置文件 $ systemctl cat sshd.service [Unit] Description=OpenSSH server daemon Documentation=man:sshd(8) man:sshd_config(5) After=network.target sshd-keygen.service Wants=sshd-keygen.service [Service] EnvironmentFile=/etc/sysconfig/sshd ExecStart=/usr/sbin/sshd -D $OPTIONS ExecReload=/bin/kill -HUP $MAINPID Type=simple KillMode=process Restart=on-failure RestartSec=42s [Install] WantedBy=multi-user.target 1.2 [Unit] 区块：启动顺序与依赖关系 After字段：表示如果network.target或sshd-keygen.service需要启动，那么sshd.service应该在它们之后启动。 Wants字段：表示ss</description>
+    </item>
+    
+    <item>
+      <title>Linux运维 实战（一）| ansible</title>
+      <link>https://stanleylfc.github.io/post/%E8%BF%90%E7%BB%B4/2019-12-11-linux%E8%BF%90%E7%BB%B4-ansible/</link>
+      <pubDate>Fri, 01 May 2020 21:00:00 +0800</pubDate>
+      
+      <guid>https://stanleylfc.github.io/post/%E8%BF%90%E7%BB%B4/2019-12-11-linux%E8%BF%90%E7%BB%B4-ansible/</guid>
+      <description>1. ansible 2. ansible 基本介绍 2.1 ansible 组件架构 2.2 ansbile 配置文件 2.3 ansible inventory 2.4 ansible ad-hoc模块 # ansible all -m shell -a &amp;quot;rm /opt/hadoop-2.7.7.tar.gz&amp;quot; // 拷贝配置文件 ansible all -m copy -a &amp;quot;src=https://stanleylfc.github.io/opt/hadoop-2.7.7.tar.gz dest=/opt owner=hadoop group=hadoop mode=0755&amp;quot; ansible all -m unarchive -a &amp;quot;src=https://stanleylfc.github.io/opt/hadoop-2.7.7.tar.gz dest=/opt/ copy=no mode=0755&amp;quot; ansible all -m file -a &amp;quot;path=/root/hadoop/dfs/name state=directory mode=755&amp;quot; ansible all -m command -a &amp;quot;&amp;quot; 3.ansible playbook 4.ansible变量详解 5.ansible Task 任务控制 6.ansible jinja2 7.ansible Roels构建中线企业集群架构</description>
+    </item>
+    
+    <item>
+      <title>hadoop 实战（二）| hive 安装</title>
+      <link>https://stanleylfc.github.io/post/%E5%A4%A7%E6%95%B0%E6%8D%AE/2020-04-30-hive/</link>
+      <pubDate>Thu, 30 Apr 2020 21:00:00 +0800</pubDate>
+      
+      <guid>https://stanleylfc.github.io/post/%E5%A4%A7%E6%95%B0%E6%8D%AE/2020-04-30-hive/</guid>
+      <description>1. hive 介绍与安装 1.6 Hive提示警告SSL 是hive的配置文件是.XML格式，而在xml文件中&amp;amp;amp；才表示&amp;amp; &amp;lt;property&amp;gt; &amp;lt;name&amp;gt;javax.jdo.option.ConnectionURL&amp;lt;/name&amp;gt; &amp;lt;value&amp;gt;jdbc:mysql://localhost:3306/hive?createDatabaseIfNotExist=true&amp;amp;amp;useSSL=false&amp;lt;/value&amp;gt; &amp;lt;description&amp;gt;JDBC connect string for a JDBC metastore&amp;lt;/description&amp;gt; &amp;lt;/property&amp;gt; 2. hive 使用命令 2.1 hive 启动 [hadoop@centos702 apache-hive]$ ./bin/hive 2.2 命令显示所有数据库 hive&amp;gt; show databases; 2.3 退出hive hive&amp;gt; quit; 3. hive DDL 3.1 显示表和创建表 hive&amp;gt; use db_hive hive&amp;gt; show tables; hive&amp;gt; create table pokes(foo int,bar string); 3.2 插入数据 hive&amp;gt; insert into pokes(foo,bar)</description>
+    </item>
+    
+    <item>
       <title>go 包练习（一）| go viper cron cobra</title>
-      <link>https://stanleylfc.github.io/post/golang/2020-04-30-goalng-%E5%8C%8501/</link>
+      <link>https://stanleylfc.github.io/post/%E7%BC%96%E7%A8%8B/golang/2020-04-30-goalng-%E5%8C%8501/</link>
       <pubDate>Tue, 28 Apr 2020 21:00:00 +0800</pubDate>
       
-      <guid>https://stanleylfc.github.io/post/golang/2020-04-30-goalng-%E5%8C%8501/</guid>
-      <description>1.读取配置文件viper 2.定时任务cron github.com/gogits/cron 3.子命令cobra</description>
+      <guid>https://stanleylfc.github.io/post/%E7%BC%96%E7%A8%8B/golang/2020-04-30-goalng-%E5%8C%8501/</guid>
+      <description>1.读取配置文件viper https://github.com/spf13/viper // 部分代码 cfgFile := &amp;#34;/etc/local/go.yaml&amp;#34; _, err := os.Stat(cfgFile) if err != nil { t.Fatal(fmt.Sprintf(&amp;#34;-_- miss : %s -_- &amp;#34;, cfgFile)) } f, err := os.Open(cfgFile) if err != nil { log.Fatal(errors.ErrorStack(err)) } defer f.Close() viper.SetConfigType(&amp;#34;yaml&amp;#34;) if err = viper.ReadConfig(f); err != nil { log.Fatal(errors.ErrorStack(err)) } viper.Get(&amp;#34;name&amp;#34;) 2.定时任务cron github.com/gogits/cron 3.子命令cobra</description>
     </item>
     
     <item>
       <title>go 实战（十二）| go grpc开发</title>
-      <link>https://stanleylfc.github.io/post/golang/2020-04-28-golang-gpc/</link>
+      <link>https://stanleylfc.github.io/post/%E7%BC%96%E7%A8%8B/golang/2020-04-28-golang-gpc/</link>
       <pubDate>Tue, 28 Apr 2020 21:00:00 +0800</pubDate>
       
-      <guid>https://stanleylfc.github.io/post/golang/2020-04-28-golang-gpc/</guid>
+      <guid>https://stanleylfc.github.io/post/%E7%BC%96%E7%A8%8B/golang/2020-04-28-golang-gpc/</guid>
       <description>1. RPC 远程调用 https://github.com/grpc/grpc-go go get -u google.golang.org/grpc 2. Protobuf Google Protocol Buffer 2.1 安装 protobuf 下载对应版本解压后配置环境变量 https://github.com/protocolbuffers/protobuf/releases 2.2 protocol 格式教程 https://developers.google.com/protocol-buffers/docs/gotutorial 3. 中间文件 3.1 安装插件 在GOPATH的bin目录下生产可执行文件.protobuf的编译器插件protoc-gen-go go get github.com/golang/protobuf/protoc-gen-go 3.2书写中间文件 syntax=&amp;quot;proto3&amp;quot; package services message ProdRequest { int32 prod_id=1 } message ProdResponse { int32 prod_stock=1 } 3.3 编译安装 在pbfil</description>
     </item>
     
     <item>
       <title>go 实战（十一）| go web开发</title>
-      <link>https://stanleylfc.github.io/post/golang/2020-04-27-golang-web%E5%BC%80%E5%8F%91/</link>
+      <link>https://stanleylfc.github.io/post/%E7%BC%96%E7%A8%8B/golang/2020-04-27-golang-web%E5%BC%80%E5%8F%91/</link>
       <pubDate>Mon, 27 Apr 2020 21:00:00 +0800</pubDate>
       
-      <guid>https://stanleylfc.github.io/post/golang/2020-04-27-golang-web%E5%BC%80%E5%8F%91/</guid>
+      <guid>https://stanleylfc.github.io/post/%E7%BC%96%E7%A8%8B/golang/2020-04-27-golang-web%E5%BC%80%E5%8F%91/</guid>
       <description>1.web服务器 1.1 创建web服务器 只要调用ListenAndServe 并传入网络地址以及负责处理请求的处理器（handler）作为参数就可以了 // http.ListenAndServe(&amp;quot;&amp;quot;, nil) 1.2 带有附加配置的Web服务器 server := http.Server{ Addr: &amp;quot;127.0.0.1:8080&amp;quot;, Handler: nil, } server.ListenAndServe() 2.处理器 一个处理器就是一个拥有ServeHTTP 方法的接口。 任何接口只要拥有一个Se</description>
     </item>
     
     <item>
+      <title>hadoop 实战（一）| hadoop 安装</title>
+      <link>https://stanleylfc.github.io/post/%E5%A4%A7%E6%95%B0%E6%8D%AE/2020-04-27-hadoop/</link>
+      <pubDate>Mon, 27 Apr 2020 21:00:00 +0800</pubDate>
+      
+      <guid>https://stanleylfc.github.io/post/%E5%A4%A7%E6%95%B0%E6%8D%AE/2020-04-27-hadoop/</guid>
+      <description>1.环境准备 1.1 服务器规划 # -u root -p centosdata 172.16.232.130 centos701 172.16.232.131 centos702 172.16.232.132 centos703 1.2 关闭所有服务器的防火墙 systemctl stop firewalld.service # 停止firewall。 systemctl disable firewalld.service # 禁止firewall开机启动。 firewall-cmd --state # 查看默认防火墙装状态(关闭后显示notrunning, 开启显示running)。 ansible all -m shell -a &#39;firewall-cmd --state&#39; 1.3 关闭服务器的SLNEX vim /etc/selinux/config SELINUX=disabled 1.4 配置时间同</description>
+    </item>
+    
+    <item>
+      <title>hadoop 实战（三）| redis cluster 安装</title>
+      <link>https://stanleylfc.github.io/post/%E6%94%B6%E8%97%8F/2020-05-07-redis-cluster%E5%AE%89%E8%A3%85/</link>
+      <pubDate>Mon, 27 Apr 2020 21:00:00 +0800</pubDate>
+      
+      <guid>https://stanleylfc.github.io/post/%E6%94%B6%E8%97%8F/2020-05-07-redis-cluster%E5%AE%89%E8%A3%85/</guid>
+      <description>Redis Cluster的两种搭建和简单使用 Redis Cluster是Redis官方的一个高可用分布式解决方案。Redis Cluster中共有2 ^ 14（16384）个槽，创建集群后，需要将这些槽均分给各个节点。 准备节点 节点配置 Redis集群一般由多个节点组成，节点数量至少为 6 个，才能保证组成完整</description>
+    </item>
+    
+    <item>
+      <title>vue 实战（二）| 组件</title>
+      <link>https://stanleylfc.github.io/post/%E7%BC%96%E7%A8%8B/web%E5%89%8D%E7%AB%AF/vue/2020-04-25-vue-component/</link>
+      <pubDate>Sat, 25 Apr 2020 09:00:00 +0800</pubDate>
+      
+      <guid>https://stanleylfc.github.io/post/%E7%BC%96%E7%A8%8B/web%E5%89%8D%E7%AB%AF/vue/2020-04-25-vue-component/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>vue 实战（一）| vue</title>
-      <link>https://stanleylfc.github.io/post/vue/2020-04-23-vue-vue/</link>
+      <link>https://stanleylfc.github.io/post/%E7%BC%96%E7%A8%8B/web%E5%89%8D%E7%AB%AF/vue/2020-04-23-vue-base/</link>
       <pubDate>Thu, 23 Apr 2020 09:00:00 +0800</pubDate>
       
-      <guid>https://stanleylfc.github.io/post/vue/2020-04-23-vue-vue/</guid>
+      <guid>https://stanleylfc.github.io/post/%E7%BC%96%E7%A8%8B/web%E5%89%8D%E7%AB%AF/vue/2020-04-23-vue-base/</guid>
       <description>VUEX中的dispatch()和commit() commit: 同步操作 存储 this.$store.commit(&#39;changeValue&#39;,name) 取值 this.$store.state.changeValue dispatch: 异步操作 存储 this.$store.dispatch(&#39;getlists&#39;,name) 取值 this.$store.getters.getlists this.$store.dispatch(&#39;user/login&#39;, this.loginForm) 访问store 下面user 模块的login 方法 router.push(&#39;/login&#39;) &#39;/login&#39;前端路由</description>
     </item>
     
     <item>
       <title>vue 实战（三）| vuecli</title>
-      <link>https://stanleylfc.github.io/post/vue/2020-04-23-vue-vuecli/</link>
+      <link>https://stanleylfc.github.io/post/%E7%BC%96%E7%A8%8B/web%E5%89%8D%E7%AB%AF/vue/2020-04-26-vue-vuecli/</link>
       <pubDate>Thu, 23 Apr 2020 09:00:00 +0800</pubDate>
       
-      <guid>https://stanleylfc.github.io/post/vue/2020-04-23-vue-vuecli/</guid>
+      <guid>https://stanleylfc.github.io/post/%E7%BC%96%E7%A8%8B/web%E5%89%8D%E7%AB%AF/vue/2020-04-26-vue-vuecli/</guid>
       <description>1. 安装 1.1 安装vue-cli npm install -g @vue/cli # -g 全局安装 1.2 版本查看 这个命令来检查其版本是否正确 vue --version 2. 创建项目 2.1 创建项目命令 vue create testapp 2.2 选择自定义 default (babel, eslint) ❯ Manually select features 2.3 空格选择，enter确认 ❯◉ Babel ◯ TypeScript ◯ Progressive Web App (PWA) Support ◯ Router ◯ Vuex ◯ CSS Pre-processors ◉ Linter / Formatter ◯ Unit Testing ◯ E2E Testing 2.4 配置独立一个文件还是一个文件 In dedicated config files &amp;gt; In package.json 2.5 tree -L 1 查</description>
     </item>
     
     <item>
-      <title>vue 实战（二）| node</title>
-      <link>https://stanleylfc.github.io/post/vue/2020-04-22-vue-node/</link>
-      <pubDate>Wed, 22 Apr 2020 09:00:00 +0800</pubDate>
+      <title>webStorm 实战（一）| webStorm</title>
+      <link>https://stanleylfc.github.io/post/%E7%BC%96%E7%A8%8B/web%E5%89%8D%E7%AB%AF/2020-05-12-vue-webstorm/</link>
+      <pubDate>Thu, 23 Apr 2020 09:00:00 +0800</pubDate>
       
-      <guid>https://stanleylfc.github.io/post/vue/2020-04-22-vue-node/</guid>
-      <description></description>
+      <guid>https://stanleylfc.github.io/post/%E7%BC%96%E7%A8%8B/web%E5%89%8D%E7%AB%AF/2020-05-12-vue-webstorm/</guid>
+      <description>1.新版WebStorm Tab键的缩进问题 以前WebStorm设置好code style中的Tab size 和indent后就会默认是这个设置的值,但是新版的WebStorm出现了一个怪现象,无论如何设置Tab size 和indent, tab的缩进永远都是2个字符,让习惯了4个字符缩进的开发者十分</description>
+    </item>
+    
+    <item>
+      <title>git 实战（一）| git 基本命令</title>
+      <link>https://stanleylfc.github.io/post/%E7%BC%96%E7%A8%8B/git/2020-05-21-git-%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4/</link>
+      <pubDate>Tue, 21 Apr 2020 21:00:00 +0800</pubDate>
+      
+      <guid>https://stanleylfc.github.io/post/%E7%BC%96%E7%A8%8B/git/2020-05-21-git-%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4/</guid>
+      <description>1 查看分支 git branch 2 切换到master分支 git checkout master 3 查看标签 $ git tag -a v1.4 -m &amp;quot;my version 1.4&amp;quot; $ git tag v1.3.3 v1.3.4 v1.3.5 $ git show tagname 4 查看某个标签的详情 git show v1.3.5 commit fb479960c0cec5549463ae123d70bdd72ccf6be7 5 通过commit id回退 git reset &amp;ndash;hard fb479960c0cec5549463ae123d70bdd72ccf6be7 6 显示所有提交过的版本信息 git log 7 查看所有分支的所有操作记录 git reflog 8 显示工作目录和暂存区的状态 git status 9 提交远程仓库 git push origin master</description>
     </item>
     
     <item>
       <title>git 实战（二）| git 提交分支</title>
-      <link>https://stanleylfc.github.io/post/git/2020-04-22-git-%E4%BD%BF%E7%94%A8%E8%A7%84%E8%8C%83/</link>
+      <link>https://stanleylfc.github.io/post/%E7%BC%96%E7%A8%8B/git/2020-04-22-git-%E4%BD%BF%E7%94%A8%E8%A7%84%E8%8C%83/</link>
       <pubDate>Tue, 21 Apr 2020 21:00:00 +0800</pubDate>
       
-      <guid>https://stanleylfc.github.io/post/git/2020-04-22-git-%E4%BD%BF%E7%94%A8%E8%A7%84%E8%8C%83/</guid>
+      <guid>https://stanleylfc.github.io/post/%E7%BC%96%E7%A8%8B/git/2020-04-22-git-%E4%BD%BF%E7%94%A8%E8%A7%84%E8%8C%83/</guid>
       <description>1. Commit message 的格式 每次提交，Commit message 都包括三个部分：Header，Body 和 Footer。 其中，Header 是必需的，Body 和 Footer 可以省略。 不管是哪一个部分，任何一行都不得超过72个字符（或100个字符）。这是为了避免自动换行影响美观。 格式如下： &amp;lt;type&amp;gt;(&amp;lt;scope&amp;gt;):&amp;lt;subject&amp;gt; // 空一行 &amp;lt;body&amp;gt; // 空一行 &amp;lt;footer&amp;gt; 1.1 Header Head</description>
     </item>
     
     <item>
       <title>go 实战（七）| 内存详解</title>
-      <link>https://stanleylfc.github.io/post/golang/2020-04-16-golang-%E5%86%85%E5%AD%98%E8%AF%A6%E8%A7%A3/</link>
+      <link>https://stanleylfc.github.io/post/%E7%BC%96%E7%A8%8B/golang/2020-04-16-golang-%E5%86%85%E5%AD%98%E8%AF%A6%E8%A7%A3/</link>
       <pubDate>Tue, 21 Apr 2020 21:00:00 +0800</pubDate>
       
-      <guid>https://stanleylfc.github.io/post/golang/2020-04-16-golang-%E5%86%85%E5%AD%98%E8%AF%A6%E8%A7%A3/</guid>
+      <guid>https://stanleylfc.github.io/post/%E7%BC%96%E7%A8%8B/golang/2020-04-16-golang-%E5%86%85%E5%AD%98%E8%AF%A6%E8%A7%A3/</guid>
       <description></description>
     </item>
     
     <item>
       <title>go 实战（九）| goroutine原理</title>
-      <link>https://stanleylfc.github.io/post/golang/2020-04-16-golang-goroutine%E5%8E%9F%E7%90%86/</link>
+      <link>https://stanleylfc.github.io/post/%E7%BC%96%E7%A8%8B/golang/2020-04-16-golang-goroutine%E5%8E%9F%E7%90%86/</link>
       <pubDate>Tue, 21 Apr 2020 21:00:00 +0800</pubDate>
       
-      <guid>https://stanleylfc.github.io/post/golang/2020-04-16-golang-goroutine%E5%8E%9F%E7%90%86/</guid>
+      <guid>https://stanleylfc.github.io/post/%E7%BC%96%E7%A8%8B/golang/2020-04-16-golang-goroutine%E5%8E%9F%E7%90%86/</guid>
       <description></description>
     </item>
     
     <item>
       <title>go 实战（五）| go 编译和启动</title>
-      <link>https://stanleylfc.github.io/post/golang/2020-04-14-golang-%E5%90%AF%E5%8A%A8%E8%84%9A%E6%9C%AC/</link>
+      <link>https://stanleylfc.github.io/post/%E7%BC%96%E7%A8%8B/golang/2020-04-14-golang-%E5%90%AF%E5%8A%A8%E8%84%9A%E6%9C%AC/</link>
       <pubDate>Tue, 21 Apr 2020 21:00:00 +0800</pubDate>
       
-      <guid>https://stanleylfc.github.io/post/golang/2020-04-14-golang-%E5%90%AF%E5%8A%A8%E8%84%9A%E6%9C%AC/</guid>
+      <guid>https://stanleylfc.github.io/post/%E7%BC%96%E7%A8%8B/golang/2020-04-14-golang-%E5%90%AF%E5%8A%A8%E8%84%9A%E6%9C%AC/</guid>
       <description>1. 启动脚本 1.1 编译好的二进制 #!/bin/bash SERVER=&amp;quot;apiserver&amp;quot; BASE_DIR=$PWD INTERVAL=2 # 命令行参数，需要手动指定 ARGS=&amp;quot;&amp;quot; function start() { if [ &amp;quot;`pgrep $SERVER -u $UID`&amp;quot; != &amp;quot;&amp;quot; ];then echo &amp;quot;$SERVER already running&amp;quot; exit 1 fi nohup $BASE_DIR/$SERVER $ARGS server &amp;amp;&amp;gt;/dev/null &amp;amp; echo &amp;quot;sleeping...&amp;quot; &amp;amp;&amp;amp; sleep $INTERVAL # check status if [ &amp;quot;`pgrep $SERVER -u $UID`&amp;quot; == &amp;quot;&amp;quot; ];then echo &amp;quot;$SERVER start failed&amp;quot; exit 1 fi } function status() { if [ &amp;quot;`pgrep $SERVER -u $UID`&amp;quot; != &amp;quot;&amp;quot; ];then echo $SERVER is running else echo $SERVER is not running fi } function stop() { if [ &amp;quot;`pgrep $SERVER -u $UID`&amp;quot; != &amp;quot;&amp;quot; ];then kill -9 `pgrep $SERVER -u $UID` fi echo &amp;quot;sleeping...&amp;quot; &amp;amp;&amp;amp; sleep $INTERVAL if [ &amp;quot;`pgrep $SERVER -u $UID`&amp;quot; != &amp;quot;&amp;quot; ];then echo &amp;quot;$SERVER</description>
     </item>
     
     <item>
       <title>go 实战（八）| GC 垃圾回收</title>
-      <link>https://stanleylfc.github.io/post/golang/2020-04-15-golang-GC%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/</link>
+      <link>https://stanleylfc.github.io/post/%E7%BC%96%E7%A8%8B/golang/2020-04-15-golang-GC%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/</link>
       <pubDate>Tue, 21 Apr 2020 21:00:00 +0800</pubDate>
       
-      <guid>https://stanleylfc.github.io/post/golang/2020-04-15-golang-GC%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/</guid>
+      <guid>https://stanleylfc.github.io/post/%E7%BC%96%E7%A8%8B/golang/2020-04-15-golang-GC%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/</guid>
       <description>Go GC 垃圾回收 垃圾回收机制 引用计数 标志清楚 三色标志 分代收集 GO GC 发展 1.1 1.2 三色标记 2.1 写屏障 2.2 三色状态 GC 执行流程 3.1 启动 3.2 标记 3.3 清理</description>
     </item>
     
     <item>
-      <title>hadoop 实战（一）| hadoop 安装</title>
-      <link>https://stanleylfc.github.io/post/%E5%A4%A7%E6%95%B0%E6%8D%AE/2020-04-27-hadoop2.7.7%E5%AE%89%E8%A3%85/</link>
-      <pubDate>Tue, 21 Apr 2020 21:00:00 +0800</pubDate>
-      
-      <guid>https://stanleylfc.github.io/post/%E5%A4%A7%E6%95%B0%E6%8D%AE/2020-04-27-hadoop2.7.7%E5%AE%89%E8%A3%85/</guid>
-      <description>1.环境准备 1.1 服务器规划 # -u root -p centosdata 172.16.232.130 centos701 172.16.232.131 centos702 172.16.232.132 centos703 1.2 关闭所有服务器的防火墙 systemctl stop firewalld.service # 停止firewall。 systemctl disable firewalld.service # 禁止firewall开机启动。 firewall-cmd --state # 查看默认防火墙装状态(关闭后显示notrunning, 开启显示running)。 1.3 关闭服务器的SLNEX vim /etc/selinux/config SELINUX=disabled 1.4 服务器ssh 安装 所有服务</description>
-    </item>
-    
-    <item>
-      <title>hadoop 实战（一）| hadoop 安装</title>
-      <link>https://stanleylfc.github.io/post/%E5%A4%A7%E6%95%B0%E6%8D%AE/2020-04-27-live2.7.7%E5%AE%89%E8%A3%85/</link>
-      <pubDate>Tue, 21 Apr 2020 21:00:00 +0800</pubDate>
-      
-      <guid>https://stanleylfc.github.io/post/%E5%A4%A7%E6%95%B0%E6%8D%AE/2020-04-27-live2.7.7%E5%AE%89%E8%A3%85/</guid>
-      <description>1.环境准备 1.1 服务器规划 # -u root -p centosdata 172.16.232.130 centos701 172.16.232.131 centos702 172.16.232.132 centos703 1.2 关闭所有服务器的防火墙 systemctl stop firewalld.service # 停止firewall。 systemctl disable firewalld.service # 禁止firewall开机启动。 firewall-cmd --state # 查看默认防火墙装状态(关闭后显示notrunning, 开启显示running)。 1.3 关闭服务器的SLNEX vim /etc/selinux/config SELINUX=disabled 1.4 服务器ssh 安装 所有服务</description>
-    </item>
-    
-    <item>
       <title>vue 实战（六）| Vue Router</title>
-      <link>https://stanleylfc.github.io/post/vue/2020-04-22-vue-Vue-Router/</link>
+      <link>https://stanleylfc.github.io/post/%E7%BC%96%E7%A8%8B/web%E5%89%8D%E7%AB%AF/vue/2020-04-28-vue-Vue-Router/</link>
       <pubDate>Sun, 19 Apr 2020 09:00:00 +0800</pubDate>
       
-      <guid>https://stanleylfc.github.io/post/vue/2020-04-22-vue-Vue-Router/</guid>
+      <guid>https://stanleylfc.github.io/post/%E7%BC%96%E7%A8%8B/web%E5%89%8D%E7%AB%AF/vue/2020-04-28-vue-Vue-Router/</guid>
       <description>1 html 1.1 router-link 使用 router-link 组件来导航。 通过传入 to 属性指定链接。 默认会被渲染成一个 &amp;lt;a&amp;gt; 标签。 &amp;lt;router-link to=&amp;quot;/foo&amp;quot;&amp;gt;Go to Foo&amp;lt;/router-link&amp;gt; 1.2 router-view 路由出口 路由匹配到的组件将渲染在这里 &amp;lt;router-view&amp;gt;&amp;lt;/router-view&amp;gt; 2 javascript 2.1 初始化 如果使用模块化机制编程，导入Vue和VueRouter，要调用 Vue.use(VueRouter) 2.2 定义组件 定义 (路由) 组件。 可以从其他文件 import 进来 const Foo = { template: &#39;&amp;lt;div&amp;gt;foo&amp;lt;/div&amp;gt;&#39; } const Bar = { template: &#39;&amp;lt;div&amp;gt;bar&amp;lt;/div&amp;gt;&#39; } 2.3</description>
     </item>
     
     <item>
+      <title>vue 实战（六）| Vue Router</title>
+      <link>https://stanleylfc.github.io/post/%E7%BC%96%E7%A8%8B/web%E5%89%8D%E7%AB%AF/vue/2020-05-20-vue-vuex/</link>
+      <pubDate>Sun, 19 Apr 2020 09:00:00 +0800</pubDate>
+      
+      <guid>https://stanleylfc.github.io/post/%E7%BC%96%E7%A8%8B/web%E5%89%8D%E7%AB%AF/vue/2020-05-20-vue-vuex/</guid>
+      <description>Action Action 提交的是 mutation，而不是直接变更状态。 Action 可以包含任意异步操作。 1.actions 定义 const store = new Vuex.Store({ state: { count: 0 }, mutations: { increment (state) { state.count++ } }, actions: { increment (context) { context.commit(&#39;increment&#39;) } } }) 2. 分发 Action Action 通过 store.dispatch 方法触发(调用) 2.1 载荷方式 和 对象形式分发 // 以载荷形式分发 store.dispatch(&#39;incrementAsync&#39;, { amount: 10 }) // 以对象形式分发 store.dispatch({ type: &#39;incrementAsync&#39;, amount: 10 }))</description>
+    </item>
+    
+    <item>
       <title>python 实战（五）| 迭代器</title>
-      <link>https://stanleylfc.github.io/post/python/2020-04-05-python-base05/</link>
+      <link>https://stanleylfc.github.io/post/%E7%BC%96%E7%A8%8B/python/2020-04-05-python-base05/</link>
       <pubDate>Tue, 14 Apr 2020 15:00:00 +0800</pubDate>
       
-      <guid>https://stanleylfc.github.io/post/python/2020-04-05-python-base05/</guid>
+      <guid>https://stanleylfc.github.io/post/%E7%BC%96%E7%A8%8B/python/2020-04-05-python-base05/</guid>
       <description>1.迭代器 1.1 迭代是指重复对象中获取数据，直至结束。 1.2 迭代协议 用__iter__方法返回一个实现了__next__方法的迭代对象，__next__抛出StopIteration 异常表示结束 1.3 自定义类型 class Data: def __init__(self, n): self.data = list(range(n)) def __iter__(self): return DataIter(self.data) #每次新建一个 class DataIter: def __init__(self, data): self.data = data self.index = 0 # 无法通过__next</description>
     </item>
     
     <item>
-      <title>linux 实战（一）| syslog</title>
-      <link>https://stanleylfc.github.io/post/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/2020-05-06-linux-syslog/</link>
-      <pubDate>Fri, 03 Apr 2020 09:00:00 +0800</pubDate>
-      
-      <guid>https://stanleylfc.github.io/post/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/2020-05-06-linux-syslog/</guid>
-      <description>1. 安装 一般来说centos都自带了rsyslog, 通过源码包来安装 源码包下载地址:http://www.rsyslog.com/downloads/download-v8-stable/ 使用yum sudo yum install rsyslog 2. 开启我们的rsyslog远程服务 2.1 编辑配置文件 sudo vim /etc/rsyslog.conf 并将以下注释打开 # Provides UDP</description>
-    </item>
-    
-    <item>
       <title>python 实战（四）| 基础知识02</title>
-      <link>https://stanleylfc.github.io/post/python/2020-04-03-python-base02/</link>
+      <link>https://stanleylfc.github.io/post/%E7%BC%96%E7%A8%8B/python/2020-04-03-python-base02/</link>
       <pubDate>Fri, 03 Apr 2020 09:00:00 +0800</pubDate>
       
-      <guid>https://stanleylfc.github.io/post/python/2020-04-03-python-base02/</guid>
+      <guid>https://stanleylfc.github.io/post/%E7%BC%96%E7%A8%8B/python/2020-04-03-python-base02/</guid>
       <description>模块 1.简单模块化 把函数、类、常量拆分到不同的文件，把它们放在同一个文件夹 把函数、类、常量拆分到不同的文件，把它们放在不同的文件 sys.path.append(&amp;quot;..&amp;quot;) # 通过这种方式调用上层目录 2.项目模块化 3.神奇的 if name == &amp;lsquo;main&amp;rsquo; import 在导入文件的时候，会自动把所有暴露在外面的代码全都执行一遍。因此，如果你要把一个东西封装成</description>
     </item>
     
@@ -183,29 +408,38 @@
     </item>
     
     <item>
+      <title>vmware 实战（二）| linux基本命令</title>
+      <link>https://stanleylfc.github.io/post/vmware/2020-05-06-linux-base/</link>
+      <pubDate>Fri, 03 Apr 2020 09:00:00 +0800</pubDate>
+      
+      <guid>https://stanleylfc.github.io/post/vmware/2020-05-06-linux-base/</guid>
+      <description>1. useradd // -M 没有home 目录 // -s /sbin/nologin without login shell // -U create/adds a group with the same name as the user useradd -M -U -s /sbin/nologin redis</description>
+    </item>
+    
+    <item>
       <title>python 实战（四）| 基础知识01</title>
-      <link>https://stanleylfc.github.io/post/python/2020-04-02-python-base01/</link>
+      <link>https://stanleylfc.github.io/post/%E7%BC%96%E7%A8%8B/python/2020-04-02-python-base01/</link>
       <pubDate>Thu, 02 Apr 2020 09:00:00 +0800</pubDate>
       
-      <guid>https://stanleylfc.github.io/post/python/2020-04-02-python-base01/</guid>
+      <guid>https://stanleylfc.github.io/post/%E7%BC%96%E7%A8%8B/python/2020-04-02-python-base01/</guid>
       <description>数据类型 1.1数字（int, float, bool) int 底层实现上， 通过不定长结构体按需分配内存 2.数字还可以有二进制(bin)，八进制(oct)，以及十六进制(hex)表示0b110011, 0o12, 0x64 3.内置函数将整数转换为指定进制字符串，或反向int 还原 bin(100) &amp;lsquo;0b1100100&amp;rsquo; int(&amp;lsquo;0b1100100&amp;rsquo;, 2) 100 4.python3不支持数字和非数字类型</description>
     </item>
     
     <item>
       <title>python 实战（三）| python 用docker安装</title>
-      <link>https://stanleylfc.github.io/post/python/2020-04-02-python-docker/</link>
+      <link>https://stanleylfc.github.io/post/%E7%BC%96%E7%A8%8B/python/2020-04-02-python-docker/</link>
       <pubDate>Thu, 02 Apr 2020 00:00:00 +0800</pubDate>
       
-      <guid>https://stanleylfc.github.io/post/python/2020-04-02-python-docker/</guid>
+      <guid>https://stanleylfc.github.io/post/%E7%BC%96%E7%A8%8B/python/2020-04-02-python-docker/</guid>
       <description>基础环境 - Linux - Python 3.8 - Docker 1. 容器 docker $ docker pull ubuntu $ docker images REPOSITORY TAG IMAGE ID CREATED SIZE ubuntu latest 4e5021d210f6 13 days ago 64.2MB 创建容器 $ docker create -ti --privileged --name py3 -p 10000:80 -p 10001:8888 -v /mac/py3:/root/py3 -w /root ubuntu bash -l 启动 $ docker start -ai py3 Docker 后台运行的快捷键是：Ctrl P + Ctrl Q 安装 更新源，安装 Python 3.8 $ apt update $ apt install curl $ apt install python3.8 python3.8-distutils 安装 pip 包管理器 $ curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py $ python3.8 get-pip.py $ pip3 -V pip 20.0.2 from /usr/local/lib/python3.8/dist-packages/pip (python 3.8) 安装附加工具 $ pip3 install ipython ipdb</description>
     </item>
     
     <item>
       <title>python 实战（二）| virtualenv</title>
-      <link>https://stanleylfc.github.io/post/python/2020-04-01-python-venv/</link>
+      <link>https://stanleylfc.github.io/post/%E7%BC%96%E7%A8%8B/python/2020-04-01-python-venv/</link>
       <pubDate>Wed, 01 Apr 2020 21:00:00 +0800</pubDate>
       
-      <guid>https://stanleylfc.github.io/post/python/2020-04-01-python-venv/</guid>
+      <guid>https://stanleylfc.github.io/post/%E7%BC%96%E7%A8%8B/python/2020-04-01-python-venv/</guid>
       <description>1.安装virtualenv pip install virtualenv #(python2) pip3 install virtualenv #(python3) 2.创建venv python3 -m venv venv venv就是虚拟环境的文件夹，通常取名venv(用户自定义)。 --no-site-packages表示不添加系统里面python已安装的第三方库 3.启动虚拟环境并安装第三方库 venv\Script\activate #(windows) source venv/bin/activate #(linux/macos) pip install xxx 4.部署到服务器，环境</description>
     </item>
     
@@ -228,12 +462,102 @@
     </item>
     
     <item>
+      <title>redis 实战（一）| redis 安装</title>
+      <link>https://stanleylfc.github.io/post/%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8/2019-05-23-redis-command/</link>
+      <pubDate>Thu, 23 May 2019 21:00:00 +0800</pubDate>
+      
+      <guid>https://stanleylfc.github.io/post/%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8/2019-05-23-redis-command/</guid>
+      <description>1. redis 特征 1.1 特性 内存 K/V 类型 本地方法 计算向数据移动 1.2 redis worker 单线程计算 计算串行化（原子） 网卡流量（瓶颈 io thread 多线程(单个连接是有顺序， 多个客户端不确保顺序) 1.3 秒杀 客户端并发连接数 服务器执行并行度 redis 串行化 2. 5种Value 类型 2.1 string 2.1.1 字符串 session uuid VFS in mem 小文件 2.1.2 数值 限流器 点击率 统计 2.1.3 bitmap list hash set zset</description>
+    </item>
+    
+    <item>
       <title></title>
-      <link>https://stanleylfc.github.io/post/%E5%BE%AE%E7%A7%AF%E5%88%86/%E6%9E%81%E9%99%90%E5%92%8C%E8%BF%9E%E7%BB%AD%E6%80%A7/</link>
+      <link>https://stanleylfc.github.io/post/%E5%88%86%E5%B8%83%E5%BC%8F/2020-05-10-%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81zk%E5%92%8Credis/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://stanleylfc.github.io/post/%E5%BE%AE%E7%A7%AF%E5%88%86/%E6%9E%81%E9%99%90%E5%92%8C%E8%BF%9E%E7%BB%AD%E6%80%A7/</guid>
+      <guid>https://stanleylfc.github.io/post/%E5%88%86%E5%B8%83%E5%BC%8F/2020-05-10-%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81zk%E5%92%8Credis/</guid>
       <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://stanleylfc.github.io/post/%E5%A4%A7%E6%95%B0%E6%8D%AE/2020-05-01-mapper-reduce/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://stanleylfc.github.io/post/%E5%A4%A7%E6%95%B0%E6%8D%AE/2020-05-01-mapper-reduce/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://stanleylfc.github.io/post/%E5%A4%A7%E6%95%B0%E6%8D%AE/2020-05-03-hdfs/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://stanleylfc.github.io/post/%E5%A4%A7%E6%95%B0%E6%8D%AE/2020-05-03-hdfs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://stanleylfc.github.io/post/%E5%A4%A7%E6%95%B0%E6%8D%AE/2020-05-05-yarn/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://stanleylfc.github.io/post/%E5%A4%A7%E6%95%B0%E6%8D%AE/2020-05-05-yarn/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://stanleylfc.github.io/post/%E8%BF%90%E7%BB%B4/2020-06-05-linux%E8%BF%90%E7%BB%B4-ELK/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://stanleylfc.github.io/post/%E8%BF%90%E7%BB%B4/2020-06-05-linux%E8%BF%90%E7%BB%B4-ELK/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>es6 实战（一）| 基础语法</title>
+      <link>https://stanleylfc.github.io/post/%E7%BC%96%E7%A8%8B/web%E5%89%8D%E7%AB%AF/es6/2020-05-20-es6-base/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://stanleylfc.github.io/post/%E7%BC%96%E7%A8%8B/web%E5%89%8D%E7%AB%AF/es6/2020-05-20-es6-base/</guid>
+      <description>1. let, const 关键字 支持块作用域 不重复定义变量 const 定义不可修改变量</description>
+    </item>
+    
+    <item>
+      <title>es6 实战（三）| 类</title>
+      <link>https://stanleylfc.github.io/post/%E7%BC%96%E7%A8%8B/web%E5%89%8D%E7%AB%AF/es6/2020-05-20-es6-class/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://stanleylfc.github.io/post/%E7%BC%96%E7%A8%8B/web%E5%89%8D%E7%AB%AF/es6/2020-05-20-es6-class/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>es6 实战（二）| 函数</title>
+      <link>https://stanleylfc.github.io/post/%E7%BC%96%E7%A8%8B/web%E5%89%8D%E7%AB%AF/es6/2020-05-20-es6-function/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://stanleylfc.github.io/post/%E7%BC%96%E7%A8%8B/web%E5%89%8D%E7%AB%AF/es6/2020-05-20-es6-function/</guid>
+      <description>1. 函数 函数声明是 2. 函数表达式 3. 箭头函数 4. 函数参数内使用解构 4.1 function( 接收可选参数的函数，是很棒的。对于这种用法，你也可以添加默认参数值来填充调用者没有传递或忘记传递的参数值 。 var sayHello = function({ name, surname }) { console.log(`Hello ${name} ${surname}! How are you?`); }; sayHello({ name: &#39;John&#39;, surname: &#39;Smith&#39; }) // -&amp;gt; Hello John Smith! How are you? 4.2 function({}= 表示此参数需要解构的默认对象是一个{}，以防调用者</description>
+    </item>
+    
+    <item>
+      <title>es6 实战（五）| 异步函数</title>
+      <link>https://stanleylfc.github.io/post/%E7%BC%96%E7%A8%8B/web%E5%89%8D%E7%AB%AF/es6/2020-05-20-es6-asynchronous/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://stanleylfc.github.io/post/%E7%BC%96%E7%A8%8B/web%E5%89%8D%E7%AB%AF/es6/2020-05-20-es6-asynchronous/</guid>
+      <description>1. callback 1.1 callback 回调函数 封装 function add(){ // 这里走接口 let parameter = { // 接口参数 } api(parameter).then(res =&amp;gt; { // 接口成功要执行的代码 // 接口成功后如果有回调函数就执行回调函数如果没有就不执行 callback &amp;amp;&amp;amp; callback() }).catch(e =&amp;gt;{ console.log(e) }) } 调用接口 add(() =&amp;gt;{ // 写接口成功后要执行的代码 }) 2.Promise 解决异步代码 2.1 封装 变量写法： let promise = new Promise((resolve, reject) =&amp;gt;{ api(parameter).then(res =&amp;gt; { // 成功就把res返回出去 resolve(res) }).catch(e =&amp;gt;{ // 失</description>
+    </item>
+    
+    <item>
+      <title>es6 实战（四）| import 和 export</title>
+      <link>https://stanleylfc.github.io/post/%E7%BC%96%E7%A8%8B/web%E5%89%8D%E7%AB%AF/es6/2020-05-20-es6-import/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://stanleylfc.github.io/post/%E7%BC%96%E7%A8%8B/web%E5%89%8D%E7%AB%AF/es6/2020-05-20-es6-import/</guid>
+      <description>1. export 用于对外输出本模块（一个文件可以理解为一个模块）变量的接口。 1.1 export export 可以导出多个命名模块 //demo1.js export const str = &#39;hello world&#39; export function f(a){ return a+1 } //demo2.js import { str, f } from &#39;demo1&#39; 1.2 export default export default 只能导出一个默认模块，这个模块可以匿名 使用import命令的时候，用户需要知道所要加载的变量名或函数名，否则无法加载。但是，用户肯定希望快</description>
     </item>
     
     <item>

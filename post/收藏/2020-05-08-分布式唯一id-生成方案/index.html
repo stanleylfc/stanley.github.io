@@ -1,0 +1,462 @@
+<!doctype html>
+<html lang="en-us">
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>文章收藏 （一）| 分布式唯一ID | stanley的博客</title>
+    <meta property="og:title" content="文章收藏 （一）| 分布式唯一ID - stanley的博客">
+    <meta property="og:type" content="article">
+        
+    <meta property="article:published_time" content='2020-05-08T21:00:00&#43;08:00'>
+        
+        
+    <meta property="article:modified_time" content='2020-05-08T21:00:00&#43;08:00'>
+        
+    <meta name="Keywords" content="golang,go语言,go语言笔记,项目管理,python,软件架构,数据分析">
+    <meta name="description" content="文章收藏 （一）| 分布式唯一ID">
+        
+    <meta name="author" content="">
+    <meta property="og:url" content="https://stanleylfc.github.io/post/%E6%94%B6%E8%97%8F/2020-05-08-%E5%88%86%E5%B8%83%E5%BC%8F%E5%94%AF%E4%B8%80id-%E7%94%9F%E6%88%90%E6%96%B9%E6%A1%88/">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href='/css/normalize.css'>
+    <link rel="stylesheet" href='/css/style.css'>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+    (adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-4031353640611810",
+        enable_page_level_ads: true
+    });
+    </script>
+    
+
+
+    
+    
+        <link rel="stylesheet" href='/css/douban.css'>
+    
+        <link rel="stylesheet" href='/css/other.css'>
+    
+</head>
+
+
+<body>
+    <header id="header" class="clearfix">
+    <div class="container">
+        <div class="col-group">
+            <div class="site-name ">
+                
+                    <a id="logo" href="https://stanleylfc.github.io">
+                        stanley的博客
+                    </a>
+                
+                <p class="description">专注于Python、Go语言(golang)、项目管理、软件架构、数据分析</p>
+            </div>
+            <div>
+                <nav id="nav-menu" class="clearfix">
+                    <a class="current" href="https://stanleylfc.github.io">首页</a>
+                    
+                    <a  href="https://stanleylfc.github.io/tools/" title="工具">工具</a>
+                    
+                    <a  href="https://stanleylfc.github.io/archives/" title="归档">归档</a>
+                    
+                    <a  href="https://stanleylfc.github.io/about/" title="关于">关于</a>
+                    
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+
+    <div id="body">
+        <div class="container">
+            <div class="col-group">
+
+                <div class="col-8" id="main">
+                    
+<div class="res-cons">
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">文章收藏 （一）| 分布式唯一ID</h1>
+        </header>
+        <date class="post-meta meta-date">
+            2020年5月8日
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://stanleylfc.github.io/categories/%E6%94%B6%E8%97%8F'>收藏</a></span>
+            
+        </div>
+        
+        
+        <div class="post-meta">
+            <span id="busuanzi_container_page_pv">|<span id="busuanzi_value_page_pv"></span><span>
+                    阅读</span></span>
+        </div>
+        
+        
+        <div class="post-content">
+            <h1 id="分布式唯一id的生成方案">分布式唯一ID的生成方案</h1>
+<h6 id="原创-杜亦舒-性能与架构-2019-12-03">原创 杜亦舒 性能与架构 2019-12-03</h6>
+<h2 id="1分布式id的特性">1.分布式ID的特性</h2>
+<ul>
+<li>
+<p>全局唯一<br>
+不能出现重复的ID，这是最基本的要求。</p>
+</li>
+<li>
+<p>递增<br>
+有利于关系数据库索引性能。</p>
+</li>
+<li>
+<p>高可用<br>
+既然是服务于分布式系统，为多个服务提供ID服务，访问压力一定很大，所以需要保证高可用。</p>
+</li>
+<li>
+<p>信息安全<br>
+如果ID是有规律的，就容易被恶意操作，在一些场景下需要ID无规则。</p>
+</li>
+</ul>
+<h2 id="2-生成方案">2. 生成方案</h2>
+<h3 id="21-uuid">2.1 UUID</h3>
+<p>核心思想是结合机器的网卡、当地时间、一个随机数来生成。</p>
+<ul>
+<li>
+<p>优点：<br>
+性能非常高，本地生成，没有网络消耗。
+生成简单，没有高可用风险。
+有利于信息安全，因为可读性差，无规律。</p>
+</li>
+<li>
+<p>缺点：<br>
+太长，不易于存储。
+有利于信息安全的同时，也有不安全性，因为基于MAC地址生成的算法可能会泄露MAC地址。
+无序，对MySQL索引不利，在 InnoDB 中，无序性会导致数据位置频繁变动，性能低下。</p>
+</li>
+</ul>
+<h3 id="22-数据库">2.2 数据库</h3>
+<p>利用数据库自增ID的特性来生成，如 MySQL 的 auto_increment。</p>
+<ul>
+<li>优点：<br>
+简单，利用数据库自有功能实现。
+绝对有序。</li>
+<li>缺点：<br>
+有重复发号的风险，例如数据库主从切换的场景。
+需要特别保障其高可用。
+发号性能限制于数据库性能，如需提高发号能力，需要扩充数据库，成本高。</li>
+</ul>
+<h3 id="23-redis">2.3 Redis</h3>
+<p>Redis 提供了自增的原子命令，可以保证唯一、有序。</p>
+<ul>
+<li>优点：<br>
+简单，自有能力。
+高并发环境下性能好，优于数据库。
+维护成本低于数据库。</li>
+<li>缺点：<br>
+主从切换时也可能会重复发号。
+需要特别保障其高可用。</li>
+</ul>
+<h3 id="24-雪花算法">2.4 雪花算法</h3>
+<p>给每台机器分配一个唯一标识，然后通过下面的结构实现全局唯一ID：</p>
+<p>时间戳 + 机器标识 + 自增序列号
+毫秒在高位，自增序列在低位，一定是递增的。</p>
+<p>优点：</p>
+<p>生成性能高。
+灵活，可以根据自身业务特点分配bit位。
+缺点：</p>
+<p>强依赖机器时钟，如果时钟回拨，就会导致服务异常。</p>
+<h2 id="3-小结">3. 小结</h2>
+<p>不同的方案有不同的特点，需要根据自己的需求场景来选择适合的。</p>
+<p>例如在美团早期，ID方案就是多种形式的：</p>
+<p>有的业务通过 DB 自增的方式生成
+有的业务通过 Redis 缓存来生成
+有的业务直接用 UUID 生成
+后来推出了一个类雪花算法的分布式ID服务：Leaf，QPS压测结果近5w/s。</p>
+<p>项目地址：</p>
+<p><a href="https://github.com/Meituan-Dianping/Leaf">https://github.com/Meituan-Dianping/Leaf</a></p>
+<p>再推荐2个参考项目：</p>
+<p>基于 Redis 的生成器
+<a href="https://github.com/hengyunabc/redis-id-generator">https://github.com/hengyunabc/redis-id-generator</a></p>
+<p>百度基于雪花算法的生成器
+<a href="https://github.com/baidu/uid-generator">https://github.com/baidu/uid-generator</a></p>
+
+        </div>
+
+        
+
+
+        
+
+<div class="post-archive">
+    <h2>See Also</h2>
+    <ul class="listing">
+        
+        <li><a href="/post/linux/linux-%E5%BC%80%E5%8F%91/2020-05-08-tcpip/">linux 网络编程实战（一））| tcpip</a></li>
+        
+        <li><a href="/post/linux/2020-05-08-linux-sshd/">linux 服务实战（二）| syslog</a></li>
+        
+        <li><a href="/post/linux/2020-05-06-linux-syslog/">linux 服务实战（三）| syslog</a></li>
+        
+        <li><a href="/post/%E7%BC%96%E7%A8%8B/golang/2020-05-05-golang-probuf/">go 实战（十三）| go probuf</a></li>
+        
+        <li><a href="/post/linux/2020-05-03-linux-systemd/">linux 服务实战（一）| Systemd</a></li>
+        
+    </ul>
+</div>
+
+
+        <div class="post-meta meta-tags">
+            
+            <ul class="clearfix">
+                
+                <li><a href='https://stanleylfc.github.io/tags/%E6%94%B6%E8%97%8F'>收藏</a></li>
+                
+            </ul>
+            
+        </div>
+    </article>
+    
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "stanley" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+    
+    
+    <div class="post bg-white">
+      <script src="https://utteranc.es/client.js"
+            repo= "https://github.com/stanleylfc/stanleylfc.github.io.git"
+            issue-term="pathname"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+      </script>
+    </div>
+    
+</div>
+
+                </div>
+
+                <div id="secondary">
+    <section class="widget">
+        <form id="search" action='https://stanleylfc.github.io/search/' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
+      
+      <input type="text" name="q" maxlength="20" placeholder="Search">
+      <input type="hidden" name="sitesearch" value="https://stanleylfc.github.io">
+      <button type="submit" class="submit icon-search"></button>
+</form>
+    </section>
+    
+    <section class="widget">
+        <h3 class="widget-title">最近文章</h3>
+<ul class="widget-list">
+    
+    <li>
+        <a href="https://stanleylfc.github.io/post/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%B8%88/2020-06-03-bigquery-command/" title="bigquery 实战（二）| bigquery 命令">bigquery 实战（二）| bigquery 命令</a>
+    </li>
+    
+    <li>
+        <a href="https://stanleylfc.github.io/post/%E8%BF%90%E7%BB%B4/2020-05-09-linux%E8%BF%90%E7%BB%B4-jenkins/" title="Linux运维 实战（二）| jenkins">Linux运维 实战（二）| jenkins</a>
+    </li>
+    
+    <li>
+        <a href="https://stanleylfc.github.io/post/%E7%BC%96%E7%A8%8B/golang/2020-06-01-golang-goland/" title="go 实战（一）| go goloand">go 实战（一）| go goloand</a>
+    </li>
+    
+    <li>
+        <a href="https://stanleylfc.github.io/post/%E8%BF%90%E7%BB%B4/2020-06-01-linux%E8%BF%90%E7%BB%B4-promethus/" title="Linux运维 实战（五）| promethus">Linux运维 实战（五）| promethus</a>
+    </li>
+    
+    <li>
+        <a href="https://stanleylfc.github.io/post/%E8%BF%90%E7%BB%B4/2019-12-20-linux%E8%BF%90%E7%BB%B4-rsyslog/" title="Linux运维 实战（六）| rsyslog">Linux运维 实战（六）| rsyslog</a>
+    </li>
+    
+    <li>
+        <a href="https://stanleylfc.github.io/post/%E8%BF%90%E7%BB%B4/2020-06-01-linux%E8%BF%90%E7%BB%B4-grafana/" title="Linux运维 实战（四）| grafana">Linux运维 实战（四）| grafana</a>
+    </li>
+    
+    <li>
+        <a href="https://stanleylfc.github.io/post/%E8%BF%90%E7%BB%B4/2019-12-15-linux%E8%BF%90%E7%BB%B4-fluentd/" title="Linux运维 实战（三）| fluentd">Linux运维 实战（三）| fluentd</a>
+    </li>
+    
+    <li>
+        <a href="https://stanleylfc.github.io/post/%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8/2020-05-19-redis-cluster/" title="redis 实战（一）| redis 集群搭建">redis 实战（一）| redis 集群搭建</a>
+    </li>
+    
+    <li>
+        <a href="https://stanleylfc.github.io/post/%E4%B8%AD%E9%97%B4%E4%BB%B6/2020-05-22-rocketmq-rocket-%E4%BF%9D%E8%AF%81%E6%B6%88%E6%81%AF%E4%B8%8D%E4%B8%A2%E5%A4%B1/" title="rocket 实战（三）| RocketMQ保证消息不丢失">rocket 实战（三）| RocketMQ保证消息不丢失</a>
+    </li>
+    
+    <li>
+        <a href="https://stanleylfc.github.io/post/%E7%BC%96%E7%A8%8B/java/2020-05-22-java-spring-boot/" title="java sprint boot实战（一）| ">java sprint boot实战（一）| </a>
+    </li>
+    
+</ul>
+    </section>
+
+    
+
+    <section class="widget">
+        <h3 class="widget-title">分类</h3>
+<ul class="widget-list">
+    
+    <li><a href="https://stanleylfc.github.io/categories/Linux%E8%BF%90%E7%BB%B4/">Linux运维 (6)</a></li>
+    
+    <li><a href="https://stanleylfc.github.io/categories/Python/">Python (5)</a></li>
+    
+    <li><a href="https://stanleylfc.github.io/categories/bigquery/">bigquery (1)</a></li>
+    
+    <li><a href="https://stanleylfc.github.io/categories/es6/">es6 (5)</a></li>
+    
+    <li><a href="https://stanleylfc.github.io/categories/git/">git (2)</a></li>
+    
+    <li><a href="https://stanleylfc.github.io/categories/go/">go (8)</a></li>
+    
+    <li><a href="https://stanleylfc.github.io/categories/goloand/">goloand (1)</a></li>
+    
+    <li><a href="https://stanleylfc.github.io/categories/hadoop/">hadoop (3)</a></li>
+    
+    <li><a href="https://stanleylfc.github.io/categories/java/">java (1)</a></li>
+    
+    <li><a href="https://stanleylfc.github.io/categories/linux/">linux (5)</a></li>
+    
+    <li><a href="https://stanleylfc.github.io/categories/linux-%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/">linux 网络编程 (2)</a></li>
+    
+    <li><a href="https://stanleylfc.github.io/categories/redis/">redis (2)</a></li>
+    
+    <li><a href="https://stanleylfc.github.io/categories/spring-boot/">spring boot (1)</a></li>
+    
+    <li><a href="https://stanleylfc.github.io/categories/vmware/">vmware (2)</a></li>
+    
+    <li><a href="https://stanleylfc.github.io/categories/vue/">vue (5)</a></li>
+    
+    <li><a href="https://stanleylfc.github.io/categories/webStorm/">webStorm (1)</a></li>
+    
+    <li><a href="https://stanleylfc.github.io/categories/%E5%BE%AE%E7%A7%AF%E5%88%86/">微积分 (2)</a></li>
+    
+    <li><a href="https://stanleylfc.github.io/categories/%E6%94%B6%E8%97%8F/">收藏 (1)</a></li>
+    
+    <li><a href="https://stanleylfc.github.io/categories/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/">消息队列 (1)</a></li>
+    
+</ul>
+    </section>
+
+    <section class="widget">
+        <h3 class="widget-title">标签</h3>
+<div class="tagcloud">
+    
+    <a href="https://stanleylfc.github.io/tags/Linux%E8%BF%90%E7%BB%B4/">Linux运维</a>
+    
+    <a href="https://stanleylfc.github.io/tags/bigquery/">bigquery</a>
+    
+    <a href="https://stanleylfc.github.io/tags/es6/">es6</a>
+    
+    <a href="https://stanleylfc.github.io/tags/git/">git</a>
+    
+    <a href="https://stanleylfc.github.io/tags/go/">go</a>
+    
+    <a href="https://stanleylfc.github.io/tags/goloand/">goloand</a>
+    
+    <a href="https://stanleylfc.github.io/tags/hadoop/">hadoop</a>
+    
+    <a href="https://stanleylfc.github.io/tags/java/">java</a>
+    
+    <a href="https://stanleylfc.github.io/tags/linux/">linux</a>
+    
+    <a href="https://stanleylfc.github.io/tags/linux-%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/">linux 网络编程</a>
+    
+    <a href="https://stanleylfc.github.io/tags/python/">python</a>
+    
+    <a href="https://stanleylfc.github.io/tags/redis/">redis</a>
+    
+    <a href="https://stanleylfc.github.io/tags/spring-boot/">spring boot</a>
+    
+    <a href="https://stanleylfc.github.io/tags/vmware/">vmware</a>
+    
+    <a href="https://stanleylfc.github.io/tags/vue/">vue</a>
+    
+    <a href="https://stanleylfc.github.io/tags/webStorm/">webStorm</a>
+    
+    <a href="https://stanleylfc.github.io/tags/%E5%BE%AE%E7%A7%AF%E5%88%86/">微积分</a>
+    
+    <a href="https://stanleylfc.github.io/tags/%E6%94%B6%E8%97%8F/">收藏</a>
+    
+    <a href="https://stanleylfc.github.io/tags/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/">消息队列</a>
+    
+</div>
+    </section>
+
+    
+
+    <section class="widget">
+        <h3 class="widget-title">其它</h3>
+        <ul class="widget-list">
+            <li><a href="https://stanleylfc.github.io/index.xml">文章 RSS</a></li>
+        </ul>
+    </section>
+</div>
+            </div>
+        </div>
+    </div>
+    <footer id="footer">
+    <div class="container">
+        &copy; 2020 <a href="https://stanleylfc.github.io">stanley的博客 By </a>.
+        Powered by <a rel="nofollow noreferer noopener" href="https://gohugo.io" target="_blank">Hugo</a>.
+        <a href="https://www.flysnow.org/" target="_blank">Theme</a> based on <a href="https://github.com/flysnow-org/maupassant-hugo" target="_blank">maupassant</a>.
+        
+    </div>
+</footer>
+
+
+    
+    <script type="text/javascript">
+        window.MathJax = {
+            tex2jax: {
+                inlineMath: [['$', '$']],
+                processEscapes: true
+                }
+            };
+    </script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
+
+
+<a id="rocket" href="#top"></a>
+<script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>
+
+
+
+    <script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
+
+
+
+
+    <script src='/js/douban.js'></script>
+
+</body>
+
+</html>

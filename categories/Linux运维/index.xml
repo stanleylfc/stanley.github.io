@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Linux运维 on stanley的博客</title>
+    <link>https://stanleylfc.github.io/categories/Linux%E8%BF%90%E7%BB%B4/</link>
+    <description>Recent content in Linux运维 on stanley的博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 02 Jun 2020 21:00:00 +0800</lastBuildDate>
+    
+	<atom:link href="https://stanleylfc.github.io/categories/Linux%E8%BF%90%E7%BB%B4/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Linux运维 实战（二）| jenkins</title>
+      <link>https://stanleylfc.github.io/post/%E8%BF%90%E7%BB%B4/2020-05-09-linux%E8%BF%90%E7%BB%B4-jenkins/</link>
+      <pubDate>Tue, 02 Jun 2020 21:00:00 +0800</pubDate>
+      
+      <guid>https://stanleylfc.github.io/post/%E8%BF%90%E7%BB%B4/2020-05-09-linux%E8%BF%90%E7%BB%B4-jenkins/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Linux运维 实战（五）| promethus</title>
+      <link>https://stanleylfc.github.io/post/%E8%BF%90%E7%BB%B4/2020-06-01-linux%E8%BF%90%E7%BB%B4-promethus/</link>
+      <pubDate>Sun, 31 May 2020 21:00:00 +0800</pubDate>
+      
+      <guid>https://stanleylfc.github.io/post/%E8%BF%90%E7%BB%B4/2020-06-01-linux%E8%BF%90%E7%BB%B4-promethus/</guid>
+      <description>1.Prometheus 系统知识要点 1.1 Prometheus Server Prometheus Server 是 Prometheus 组件中的核心部分，负责实现对监控数据的获取，存储以及查询。 Prometheus Server 可以通过静态配置管理监控目标，也可以配合使用 Service Discovery 的方式动态管理监控目标，并从这些监控目标中获取数据。其次 Prometheus Server 需要对采集到的监控数据进行存储，Prometheus Server 本身就是一个时序数据库，将采</description>
+    </item>
+    
+    <item>
+      <title>Linux运维 实战（六）| rsyslog</title>
+      <link>https://stanleylfc.github.io/post/%E8%BF%90%E7%BB%B4/2019-12-20-linux%E8%BF%90%E7%BB%B4-rsyslog/</link>
+      <pubDate>Sun, 31 May 2020 21:00:00 +0800</pubDate>
+      
+      <guid>https://stanleylfc.github.io/post/%E8%BF%90%E7%BB%B4/2019-12-20-linux%E8%BF%90%E7%BB%B4-rsyslog/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Linux运维 实战（四）| grafana</title>
+      <link>https://stanleylfc.github.io/post/%E8%BF%90%E7%BB%B4/2020-06-01-linux%E8%BF%90%E7%BB%B4-grafana/</link>
+      <pubDate>Sun, 31 May 2020 21:00:00 +0800</pubDate>
+      
+      <guid>https://stanleylfc.github.io/post/%E8%BF%90%E7%BB%B4/2020-06-01-linux%E8%BF%90%E7%BB%B4-grafana/</guid>
+      <description>2.安装 2.1 安装地址 wget https://dl.grafana.com/oss/release/grafana-7.0.1-1.x86_64.rpm yum install grafana-7.0.1-1.x86_64.rpm 2.2 启动 service grafana-server start 2.3 验证 http://centos7:3000 3 配置promethus 【Configration】- 【Data Sources】 然后可以按照下图所示进行配置，需要注意的是 prometheus 的地址需要根据实际情况做修改。 4.添加node_expoter 面板 grafana 的数据源配置完成后，可以导入一个 dashboard 模板文</description>
+    </item>
+    
+    <item>
+      <title>Linux运维 实战（三）| fluentd</title>
+      <link>https://stanleylfc.github.io/post/%E8%BF%90%E7%BB%B4/2019-12-15-linux%E8%BF%90%E7%BB%B4-fluentd/</link>
+      <pubDate>Sat, 30 May 2020 21:00:00 +0800</pubDate>
+      
+      <guid>https://stanleylfc.github.io/post/%E8%BF%90%E7%BB%B4/2019-12-15-linux%E8%BF%90%E7%BB%B4-fluentd/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Linux运维 实战（一）| ansible</title>
+      <link>https://stanleylfc.github.io/post/%E8%BF%90%E7%BB%B4/2019-12-11-linux%E8%BF%90%E7%BB%B4-ansible/</link>
+      <pubDate>Fri, 01 May 2020 21:00:00 +0800</pubDate>
+      
+      <guid>https://stanleylfc.github.io/post/%E8%BF%90%E7%BB%B4/2019-12-11-linux%E8%BF%90%E7%BB%B4-ansible/</guid>
+      <description>1. ansible 2. ansible 基本介绍 2.1 ansible 组件架构 2.2 ansbile 配置文件 2.3 ansible inventory 2.4 ansible ad-hoc模块 # ansible all -m shell -a &amp;quot;rm /opt/hadoop-2.7.7.tar.gz&amp;quot; // 拷贝配置文件 ansible all -m copy -a &amp;quot;src=https://stanleylfc.github.io/opt/hadoop-2.7.7.tar.gz dest=/opt owner=hadoop group=hadoop mode=0755&amp;quot; ansible all -m unarchive -a &amp;quot;src=https://stanleylfc.github.io/opt/hadoop-2.7.7.tar.gz dest=/opt/ copy=no mode=0755&amp;quot; ansible all -m file -a &amp;quot;path=/root/hadoop/dfs/name state=directory mode=755&amp;quot; ansible all -m command -a &amp;quot;&amp;quot; 3.ansible playbook 4.ansible变量详解 5.ansible Task 任务控制 6.ansible jinja2 7.ansible Roels构建中线企业集群架构</description>
+    </item>
+    
+  </channel>
+</rss>

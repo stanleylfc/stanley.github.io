@@ -12,11 +12,20 @@
     
     
     <item>
-      <title>git 实战（二）| git 提交分支</title>
-      <link>https://stanleylfc.github.io/post/git/2020-04-22-git-%E4%BD%BF%E7%94%A8%E8%A7%84%E8%8C%83/</link>
+      <title>git 实战（一）| git 基本命令</title>
+      <link>https://stanleylfc.github.io/post/%E7%BC%96%E7%A8%8B/git/2020-05-21-git-%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4/</link>
       <pubDate>Tue, 21 Apr 2020 21:00:00 +0800</pubDate>
       
-      <guid>https://stanleylfc.github.io/post/git/2020-04-22-git-%E4%BD%BF%E7%94%A8%E8%A7%84%E8%8C%83/</guid>
+      <guid>https://stanleylfc.github.io/post/%E7%BC%96%E7%A8%8B/git/2020-05-21-git-%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4/</guid>
+      <description>1 查看分支 git branch 2 切换到master分支 git checkout master 3 查看标签 $ git tag -a v1.4 -m &amp;quot;my version 1.4&amp;quot; $ git tag v1.3.3 v1.3.4 v1.3.5 $ git show tagname 4 查看某个标签的详情 git show v1.3.5 commit fb479960c0cec5549463ae123d70bdd72ccf6be7 5 通过commit id回退 git reset &amp;ndash;hard fb479960c0cec5549463ae123d70bdd72ccf6be7 6 显示所有提交过的版本信息 git log 7 查看所有分支的所有操作记录 git reflog 8 显示工作目录和暂存区的状态 git status 9 提交远程仓库 git push origin master</description>
+    </item>
+    
+    <item>
+      <title>git 实战（二）| git 提交分支</title>
+      <link>https://stanleylfc.github.io/post/%E7%BC%96%E7%A8%8B/git/2020-04-22-git-%E4%BD%BF%E7%94%A8%E8%A7%84%E8%8C%83/</link>
+      <pubDate>Tue, 21 Apr 2020 21:00:00 +0800</pubDate>
+      
+      <guid>https://stanleylfc.github.io/post/%E7%BC%96%E7%A8%8B/git/2020-04-22-git-%E4%BD%BF%E7%94%A8%E8%A7%84%E8%8C%83/</guid>
       <description>1. Commit message 的格式 每次提交，Commit message 都包括三个部分：Header，Body 和 Footer。 其中，Header 是必需的，Body 和 Footer 可以省略。 不管是哪一个部分，任何一行都不得超过72个字符（或100个字符）。这是为了避免自动换行影响美观。 格式如下： &amp;lt;type&amp;gt;(&amp;lt;scope&amp;gt;):&amp;lt;subject&amp;gt; // 空一行 &amp;lt;body&amp;gt; // 空一行 &amp;lt;footer&amp;gt; 1.1 Header Head</description>
     </item>
     

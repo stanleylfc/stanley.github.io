@@ -6,18 +6,54 @@
     <description>Recent content in linux on stanley的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 03 Apr 2020 09:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 02 Jun 2020 21:00:00 +0800</lastBuildDate>
     
 	<atom:link href="https://stanleylfc.github.io/categories/linux/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>linux 实战（一）| syslog</title>
-      <link>https://stanleylfc.github.io/post/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/2020-05-06-linux-syslog/</link>
-      <pubDate>Fri, 03 Apr 2020 09:00:00 +0800</pubDate>
+      <title>linux 基础实战（一）| linux 基本命令</title>
+      <link>https://stanleylfc.github.io/post/linux/2020-05-10-linux-base/</link>
+      <pubDate>Sun, 10 May 2020 09:00:00 +0800</pubDate>
       
-      <guid>https://stanleylfc.github.io/post/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/2020-05-06-linux-syslog/</guid>
+      <guid>https://stanleylfc.github.io/post/linux/2020-05-10-linux-base/</guid>
+      <description>1. 用户管理 1.1 查询某个用户是否存在 $ id -u root 1.2 用户ssh 免密码失败 $ tail -10f /var/log/secure Authentication refused: bad ownership or modes for file /home/xxxxxx/.ssh/authorized_keys # 解决方法：chmod 600 /home/hadoop/.ssh/authorized_keys 1.3 机器时钟同步 # 安装ntpdate工具 $ yum -y install ntp ntpdate # 设置系统时间与网络时间同步 $ ntpdate 0.asia.pool.ntp.org # 将系统时间写入硬件时间 $ hwclock --systohc 修改时区 # 1.查看当前时区 date -R # 2.修改设置时区 方法</description>
+    </item>
+    
+    <item>
+      <title>linux 调优实战（一）| RocketMQ 调优</title>
+      <link>https://stanleylfc.github.io/post/linux/2020-05-14-linux-%E8%B0%83%E4%BC%98/</link>
+      <pubDate>Sun, 10 May 2020 09:00:00 +0800</pubDate>
+      
+      <guid>https://stanleylfc.github.io/post/linux/2020-05-14-linux-%E8%B0%83%E4%BC%98/</guid>
+      <description>1.RocketMQ集群进行OS内核参数调整 1.1 vm.max_map_count 中间件系统可以开启的线程的数量 默认值是65536， 建议可以把这个参数调大10倍，比如655360这样的值，保证中间件可以开启足够多的线程。 $ echo &#39;vm.max_map_count=655360&#39; &amp;gt;&amp;gt; /etc/sysctl.conf 1.2 vm.swappiness $ echo &#39;vm.swappiness=10&#39; &amp;gt;&amp;gt; /etc/sysctl.conf 1.3 vm.overcommit_memory 中间件系统申请内存的时候，os内核会检查可用内存是否足够 vm.overcommit_memory 这个参数</description>
+    </item>
+    
+    <item>
+      <title>linux 服务实战（二）| syslog</title>
+      <link>https://stanleylfc.github.io/post/linux/2020-05-08-linux-sshd/</link>
+      <pubDate>Fri, 08 May 2020 09:00:00 +0800</pubDate>
+      
+      <guid>https://stanleylfc.github.io/post/linux/2020-05-08-linux-sshd/</guid>
+      <description>1. 系统中的ssh与sshd服务 1.1 概念简介 openssh在主机中开启了openssh服务，那么就对外开放了远程连接的接口 1.2 架构模式 openssh的服务端：sshd openssh的客户端：ssh 2. 服务端 查看sshd服务状态 service sshd status 停止sshd服务 service sshd stop 启动sshd服务 service sshd start 2.1 修改端口 默</description>
+    </item>
+    
+    <item>
+      <title>linux 服务实战（三）| syslog</title>
+      <link>https://stanleylfc.github.io/post/linux/2020-05-06-linux-syslog/</link>
+      <pubDate>Wed, 06 May 2020 09:00:00 +0800</pubDate>
+      
+      <guid>https://stanleylfc.github.io/post/linux/2020-05-06-linux-syslog/</guid>
       <description>1. 安装 一般来说centos都自带了rsyslog, 通过源码包来安装 源码包下载地址:http://www.rsyslog.com/downloads/download-v8-stable/ 使用yum sudo yum install rsyslog 2. 开启我们的rsyslog远程服务 2.1 编辑配置文件 sudo vim /etc/rsyslog.conf 并将以下注释打开 # Provides UDP</description>
+    </item>
+    
+    <item>
+      <title>linux 服务实战（一）| Systemd</title>
+      <link>https://stanleylfc.github.io/post/linux/2020-05-03-linux-systemd/</link>
+      <pubDate>Sun, 03 May 2020 09:00:00 +0800</pubDate>
+      
+      <guid>https://stanleylfc.github.io/post/linux/2020-05-03-linux-systemd/</guid>
+      <description>1. 配置文件 1.1 查看配置文件 $ systemctl cat sshd.service [Unit] Description=OpenSSH server daemon Documentation=man:sshd(8) man:sshd_config(5) After=network.target sshd-keygen.service Wants=sshd-keygen.service [Service] EnvironmentFile=/etc/sysconfig/sshd ExecStart=/usr/sbin/sshd -D $OPTIONS ExecReload=/bin/kill -HUP $MAINPID Type=simple KillMode=process Restart=on-failure RestartSec=42s [Install] WantedBy=multi-user.target 1.2 [Unit] 区块：启动顺序与依赖关系 After字段：表示如果network.target或sshd-keygen.service需要启动，那么sshd.service应该在它们之后启动。 Wants字段：表示ss</description>
     </item>
     
   </channel>

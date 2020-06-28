@@ -1,0 +1,407 @@
+<!doctype html>
+<html lang="en-us">
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>webStorm 实战（一）| webStorm | stanley的博客</title>
+    <meta property="og:title" content="webStorm 实战（一）| webStorm - stanley的博客">
+    <meta property="og:type" content="article">
+        
+    <meta property="article:published_time" content='2020-04-23T09:00:00&#43;08:00'>
+        
+        
+    <meta property="article:modified_time" content='2020-04-23T09:00:00&#43;08:00'>
+        
+    <meta name="Keywords" content="golang,go语言,go语言笔记,项目管理,python,软件架构,数据分析">
+    <meta name="description" content="webStorm 实战（一）| webStorm">
+        
+    <meta name="author" content="">
+    <meta property="og:url" content="https://stanleylfc.github.io/post/%E7%BC%96%E7%A8%8B/web%E5%89%8D%E7%AB%AF/2020-05-12-vue-webstorm/">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href='/css/normalize.css'>
+    <link rel="stylesheet" href='/css/style.css'>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+    (adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-4031353640611810",
+        enable_page_level_ads: true
+    });
+    </script>
+    
+
+
+    
+    
+        <link rel="stylesheet" href='/css/douban.css'>
+    
+        <link rel="stylesheet" href='/css/other.css'>
+    
+</head>
+
+
+<body>
+    <header id="header" class="clearfix">
+    <div class="container">
+        <div class="col-group">
+            <div class="site-name ">
+                
+                    <a id="logo" href="https://stanleylfc.github.io">
+                        stanley的博客
+                    </a>
+                
+                <p class="description">专注于Python、Go语言(golang)、项目管理、软件架构、数据分析</p>
+            </div>
+            <div>
+                <nav id="nav-menu" class="clearfix">
+                    <a class="current" href="https://stanleylfc.github.io">首页</a>
+                    
+                    <a  href="https://stanleylfc.github.io/tools/" title="工具">工具</a>
+                    
+                    <a  href="https://stanleylfc.github.io/archives/" title="归档">归档</a>
+                    
+                    <a  href="https://stanleylfc.github.io/about/" title="关于">关于</a>
+                    
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+
+    <div id="body">
+        <div class="container">
+            <div class="col-group">
+
+                <div class="col-8" id="main">
+                    
+<div class="res-cons">
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">webStorm 实战（一）| webStorm</h1>
+        </header>
+        <date class="post-meta meta-date">
+            2020年4月23日
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://stanleylfc.github.io/categories/webStorm'>webStorm</a></span>
+            
+        </div>
+        
+        
+        <div class="post-meta">
+            <span id="busuanzi_container_page_pv">|<span id="busuanzi_value_page_pv"></span><span>
+                    阅读</span></span>
+        </div>
+        
+        
+        <div class="post-content">
+            <h2 id="1新版webstorm-tab键的缩进问题">1.新版WebStorm Tab键的缩进问题</h2>
+<p>以前WebStorm设置好code style中的Tab size 和indent后就会默认是这个设置的值,但是新版的WebStorm出现了一个怪现象,无论如何设置Tab size 和indent, tab的缩进永远都是2个字符,让习惯了4个字符缩进的开发者十分别扭,很不适应,</p>
+<p>在这里插入图片描述</p>
+<p>即使取消掉indents detection检测,也无济于事,让人感觉很别扭</p>
+<p>在这里插入图片描述</p>
+<p>把project下运行时产生的缓存.idea目录删除了还是不可以, 而让人更奇怪的事，所有新建的项目以及部分旧的项目所有tabsize都是settings设置的4个长度, 也无济于事。</p>
+<p>这时发现有问题的项目目录下有一个.editorconfig文件, 再仔细看看偏好设置中有个EditorConfig选项
+取消勾选,或者修改.editorconfig的indent_size值即可</p>
+<p>在这里插入图片描述</p>
+<p>在这里插入图片描述</p>
+<p>indent_size = 2 改 indent_size = 4 以后代码缩进全变回4个空格缩进长度了。。。</p>
+<p>在这里插入图片描述
+新版WebStorm开始对editorconfig支持
+项目是我用老版webstrom时生成的，这个项目带了一个.editorconfig文件，然而之前我一直使用老版WebStorm，所以这个配置文件对我的设置没有任何影响。而当我升级到新版WebStorm的了以后, WebStorm开始支持editorconfig，于是项目下的.editorconfig生效并且优先权利大过我的settings配置，于是就出现了明明在settings里配置tabsize=4但实际还是以tabsize=2的大小格式化代码缩进。</p>
+<h2 id="2ctrlaltl格式化js代码或格式化vue代码后单引号变成双引号以及添加分号设置问题">2.Ctrl+Alt+L格式化JS代码或格式化Vue代码后，单引号变成双引号，以及添加分号设置问题</h2>
+<p>解决方法：</p>
+<p>编辑器左上角开始：File -&gt; Settings -&gt; Editor -&gt; Code Style -&gt; Javascript</p>
+<p>1、在 Punctuation （标点符号）tab下</p>
+<p>2、Don&rsquo;t use（不使用） semicolon（分号） to terminate statement in new code</p>
+<p>3、Use single quotes（单引号） in new code</p>
+<h2 id="3tab空格用2个space">3.tab空格用2个space</h2>
+<h2 id="4格式化vue-importexport">4.格式化vue import&amp;export</h2>
+<ul>
+<li>是否可以在WebStorm的自动导入功能中在导入和大括号之间添加空格？</li>
+</ul>
+<pre><code>import {AbstractControl} from '@angular/forms';
+import { AbstractControl } from '@angular/forms';
+</code></pre><p><img src="/assets/webstorm.png" alt="webstorm.png"></p>
+
+        </div>
+
+        
+
+
+        
+
+<div class="post-archive">
+    <h2>See Also</h2>
+    <ul class="listing">
+        
+        <li><a href="/post/%E7%BC%96%E7%A8%8B/web%E5%89%8D%E7%AB%AF/vue/2020-04-23-vue-base/">vue 实战（一）| vue</a></li>
+        
+        <li><a href="/post/%E7%BC%96%E7%A8%8B/web%E5%89%8D%E7%AB%AF/vue/2020-04-26-vue-vuecli/">vue 实战（三）| vuecli</a></li>
+        
+        <li><a href="/post/%E7%BC%96%E7%A8%8B/git/2020-05-21-git-%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4/">git 实战（一）| git 基本命令</a></li>
+        
+        <li><a href="/post/%E7%BC%96%E7%A8%8B/git/2020-04-22-git-%E4%BD%BF%E7%94%A8%E8%A7%84%E8%8C%83/">git 实战（二）| git 提交分支</a></li>
+        
+        <li><a href="/post/%E7%BC%96%E7%A8%8B/golang/2020-04-16-golang-%E5%86%85%E5%AD%98%E8%AF%A6%E8%A7%A3/">go 实战（七）| 内存详解</a></li>
+        
+    </ul>
+</div>
+
+
+        <div class="post-meta meta-tags">
+            
+            <ul class="clearfix">
+                
+                <li><a href='https://stanleylfc.github.io/tags/webStorm'>webStorm</a></li>
+                
+            </ul>
+            
+        </div>
+    </article>
+    
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "stanley" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+    
+    
+    <div class="post bg-white">
+      <script src="https://utteranc.es/client.js"
+            repo= "https://github.com/stanleylfc/stanleylfc.github.io.git"
+            issue-term="pathname"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+      </script>
+    </div>
+    
+</div>
+
+                </div>
+
+                <div id="secondary">
+    <section class="widget">
+        <form id="search" action='https://stanleylfc.github.io/search/' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
+      
+      <input type="text" name="q" maxlength="20" placeholder="Search">
+      <input type="hidden" name="sitesearch" value="https://stanleylfc.github.io">
+      <button type="submit" class="submit icon-search"></button>
+</form>
+    </section>
+    
+    <section class="widget">
+        <h3 class="widget-title">最近文章</h3>
+<ul class="widget-list">
+    
+    <li>
+        <a href="https://stanleylfc.github.io/post/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%B8%88/2020-06-03-bigquery-command/" title="bigquery 实战（二）| bigquery 命令">bigquery 实战（二）| bigquery 命令</a>
+    </li>
+    
+    <li>
+        <a href="https://stanleylfc.github.io/post/%E8%BF%90%E7%BB%B4/2020-05-09-linux%E8%BF%90%E7%BB%B4-jenkins/" title="Linux运维 实战（二）| jenkins">Linux运维 实战（二）| jenkins</a>
+    </li>
+    
+    <li>
+        <a href="https://stanleylfc.github.io/post/%E7%BC%96%E7%A8%8B/golang/2020-06-01-golang-goland/" title="go 实战（一）| go goloand">go 实战（一）| go goloand</a>
+    </li>
+    
+    <li>
+        <a href="https://stanleylfc.github.io/post/%E8%BF%90%E7%BB%B4/2020-06-01-linux%E8%BF%90%E7%BB%B4-promethus/" title="Linux运维 实战（五）| promethus">Linux运维 实战（五）| promethus</a>
+    </li>
+    
+    <li>
+        <a href="https://stanleylfc.github.io/post/%E8%BF%90%E7%BB%B4/2019-12-20-linux%E8%BF%90%E7%BB%B4-rsyslog/" title="Linux运维 实战（六）| rsyslog">Linux运维 实战（六）| rsyslog</a>
+    </li>
+    
+    <li>
+        <a href="https://stanleylfc.github.io/post/%E8%BF%90%E7%BB%B4/2020-06-01-linux%E8%BF%90%E7%BB%B4-grafana/" title="Linux运维 实战（四）| grafana">Linux运维 实战（四）| grafana</a>
+    </li>
+    
+    <li>
+        <a href="https://stanleylfc.github.io/post/%E8%BF%90%E7%BB%B4/2019-12-15-linux%E8%BF%90%E7%BB%B4-fluentd/" title="Linux运维 实战（三）| fluentd">Linux运维 实战（三）| fluentd</a>
+    </li>
+    
+    <li>
+        <a href="https://stanleylfc.github.io/post/%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8/2020-05-19-redis-cluster/" title="redis 实战（一）| redis 集群搭建">redis 实战（一）| redis 集群搭建</a>
+    </li>
+    
+    <li>
+        <a href="https://stanleylfc.github.io/post/%E4%B8%AD%E9%97%B4%E4%BB%B6/2020-05-22-rocketmq-rocket-%E4%BF%9D%E8%AF%81%E6%B6%88%E6%81%AF%E4%B8%8D%E4%B8%A2%E5%A4%B1/" title="rocket 实战（三）| RocketMQ保证消息不丢失">rocket 实战（三）| RocketMQ保证消息不丢失</a>
+    </li>
+    
+    <li>
+        <a href="https://stanleylfc.github.io/post/%E7%BC%96%E7%A8%8B/java/2020-05-22-java-spring-boot/" title="java sprint boot实战（一）| ">java sprint boot实战（一）| </a>
+    </li>
+    
+</ul>
+    </section>
+
+    
+
+    <section class="widget">
+        <h3 class="widget-title">分类</h3>
+<ul class="widget-list">
+    
+    <li><a href="https://stanleylfc.github.io/categories/Linux%E8%BF%90%E7%BB%B4/">Linux运维 (6)</a></li>
+    
+    <li><a href="https://stanleylfc.github.io/categories/Python/">Python (5)</a></li>
+    
+    <li><a href="https://stanleylfc.github.io/categories/bigquery/">bigquery (1)</a></li>
+    
+    <li><a href="https://stanleylfc.github.io/categories/es6/">es6 (5)</a></li>
+    
+    <li><a href="https://stanleylfc.github.io/categories/git/">git (2)</a></li>
+    
+    <li><a href="https://stanleylfc.github.io/categories/go/">go (8)</a></li>
+    
+    <li><a href="https://stanleylfc.github.io/categories/goloand/">goloand (1)</a></li>
+    
+    <li><a href="https://stanleylfc.github.io/categories/hadoop/">hadoop (3)</a></li>
+    
+    <li><a href="https://stanleylfc.github.io/categories/java/">java (1)</a></li>
+    
+    <li><a href="https://stanleylfc.github.io/categories/linux/">linux (5)</a></li>
+    
+    <li><a href="https://stanleylfc.github.io/categories/linux-%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/">linux 网络编程 (2)</a></li>
+    
+    <li><a href="https://stanleylfc.github.io/categories/redis/">redis (2)</a></li>
+    
+    <li><a href="https://stanleylfc.github.io/categories/spring-boot/">spring boot (1)</a></li>
+    
+    <li><a href="https://stanleylfc.github.io/categories/vmware/">vmware (2)</a></li>
+    
+    <li><a href="https://stanleylfc.github.io/categories/vue/">vue (5)</a></li>
+    
+    <li><a href="https://stanleylfc.github.io/categories/webStorm/">webStorm (1)</a></li>
+    
+    <li><a href="https://stanleylfc.github.io/categories/%E5%BE%AE%E7%A7%AF%E5%88%86/">微积分 (2)</a></li>
+    
+    <li><a href="https://stanleylfc.github.io/categories/%E6%94%B6%E8%97%8F/">收藏 (1)</a></li>
+    
+    <li><a href="https://stanleylfc.github.io/categories/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/">消息队列 (1)</a></li>
+    
+</ul>
+    </section>
+
+    <section class="widget">
+        <h3 class="widget-title">标签</h3>
+<div class="tagcloud">
+    
+    <a href="https://stanleylfc.github.io/tags/Linux%E8%BF%90%E7%BB%B4/">Linux运维</a>
+    
+    <a href="https://stanleylfc.github.io/tags/bigquery/">bigquery</a>
+    
+    <a href="https://stanleylfc.github.io/tags/es6/">es6</a>
+    
+    <a href="https://stanleylfc.github.io/tags/git/">git</a>
+    
+    <a href="https://stanleylfc.github.io/tags/go/">go</a>
+    
+    <a href="https://stanleylfc.github.io/tags/goloand/">goloand</a>
+    
+    <a href="https://stanleylfc.github.io/tags/hadoop/">hadoop</a>
+    
+    <a href="https://stanleylfc.github.io/tags/java/">java</a>
+    
+    <a href="https://stanleylfc.github.io/tags/linux/">linux</a>
+    
+    <a href="https://stanleylfc.github.io/tags/linux-%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/">linux 网络编程</a>
+    
+    <a href="https://stanleylfc.github.io/tags/python/">python</a>
+    
+    <a href="https://stanleylfc.github.io/tags/redis/">redis</a>
+    
+    <a href="https://stanleylfc.github.io/tags/spring-boot/">spring boot</a>
+    
+    <a href="https://stanleylfc.github.io/tags/vmware/">vmware</a>
+    
+    <a href="https://stanleylfc.github.io/tags/vue/">vue</a>
+    
+    <a href="https://stanleylfc.github.io/tags/webStorm/">webStorm</a>
+    
+    <a href="https://stanleylfc.github.io/tags/%E5%BE%AE%E7%A7%AF%E5%88%86/">微积分</a>
+    
+    <a href="https://stanleylfc.github.io/tags/%E6%94%B6%E8%97%8F/">收藏</a>
+    
+    <a href="https://stanleylfc.github.io/tags/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/">消息队列</a>
+    
+</div>
+    </section>
+
+    
+
+    <section class="widget">
+        <h3 class="widget-title">其它</h3>
+        <ul class="widget-list">
+            <li><a href="https://stanleylfc.github.io/index.xml">文章 RSS</a></li>
+        </ul>
+    </section>
+</div>
+            </div>
+        </div>
+    </div>
+    <footer id="footer">
+    <div class="container">
+        &copy; 2020 <a href="https://stanleylfc.github.io">stanley的博客 By </a>.
+        Powered by <a rel="nofollow noreferer noopener" href="https://gohugo.io" target="_blank">Hugo</a>.
+        <a href="https://www.flysnow.org/" target="_blank">Theme</a> based on <a href="https://github.com/flysnow-org/maupassant-hugo" target="_blank">maupassant</a>.
+        
+    </div>
+</footer>
+
+
+    
+    <script type="text/javascript">
+        window.MathJax = {
+            tex2jax: {
+                inlineMath: [['$', '$']],
+                processEscapes: true
+                }
+            };
+    </script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
+
+
+<a id="rocket" href="#top"></a>
+<script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>
+
+
+
+    <script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
+
+
+
+
+    <script src='/js/douban.js'></script>
+
+</body>
+
+</html>

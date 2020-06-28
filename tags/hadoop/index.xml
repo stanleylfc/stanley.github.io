@@ -6,27 +6,36 @@
     <description>Recent content in hadoop on stanley的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 21 Apr 2020 21:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 30 Apr 2020 21:00:00 +0800</lastBuildDate>
     
 	<atom:link href="https://stanleylfc.github.io/tags/hadoop/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>hadoop 实战（一）| hadoop 安装</title>
-      <link>https://stanleylfc.github.io/post/%E5%A4%A7%E6%95%B0%E6%8D%AE/2020-04-27-hadoop2.7.7%E5%AE%89%E8%A3%85/</link>
-      <pubDate>Tue, 21 Apr 2020 21:00:00 +0800</pubDate>
+      <title>hadoop 实战（二）| hive 安装</title>
+      <link>https://stanleylfc.github.io/post/%E5%A4%A7%E6%95%B0%E6%8D%AE/2020-04-30-hive/</link>
+      <pubDate>Thu, 30 Apr 2020 21:00:00 +0800</pubDate>
       
-      <guid>https://stanleylfc.github.io/post/%E5%A4%A7%E6%95%B0%E6%8D%AE/2020-04-27-hadoop2.7.7%E5%AE%89%E8%A3%85/</guid>
-      <description>1.环境准备 1.1 服务器规划 # -u root -p centosdata 172.16.232.130 centos701 172.16.232.131 centos702 172.16.232.132 centos703 1.2 关闭所有服务器的防火墙 systemctl stop firewalld.service # 停止firewall。 systemctl disable firewalld.service # 禁止firewall开机启动。 firewall-cmd --state # 查看默认防火墙装状态(关闭后显示notrunning, 开启显示running)。 1.3 关闭服务器的SLNEX vim /etc/selinux/config SELINUX=disabled 1.4 服务器ssh 安装 所有服务</description>
+      <guid>https://stanleylfc.github.io/post/%E5%A4%A7%E6%95%B0%E6%8D%AE/2020-04-30-hive/</guid>
+      <description>1. hive 介绍与安装 1.6 Hive提示警告SSL 是hive的配置文件是.XML格式，而在xml文件中&amp;amp;amp；才表示&amp;amp; &amp;lt;property&amp;gt; &amp;lt;name&amp;gt;javax.jdo.option.ConnectionURL&amp;lt;/name&amp;gt; &amp;lt;value&amp;gt;jdbc:mysql://localhost:3306/hive?createDatabaseIfNotExist=true&amp;amp;amp;useSSL=false&amp;lt;/value&amp;gt; &amp;lt;description&amp;gt;JDBC connect string for a JDBC metastore&amp;lt;/description&amp;gt; &amp;lt;/property&amp;gt; 2. hive 使用命令 2.1 hive 启动 [hadoop@centos702 apache-hive]$ ./bin/hive 2.2 命令显示所有数据库 hive&amp;gt; show databases; 2.3 退出hive hive&amp;gt; quit; 3. hive DDL 3.1 显示表和创建表 hive&amp;gt; use db_hive hive&amp;gt; show tables; hive&amp;gt; create table pokes(foo int,bar string); 3.2 插入数据 hive&amp;gt; insert into pokes(foo,bar)</description>
     </item>
     
     <item>
       <title>hadoop 实战（一）| hadoop 安装</title>
-      <link>https://stanleylfc.github.io/post/%E5%A4%A7%E6%95%B0%E6%8D%AE/2020-04-27-live2.7.7%E5%AE%89%E8%A3%85/</link>
-      <pubDate>Tue, 21 Apr 2020 21:00:00 +0800</pubDate>
+      <link>https://stanleylfc.github.io/post/%E5%A4%A7%E6%95%B0%E6%8D%AE/2020-04-27-hadoop/</link>
+      <pubDate>Mon, 27 Apr 2020 21:00:00 +0800</pubDate>
       
-      <guid>https://stanleylfc.github.io/post/%E5%A4%A7%E6%95%B0%E6%8D%AE/2020-04-27-live2.7.7%E5%AE%89%E8%A3%85/</guid>
-      <description>1.环境准备 1.1 服务器规划 # -u root -p centosdata 172.16.232.130 centos701 172.16.232.131 centos702 172.16.232.132 centos703 1.2 关闭所有服务器的防火墙 systemctl stop firewalld.service # 停止firewall。 systemctl disable firewalld.service # 禁止firewall开机启动。 firewall-cmd --state # 查看默认防火墙装状态(关闭后显示notrunning, 开启显示running)。 1.3 关闭服务器的SLNEX vim /etc/selinux/config SELINUX=disabled 1.4 服务器ssh 安装 所有服务</description>
+      <guid>https://stanleylfc.github.io/post/%E5%A4%A7%E6%95%B0%E6%8D%AE/2020-04-27-hadoop/</guid>
+      <description>1.环境准备 1.1 服务器规划 # -u root -p centosdata 172.16.232.130 centos701 172.16.232.131 centos702 172.16.232.132 centos703 1.2 关闭所有服务器的防火墙 systemctl stop firewalld.service # 停止firewall。 systemctl disable firewalld.service # 禁止firewall开机启动。 firewall-cmd --state # 查看默认防火墙装状态(关闭后显示notrunning, 开启显示running)。 ansible all -m shell -a &#39;firewall-cmd --state&#39; 1.3 关闭服务器的SLNEX vim /etc/selinux/config SELINUX=disabled 1.4 配置时间同</description>
+    </item>
+    
+    <item>
+      <title>hadoop 实战（三）| redis cluster 安装</title>
+      <link>https://stanleylfc.github.io/post/%E6%94%B6%E8%97%8F/2020-05-07-redis-cluster%E5%AE%89%E8%A3%85/</link>
+      <pubDate>Mon, 27 Apr 2020 21:00:00 +0800</pubDate>
+      
+      <guid>https://stanleylfc.github.io/post/%E6%94%B6%E8%97%8F/2020-05-07-redis-cluster%E5%AE%89%E8%A3%85/</guid>
+      <description>Redis Cluster的两种搭建和简单使用 Redis Cluster是Redis官方的一个高可用分布式解决方案。Redis Cluster中共有2 ^ 14（16384）个槽，创建集群后，需要将这些槽均分给各个节点。 准备节点 节点配置 Redis集群一般由多个节点组成，节点数量至少为 6 个，才能保证组成完整</description>
     </item>
     
   </channel>

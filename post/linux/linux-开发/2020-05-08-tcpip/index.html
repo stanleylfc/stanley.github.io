@@ -1,0 +1,493 @@
+<!doctype html>
+<html lang="en-us">
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>linux 网络编程实战（一））| tcpip | stanley的博客</title>
+    <meta property="og:title" content="linux 网络编程实战（一））| tcpip - stanley的博客">
+    <meta property="og:type" content="article">
+        
+    <meta property="article:published_time" content='2020-05-08T21:00:00&#43;08:00'>
+        
+        
+    <meta property="article:modified_time" content='2020-05-08T21:00:00&#43;08:00'>
+        
+    <meta name="Keywords" content="golang,go语言,go语言笔记,项目管理,python,软件架构,数据分析">
+    <meta name="description" content="linux 网络编程实战（一））| tcpip">
+        
+    <meta name="author" content="">
+    <meta property="og:url" content="https://stanleylfc.github.io/post/linux/linux-%E5%BC%80%E5%8F%91/2020-05-08-tcpip/">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href='/css/normalize.css'>
+    <link rel="stylesheet" href='/css/style.css'>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+    (adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-4031353640611810",
+        enable_page_level_ads: true
+    });
+    </script>
+    
+
+
+    
+    
+        <link rel="stylesheet" href='/css/douban.css'>
+    
+        <link rel="stylesheet" href='/css/other.css'>
+    
+</head>
+
+
+<body>
+    <header id="header" class="clearfix">
+    <div class="container">
+        <div class="col-group">
+            <div class="site-name ">
+                
+                    <a id="logo" href="https://stanleylfc.github.io">
+                        stanley的博客
+                    </a>
+                
+                <p class="description">专注于Python、Go语言(golang)、项目管理、软件架构、数据分析</p>
+            </div>
+            <div>
+                <nav id="nav-menu" class="clearfix">
+                    <a class="current" href="https://stanleylfc.github.io">首页</a>
+                    
+                    <a  href="https://stanleylfc.github.io/tools/" title="工具">工具</a>
+                    
+                    <a  href="https://stanleylfc.github.io/archives/" title="归档">归档</a>
+                    
+                    <a  href="https://stanleylfc.github.io/about/" title="关于">关于</a>
+                    
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+
+    <div id="body">
+        <div class="container">
+            <div class="col-group">
+
+                <div class="col-8" id="main">
+                    
+<div class="res-cons">
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">linux 网络编程实战（一））| tcpip</h1>
+        </header>
+        <date class="post-meta meta-date">
+            2020年5月8日
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://stanleylfc.github.io/categories/linux-%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B'>linux 网络编程</a></span>
+            
+        </div>
+        
+        
+        <div class="post-meta">
+            <span id="busuanzi_container_page_pv">|<span id="busuanzi_value_page_pv"></span><span>
+                    阅读</span></span>
+        </div>
+        
+        
+        <div class="post-content">
+            <h2 id="2-以太网帧格式">2. 以太网帧格式</h2>
+<h3 id="21-以太网的封装格式rfc-894">2.1 以太网的封装格式（RFC 894)</h3>
+<p>| 目的地址 6 | 源地址 6 | 类型 2 | 数据 [46 1500] | CRC 4 |</p>
+<pre><code>数据 长度至少46字节 最多1500字节 最大传输单元MTU / 路径 MTU
+发送端：封装 打上对应层的协议
+接收端：分用（解封）
+
+</code></pre><h4 id="211-类型和数据分解">2.1.1 类型和数据分解</h4>
+<p>ip数据报（MTU)：  | 类型0800 | ip 数据报 [46 1500]   |
+ARP数据报： | 类型0806 | ARP 请求/应答 28  | PAD 18 |
+RARP数据报：| 类型8035 | RARP 请求/应答 28  | PAD 18 |</p>
+<h4 id="212-用于以太网的arp请求或应答分组格式">2.1.2 用于以太网的ARP请求或应答分组格式</h4>
+<p>| 以太网目的地址 6 | 以太网源目的地址 6 | 帧类型 2 | 硬件类型 2 | 协议类型 2 |硬件地址长度 | 协议地址长度|op|发送端以太网地址 | 发送端IP地址 | 目的以太网地址 | 目的IP地址 |</p>
+<ul>
+<li>以太网首部： | 以太网目的地址 6 | 以太网源目的地址 6 | 帧类型 2 |</li>
+<li>28字节ARP请求应答： | 硬件类型 2 | 协议类型 2 |硬件地址长度 | 协议地址长度|op| 发送端以太网地址 | 发送端IP地址 | 目的以太网地址 | 目的IP地址 |</li>
+</ul>
+<h2 id="3-icmp-协议-ip网络层">3. ICMP 协议 （ip网络层）</h2>
+<p>用于传递差错信息、时间、回显、网络信息等控制数据</p>
+<pre><code>    ip地址解析mac地址失败回传给源端 发送ICMP协议
+    ping 将数据封装成ICMP协议
+</code></pre><h3 id="31-icmp报文在ip报文中的位置">3.1 ICMP报文在IP报文中的位置</h3>
+<p>|ip头部| ICMP报文 |</p>
+<h3 id="32-icmp-报文的数据格式">3.2 ICMP 报文的数据格式</h3>
+<p>|类型 8位 | 代码 8位| 校验和16位 |</p>
+<h3 id="33-类型和代码">3.3 类型和代码</h3>
+<table>
+<thead>
+<tr>
+<th align="center">类型</th>
+<th align="center">代码</th>
+<th align="center">描述</th>
+<th align="center">查询</th>
+<th align="center">差错</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">回显应答（ping 应答）</td>
+<td align="center">*</td>
+<td></td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="center">0</td>
+<td align="center">网络不可达</td>
+<td align="center"></td>
+<td align="center">*</td>
+</tr>
+<tr>
+<td align="center">&hellip;</td>
+<td align="center">&hellip;</td>
+<td align="center">&hellip;</td>
+<td align="center">&hellip;</td>
+<td align="center">&hellip;</td>
+</tr>
+</tbody>
+</table>
+<h2 id="4-arp-协议">4. ARP 协议</h2>
+<ul>
+<li>映射IP地址到MAC地址</li>
+<li>ARP 缓存</li>
+</ul>
+<pre><code>地址解析过程：
+1.ARP缓冲区中有映射地址
+2.1 有 跳转到8
+2.2 没有 发出广播请求包
+3 每台机器都收到并打开上传到网络层
+4 是否发送给自己吗？
+5.1 不是 放弃
+5.2 回复 ARP 请求
+6 把源的mac 加入到ARP缓冲区中
+7 源收到回复包，并往ARP缓存区中加入条目
+8 Mac
+9 源IP 按目标MAC 发送数据并等待回应
+</code></pre><h3 id="41-数据在网络中传输过程">4.1 数据在网络中传输过程</h3>
+<h2 id="5-rarp协议">5. RARP协议</h2>
+<h2 id="6网络层">6.网络层</h2>
+<h3 id="61-ip数据报格式">6.1 IP数据报格式</h3>
+<h3 id="62-ip首部网际校验和">6.2 ip首部网际校验和</h3>
+<pre><code>IP首部（不含校验和）反码 + 0x1111 = 发送端校验和
+
+IP首部 = IP首部（不含校验和） + 发送端校验和
+
+IP首部（不含校验和）反码  + 发送端校验和反码 = 接收端校验和
+</code></pre><h3 id="63-路由表查看">6.3 路由表查看</h3>
+<pre><code>route -n 
+</code></pre><h3 id="64-路由表搜索">6.4 路由表搜索</h3>
+<ul>
+<li>搜索匹配的主机地址</li>
+<li>搜索网络地址</li>
+<li>搜索默认表项</li>
+</ul>
+<h3 id="64-路由过程">6.4 路由过程</h3>
+<h2 id="7传输层">7.传输层</h2>
+<h3 id="71-tcp">7.1 tcp</h3>
+<h3 id="72-udp">7.2 udp</h3>
+<ul>
+<li>无连接</li>
+<li>不可靠</li>
+<li>UPD 更加高效</li>
+</ul>
+<h4 id="721-udp-报文格式">7.2.1 UDP 报文格式</h4>
+<ul>
+<li>UDP 数据在IP 数据的位置<br>
+| IP头部（20字节）| UDP头部（8字节）| UDP数据 |</li>
+<li>UDP 数据格式   <br>
+|0-15            |   16-31          |    <br>
+|源端口号(16位)    | 目的端口号 （16位）|
+|UPD数据长度（16） | UPD校验和（16位）  |<br>
+|          数据                     |</li>
+</ul>
+
+        </div>
+
+        
+
+
+        
+
+<div class="post-archive">
+    <h2>See Also</h2>
+    <ul class="listing">
+        
+        <li><a href="/post/%E6%94%B6%E8%97%8F/2020-05-08-%E5%88%86%E5%B8%83%E5%BC%8F%E5%94%AF%E4%B8%80id-%E7%94%9F%E6%88%90%E6%96%B9%E6%A1%88/">文章收藏 （一）| 分布式唯一ID</a></li>
+        
+        <li><a href="/post/linux/2020-05-08-linux-sshd/">linux 服务实战（二）| syslog</a></li>
+        
+        <li><a href="/post/linux/2020-05-06-linux-syslog/">linux 服务实战（三）| syslog</a></li>
+        
+        <li><a href="/post/%E7%BC%96%E7%A8%8B/golang/2020-05-05-golang-probuf/">go 实战（十三）| go probuf</a></li>
+        
+        <li><a href="/post/linux/2020-05-03-linux-systemd/">linux 服务实战（一）| Systemd</a></li>
+        
+    </ul>
+</div>
+
+
+        <div class="post-meta meta-tags">
+            
+            <ul class="clearfix">
+                
+                <li><a href='https://stanleylfc.github.io/tags/linux-%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B'>linux 网络编程</a></li>
+                
+            </ul>
+            
+        </div>
+    </article>
+    
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "stanley" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+    
+    
+    <div class="post bg-white">
+      <script src="https://utteranc.es/client.js"
+            repo= "https://github.com/stanleylfc/stanleylfc.github.io.git"
+            issue-term="pathname"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+      </script>
+    </div>
+    
+</div>
+
+                </div>
+
+                <div id="secondary">
+    <section class="widget">
+        <form id="search" action='https://stanleylfc.github.io/search/' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
+      
+      <input type="text" name="q" maxlength="20" placeholder="Search">
+      <input type="hidden" name="sitesearch" value="https://stanleylfc.github.io">
+      <button type="submit" class="submit icon-search"></button>
+</form>
+    </section>
+    
+    <section class="widget">
+        <h3 class="widget-title">最近文章</h3>
+<ul class="widget-list">
+    
+    <li>
+        <a href="https://stanleylfc.github.io/post/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%B8%88/2020-06-03-bigquery-command/" title="bigquery 实战（二）| bigquery 命令">bigquery 实战（二）| bigquery 命令</a>
+    </li>
+    
+    <li>
+        <a href="https://stanleylfc.github.io/post/%E8%BF%90%E7%BB%B4/2020-05-09-linux%E8%BF%90%E7%BB%B4-jenkins/" title="Linux运维 实战（二）| jenkins">Linux运维 实战（二）| jenkins</a>
+    </li>
+    
+    <li>
+        <a href="https://stanleylfc.github.io/post/%E7%BC%96%E7%A8%8B/golang/2020-06-01-golang-goland/" title="go 实战（一）| go goloand">go 实战（一）| go goloand</a>
+    </li>
+    
+    <li>
+        <a href="https://stanleylfc.github.io/post/%E8%BF%90%E7%BB%B4/2020-06-01-linux%E8%BF%90%E7%BB%B4-promethus/" title="Linux运维 实战（五）| promethus">Linux运维 实战（五）| promethus</a>
+    </li>
+    
+    <li>
+        <a href="https://stanleylfc.github.io/post/%E8%BF%90%E7%BB%B4/2019-12-20-linux%E8%BF%90%E7%BB%B4-rsyslog/" title="Linux运维 实战（六）| rsyslog">Linux运维 实战（六）| rsyslog</a>
+    </li>
+    
+    <li>
+        <a href="https://stanleylfc.github.io/post/%E8%BF%90%E7%BB%B4/2020-06-01-linux%E8%BF%90%E7%BB%B4-grafana/" title="Linux运维 实战（四）| grafana">Linux运维 实战（四）| grafana</a>
+    </li>
+    
+    <li>
+        <a href="https://stanleylfc.github.io/post/%E8%BF%90%E7%BB%B4/2019-12-15-linux%E8%BF%90%E7%BB%B4-fluentd/" title="Linux运维 实战（三）| fluentd">Linux运维 实战（三）| fluentd</a>
+    </li>
+    
+    <li>
+        <a href="https://stanleylfc.github.io/post/%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8/2020-05-19-redis-cluster/" title="redis 实战（一）| redis 集群搭建">redis 实战（一）| redis 集群搭建</a>
+    </li>
+    
+    <li>
+        <a href="https://stanleylfc.github.io/post/%E4%B8%AD%E9%97%B4%E4%BB%B6/2020-05-22-rocketmq-rocket-%E4%BF%9D%E8%AF%81%E6%B6%88%E6%81%AF%E4%B8%8D%E4%B8%A2%E5%A4%B1/" title="rocket 实战（三）| RocketMQ保证消息不丢失">rocket 实战（三）| RocketMQ保证消息不丢失</a>
+    </li>
+    
+    <li>
+        <a href="https://stanleylfc.github.io/post/%E7%BC%96%E7%A8%8B/java/2020-05-22-java-spring-boot/" title="java sprint boot实战（一）| ">java sprint boot实战（一）| </a>
+    </li>
+    
+</ul>
+    </section>
+
+    
+
+    <section class="widget">
+        <h3 class="widget-title">分类</h3>
+<ul class="widget-list">
+    
+    <li><a href="https://stanleylfc.github.io/categories/Linux%E8%BF%90%E7%BB%B4/">Linux运维 (6)</a></li>
+    
+    <li><a href="https://stanleylfc.github.io/categories/Python/">Python (5)</a></li>
+    
+    <li><a href="https://stanleylfc.github.io/categories/bigquery/">bigquery (1)</a></li>
+    
+    <li><a href="https://stanleylfc.github.io/categories/es6/">es6 (5)</a></li>
+    
+    <li><a href="https://stanleylfc.github.io/categories/git/">git (2)</a></li>
+    
+    <li><a href="https://stanleylfc.github.io/categories/go/">go (8)</a></li>
+    
+    <li><a href="https://stanleylfc.github.io/categories/goloand/">goloand (1)</a></li>
+    
+    <li><a href="https://stanleylfc.github.io/categories/hadoop/">hadoop (3)</a></li>
+    
+    <li><a href="https://stanleylfc.github.io/categories/java/">java (1)</a></li>
+    
+    <li><a href="https://stanleylfc.github.io/categories/linux/">linux (5)</a></li>
+    
+    <li><a href="https://stanleylfc.github.io/categories/linux-%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/">linux 网络编程 (2)</a></li>
+    
+    <li><a href="https://stanleylfc.github.io/categories/redis/">redis (2)</a></li>
+    
+    <li><a href="https://stanleylfc.github.io/categories/spring-boot/">spring boot (1)</a></li>
+    
+    <li><a href="https://stanleylfc.github.io/categories/vmware/">vmware (2)</a></li>
+    
+    <li><a href="https://stanleylfc.github.io/categories/vue/">vue (5)</a></li>
+    
+    <li><a href="https://stanleylfc.github.io/categories/webStorm/">webStorm (1)</a></li>
+    
+    <li><a href="https://stanleylfc.github.io/categories/%E5%BE%AE%E7%A7%AF%E5%88%86/">微积分 (2)</a></li>
+    
+    <li><a href="https://stanleylfc.github.io/categories/%E6%94%B6%E8%97%8F/">收藏 (1)</a></li>
+    
+    <li><a href="https://stanleylfc.github.io/categories/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/">消息队列 (1)</a></li>
+    
+</ul>
+    </section>
+
+    <section class="widget">
+        <h3 class="widget-title">标签</h3>
+<div class="tagcloud">
+    
+    <a href="https://stanleylfc.github.io/tags/Linux%E8%BF%90%E7%BB%B4/">Linux运维</a>
+    
+    <a href="https://stanleylfc.github.io/tags/bigquery/">bigquery</a>
+    
+    <a href="https://stanleylfc.github.io/tags/es6/">es6</a>
+    
+    <a href="https://stanleylfc.github.io/tags/git/">git</a>
+    
+    <a href="https://stanleylfc.github.io/tags/go/">go</a>
+    
+    <a href="https://stanleylfc.github.io/tags/goloand/">goloand</a>
+    
+    <a href="https://stanleylfc.github.io/tags/hadoop/">hadoop</a>
+    
+    <a href="https://stanleylfc.github.io/tags/java/">java</a>
+    
+    <a href="https://stanleylfc.github.io/tags/linux/">linux</a>
+    
+    <a href="https://stanleylfc.github.io/tags/linux-%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/">linux 网络编程</a>
+    
+    <a href="https://stanleylfc.github.io/tags/python/">python</a>
+    
+    <a href="https://stanleylfc.github.io/tags/redis/">redis</a>
+    
+    <a href="https://stanleylfc.github.io/tags/spring-boot/">spring boot</a>
+    
+    <a href="https://stanleylfc.github.io/tags/vmware/">vmware</a>
+    
+    <a href="https://stanleylfc.github.io/tags/vue/">vue</a>
+    
+    <a href="https://stanleylfc.github.io/tags/webStorm/">webStorm</a>
+    
+    <a href="https://stanleylfc.github.io/tags/%E5%BE%AE%E7%A7%AF%E5%88%86/">微积分</a>
+    
+    <a href="https://stanleylfc.github.io/tags/%E6%94%B6%E8%97%8F/">收藏</a>
+    
+    <a href="https://stanleylfc.github.io/tags/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/">消息队列</a>
+    
+</div>
+    </section>
+
+    
+
+    <section class="widget">
+        <h3 class="widget-title">其它</h3>
+        <ul class="widget-list">
+            <li><a href="https://stanleylfc.github.io/index.xml">文章 RSS</a></li>
+        </ul>
+    </section>
+</div>
+            </div>
+        </div>
+    </div>
+    <footer id="footer">
+    <div class="container">
+        &copy; 2020 <a href="https://stanleylfc.github.io">stanley的博客 By </a>.
+        Powered by <a rel="nofollow noreferer noopener" href="https://gohugo.io" target="_blank">Hugo</a>.
+        <a href="https://www.flysnow.org/" target="_blank">Theme</a> based on <a href="https://github.com/flysnow-org/maupassant-hugo" target="_blank">maupassant</a>.
+        
+    </div>
+</footer>
+
+
+    
+    <script type="text/javascript">
+        window.MathJax = {
+            tex2jax: {
+                inlineMath: [['$', '$']],
+                processEscapes: true
+                }
+            };
+    </script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
+
+
+<a id="rocket" href="#top"></a>
+<script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>
+
+
+
+    <script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
+
+
+
+
+    <script src='/js/douban.js'></script>
+
+</body>
+
+</html>

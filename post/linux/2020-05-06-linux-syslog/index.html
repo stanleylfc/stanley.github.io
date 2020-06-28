@@ -1,0 +1,617 @@
+<!doctype html>
+<html lang="en-us">
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>linux 服务实战（三）| syslog | stanley的博客</title>
+    <meta property="og:title" content="linux 服务实战（三）| syslog - stanley的博客">
+    <meta property="og:type" content="article">
+        
+    <meta property="article:published_time" content='2020-05-06T09:00:00&#43;08:00'>
+        
+        
+    <meta property="article:modified_time" content='2020-05-06T09:00:00&#43;08:00'>
+        
+    <meta name="Keywords" content="golang,go语言,go语言笔记,项目管理,python,软件架构,数据分析">
+    <meta name="description" content="linux 服务实战（三）| syslog">
+        
+    <meta name="author" content="">
+    <meta property="og:url" content="https://stanleylfc.github.io/post/linux/2020-05-06-linux-syslog/">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href='/css/normalize.css'>
+    <link rel="stylesheet" href='/css/style.css'>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+    (adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-4031353640611810",
+        enable_page_level_ads: true
+    });
+    </script>
+    
+
+
+    
+    
+        <link rel="stylesheet" href='/css/douban.css'>
+    
+        <link rel="stylesheet" href='/css/other.css'>
+    
+</head>
+
+
+<body>
+    <header id="header" class="clearfix">
+    <div class="container">
+        <div class="col-group">
+            <div class="site-name ">
+                
+                    <a id="logo" href="https://stanleylfc.github.io">
+                        stanley的博客
+                    </a>
+                
+                <p class="description">专注于Python、Go语言(golang)、项目管理、软件架构、数据分析</p>
+            </div>
+            <div>
+                <nav id="nav-menu" class="clearfix">
+                    <a class="current" href="https://stanleylfc.github.io">首页</a>
+                    
+                    <a  href="https://stanleylfc.github.io/tools/" title="工具">工具</a>
+                    
+                    <a  href="https://stanleylfc.github.io/archives/" title="归档">归档</a>
+                    
+                    <a  href="https://stanleylfc.github.io/about/" title="关于">关于</a>
+                    
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+
+    <div id="body">
+        <div class="container">
+            <div class="col-group">
+
+                <div class="col-8" id="main">
+                    
+<div class="res-cons">
+    <style type="text/css">
+    .post-toc {
+        position: fixed;
+        width: 200px;
+        margin-left: -210px;
+        padding: 5px 10px;
+        font-family: Athelas, STHeiti, Microsoft Yahei, serif;
+        font-size: 12px;
+        border: 1px solid rgba(0, 0, 0, .07);
+        border-radius: 5px;
+        background-color: rgba(255, 255, 255, 0.98);
+        background-clip: padding-box;
+        -webkit-box-shadow: 1px 1px 2px rgba(0, 0, 0, .125);
+        box-shadow: 1px 1px 2px rgba(0, 0, 0, .125);
+        word-wrap: break-word;
+        white-space: nowrap;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        z-index: 999;
+        cursor: pointer;
+        max-height: 70%;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+
+    .post-toc .post-toc-title {
+        width: 100%;
+        margin: 0 auto;
+        font-size: 20px;
+        font-weight: 400;
+        text-transform: uppercase;
+        text-align: center;
+    }
+
+    .post-toc .post-toc-content {
+        font-size: 15px;
+    }
+
+    .post-toc .post-toc-content>nav>ul {
+        margin: 10px 0;
+    }
+
+    .post-toc .post-toc-content ul {
+        padding-left: 20px;
+        list-style: square;
+        margin: 0.5em;
+        line-height: 1.8em;
+    }
+
+    .post-toc .post-toc-content ul ul {
+        padding-left: 15px;
+        display: none;
+    }
+
+    @media print,
+    screen and (max-width:1057px) {
+        .post-toc {
+            display: none;
+        }
+    }
+</style>
+<div class="post-toc" style="position: absolute; top: 188px;">
+    <h2 class="post-toc-title">文章目录</h2>
+    <div class="post-toc-content">
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#1-安装">1. 安装</a></li>
+    <li><a href="#2-开启我们的rsyslog远程服务">2. 开启我们的rsyslog远程服务</a>
+      <ul>
+        <li><a href="#21-编辑配置文件">2.1 编辑配置文件</a></li>
+        <li><a href="#22-重启服务">2.2 重启服务</a></li>
+        <li><a href="#23-查看端口使用">2.3 查看端口使用</a></li>
+      </ul>
+    </li>
+    <li><a href="#3使用golang-进行连接写入日志">3.使用golang 进行连接写入日志</a></li>
+    <li><a href="#4-rsyslog规则">4. rsyslog规则</a>
+      <ul>
+        <li><a href="#41-默认规则配置">4.1 默认规则配置</a></li>
+        <li><a href="#42-规则解析之选择器">4.2 规则解析之选择器</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        var postToc = $(".post-toc");
+        if (postToc.length) {
+            var leftPos = $("#main").offset().left;
+            if(leftPos<220){
+                postToc.css({"width":leftPos-10,"margin-left":(0-leftPos)})
+            }
+
+            var t = postToc.offset().top - 20,
+                a = {
+                    start: {
+                        position: "absolute",
+                        top: t
+                    },
+                    process: {
+                        position: "fixed",
+                        top: 20
+                    },
+                };
+            $(window).scroll(function () {
+                var e = $(window).scrollTop();
+                e < t ? postToc.css(a.start) : postToc.css(a.process)
+            })
+        }
+    })
+</script>
+    <article class="post">
+        <header>
+            <h1 class="post-title">linux 服务实战（三）| syslog</h1>
+        </header>
+        <date class="post-meta meta-date">
+            2020年5月6日
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://stanleylfc.github.io/categories/linux'>linux</a></span>
+            
+        </div>
+        
+        
+        <div class="post-meta">
+            <span id="busuanzi_container_page_pv">|<span id="busuanzi_value_page_pv"></span><span>
+                    阅读</span></span>
+        </div>
+        
+        
+        <div class="clear" style="display: none">
+            <div class="toc-article">
+                <div class="toc-title">文章目录</div>
+            </div>
+        </div>
+        
+        <div class="post-content">
+            <h2 id="1-安装">1. 安装</h2>
+<ul>
+<li>一般来说centos都自带了rsyslog,</li>
+<li>通过源码包来安装</li>
+</ul>
+<pre><code>源码包下载地址:http://www.rsyslog.com/downloads/download-v8-stable/
+</code></pre><ul>
+<li>使用yum</li>
+</ul>
+<pre><code>sudo yum install rsyslog
+</code></pre><h2 id="2-开启我们的rsyslog远程服务">2. 开启我们的rsyslog远程服务</h2>
+<h3 id="21-编辑配置文件">2.1 编辑配置文件</h3>
+<pre><code>sudo vim /etc/rsyslog.conf
+
+并将以下注释打开
+# Provides UDP syslog reception
+$ModLoad imudp #打开udp模块
+$UDPServerRun 514 #打开udp服务，并监听514端口
+# Provides TCP syslog reception
+$ModLoad imtcp #打开tcp模块
+$InputTCPServerRun 514 #打开tcp服务，并监听514端口
+
+</code></pre><h3 id="22-重启服务">2.2 重启服务</h3>
+<pre><code>sudo service rsyslog restart
+</code></pre><h3 id="23-查看端口使用">2.3 查看端口使用</h3>
+<pre><code>netstat -tunlp
+</code></pre><h2 id="3使用golang-进行连接写入日志">3.使用golang 进行连接写入日志</h2>
+<ul>
+<li>tail -f /var/log/syslog</li>
+</ul>
+<pre><code>sysLog, err := syslog.Dial(&quot;tcp&quot;, &quot;localhost:514&quot;,
+    syslog.LOG_WARNING|syslog.LOG_DAEMON, &quot;gameuser&quot;)
+if err != nil {
+    log.Fatal(err)
+}
+fmt.Fprintf(sysLog, &quot;This is a daemon warning with demotag.&quot;)
+sysLog.Emerg(&quot;And this is a daemon emergency with demotag.&quot;)
+</code></pre><h2 id="4-rsyslog规则">4. rsyslog规则</h2>
+<h3 id="41-默认规则配置">4.1 默认规则配置</h3>
+<pre><code>#  Default rules for rsyslog.
+#
+#			For more information see rsyslog.conf(5) and /etc/rsyslog.conf
+
+#
+# First some standard log files.  Log by facility.
+#
+auth,authpriv.*			/var/log/auth.log
+*.*;auth,authpriv.none		-/var/log/syslog
+#cron.*				/var/log/cron.log
+#daemon.*			-/var/log/daemon.log
+kern.*				-/var/log/kern.log
+#lpr.*				-/var/log/lpr.log
+mail.*				-/var/log/mail.log
+#user.*				-/var/log/user.log
+
+#
+# Logging for the mail system.  Split it up so that
+# it is easy to write scripts to parse these files.
+#
+#mail.info			-/var/log/mail.info
+#mail.warn			-/var/log/mail.warn
+mail.err			/var/log/mail.err
+
+#
+# Some &quot;catch-all&quot; log files.
+#
+#*.=debug;\
+#	auth,authpriv.none;\
+#	news.none;mail.none	-/var/log/debug
+#*.=info;*.=notice;*.=warn;\
+#	auth,authpriv.none;\
+#	cron,daemon.none;\
+#	mail,news.none		-/var/log/messages
+
+#
+# Emergencies are sent to everybody logged in.
+#
+*.emerg				:omusrmsg:*
+
+#
+# I like to have messages displayed on the console, but only on a virtual
+# console I usually leave idle.
+#
+#daemon,mail.*;\
+#	news.=crit;news.=err;news.=notice;\
+#	*.=debug;*.=info;\
+#	*.=notice;*.=warn	/dev/tty8
+</code></pre><h3 id="42-规则解析之选择器">4.2 规则解析之选择器</h3>
+<ul>
+<li>选择器: Facility(消息源，日志设施)</li>
+</ul>
+<pre><code>Facility:有0-23种设备
+0 kernel messages 
+1 user-level messages 
+2 mail system 
+3 system daemons 
+4 security/authorization messages 
+5 messages generated internally by syslogd 
+6 line printer subsystem 
+7 network news subsystem 
+8 UUCP subsystem 
+9 clock daemon 
+10 security/authorization messages 
+11 FTP daemon 
+12 NTP subsystem 
+13 log audit 
+14 log alert 
+15 clock daemon 
+16-23 　　　　local0 - local7   
+</code></pre><ul>
+<li>选择器: Severity（日志等级）</li>
+</ul>
+<pre><code>0 Emergency
+1 Alert
+2 Critical
+3 Error
+4 Warning
+5 Notice
+6 Informational
+7 Debug
+</code></pre><pre><code>https://www.mtyun.com/library/how-to-config-rsyslog
+</code></pre>
+        </div>
+
+        
+
+
+        
+
+<div class="post-archive">
+    <h2>See Also</h2>
+    <ul class="listing">
+        
+        <li><a href="/post/linux/2020-05-03-linux-systemd/">linux 服务实战（一）| Systemd</a></li>
+        
+        <li><a href="/post/%E7%BC%96%E7%A8%8B/golang/2020-05-05-golang-probuf/">go 实战（十三）| go probuf</a></li>
+        
+        <li><a href="/post/%E8%BF%90%E7%BB%B4/2019-12-11-linux%E8%BF%90%E7%BB%B4-ansible/">Linux运维 实战（一）| ansible</a></li>
+        
+        <li><a href="/post/%E5%A4%A7%E6%95%B0%E6%8D%AE/2020-04-30-hive/">hadoop 实战（二）| hive 安装</a></li>
+        
+        <li><a href="/post/%E7%BC%96%E7%A8%8B/golang/2020-04-30-goalng-%E5%8C%8501/">go 包练习（一）| go viper cron cobra</a></li>
+        
+    </ul>
+</div>
+
+
+        <div class="post-meta meta-tags">
+            
+            <ul class="clearfix">
+                
+                <li><a href='https://stanleylfc.github.io/tags/linux'>linux</a></li>
+                
+            </ul>
+            
+        </div>
+    </article>
+    
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "stanley" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+    
+    
+    <div class="post bg-white">
+      <script src="https://utteranc.es/client.js"
+            repo= "https://github.com/stanleylfc/stanleylfc.github.io.git"
+            issue-term="pathname"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+      </script>
+    </div>
+    
+</div>
+
+                </div>
+
+                <div id="secondary">
+    <section class="widget">
+        <form id="search" action='https://stanleylfc.github.io/search/' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
+      
+      <input type="text" name="q" maxlength="20" placeholder="Search">
+      <input type="hidden" name="sitesearch" value="https://stanleylfc.github.io">
+      <button type="submit" class="submit icon-search"></button>
+</form>
+    </section>
+    
+    <section class="widget">
+        <h3 class="widget-title">最近文章</h3>
+<ul class="widget-list">
+    
+    <li>
+        <a href="https://stanleylfc.github.io/post/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%B8%88/2020-06-03-bigquery-command/" title="bigquery 实战（二）| bigquery 命令">bigquery 实战（二）| bigquery 命令</a>
+    </li>
+    
+    <li>
+        <a href="https://stanleylfc.github.io/post/%E8%BF%90%E7%BB%B4/2020-05-09-linux%E8%BF%90%E7%BB%B4-jenkins/" title="Linux运维 实战（二）| jenkins">Linux运维 实战（二）| jenkins</a>
+    </li>
+    
+    <li>
+        <a href="https://stanleylfc.github.io/post/%E7%BC%96%E7%A8%8B/golang/2020-06-01-golang-goland/" title="go 实战（一）| go goloand">go 实战（一）| go goloand</a>
+    </li>
+    
+    <li>
+        <a href="https://stanleylfc.github.io/post/%E8%BF%90%E7%BB%B4/2020-06-01-linux%E8%BF%90%E7%BB%B4-promethus/" title="Linux运维 实战（五）| promethus">Linux运维 实战（五）| promethus</a>
+    </li>
+    
+    <li>
+        <a href="https://stanleylfc.github.io/post/%E8%BF%90%E7%BB%B4/2019-12-20-linux%E8%BF%90%E7%BB%B4-rsyslog/" title="Linux运维 实战（六）| rsyslog">Linux运维 实战（六）| rsyslog</a>
+    </li>
+    
+    <li>
+        <a href="https://stanleylfc.github.io/post/%E8%BF%90%E7%BB%B4/2020-06-01-linux%E8%BF%90%E7%BB%B4-grafana/" title="Linux运维 实战（四）| grafana">Linux运维 实战（四）| grafana</a>
+    </li>
+    
+    <li>
+        <a href="https://stanleylfc.github.io/post/%E8%BF%90%E7%BB%B4/2019-12-15-linux%E8%BF%90%E7%BB%B4-fluentd/" title="Linux运维 实战（三）| fluentd">Linux运维 实战（三）| fluentd</a>
+    </li>
+    
+    <li>
+        <a href="https://stanleylfc.github.io/post/%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8/2020-05-19-redis-cluster/" title="redis 实战（一）| redis 集群搭建">redis 实战（一）| redis 集群搭建</a>
+    </li>
+    
+    <li>
+        <a href="https://stanleylfc.github.io/post/%E4%B8%AD%E9%97%B4%E4%BB%B6/2020-05-22-rocketmq-rocket-%E4%BF%9D%E8%AF%81%E6%B6%88%E6%81%AF%E4%B8%8D%E4%B8%A2%E5%A4%B1/" title="rocket 实战（三）| RocketMQ保证消息不丢失">rocket 实战（三）| RocketMQ保证消息不丢失</a>
+    </li>
+    
+    <li>
+        <a href="https://stanleylfc.github.io/post/%E7%BC%96%E7%A8%8B/java/2020-05-22-java-spring-boot/" title="java sprint boot实战（一）| ">java sprint boot实战（一）| </a>
+    </li>
+    
+</ul>
+    </section>
+
+    
+
+    <section class="widget">
+        <h3 class="widget-title">分类</h3>
+<ul class="widget-list">
+    
+    <li><a href="https://stanleylfc.github.io/categories/Linux%E8%BF%90%E7%BB%B4/">Linux运维 (6)</a></li>
+    
+    <li><a href="https://stanleylfc.github.io/categories/Python/">Python (5)</a></li>
+    
+    <li><a href="https://stanleylfc.github.io/categories/bigquery/">bigquery (1)</a></li>
+    
+    <li><a href="https://stanleylfc.github.io/categories/es6/">es6 (5)</a></li>
+    
+    <li><a href="https://stanleylfc.github.io/categories/git/">git (2)</a></li>
+    
+    <li><a href="https://stanleylfc.github.io/categories/go/">go (8)</a></li>
+    
+    <li><a href="https://stanleylfc.github.io/categories/goloand/">goloand (1)</a></li>
+    
+    <li><a href="https://stanleylfc.github.io/categories/hadoop/">hadoop (3)</a></li>
+    
+    <li><a href="https://stanleylfc.github.io/categories/java/">java (1)</a></li>
+    
+    <li><a href="https://stanleylfc.github.io/categories/linux/">linux (5)</a></li>
+    
+    <li><a href="https://stanleylfc.github.io/categories/linux-%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/">linux 网络编程 (2)</a></li>
+    
+    <li><a href="https://stanleylfc.github.io/categories/redis/">redis (2)</a></li>
+    
+    <li><a href="https://stanleylfc.github.io/categories/spring-boot/">spring boot (1)</a></li>
+    
+    <li><a href="https://stanleylfc.github.io/categories/vmware/">vmware (2)</a></li>
+    
+    <li><a href="https://stanleylfc.github.io/categories/vue/">vue (5)</a></li>
+    
+    <li><a href="https://stanleylfc.github.io/categories/webStorm/">webStorm (1)</a></li>
+    
+    <li><a href="https://stanleylfc.github.io/categories/%E5%BE%AE%E7%A7%AF%E5%88%86/">微积分 (2)</a></li>
+    
+    <li><a href="https://stanleylfc.github.io/categories/%E6%94%B6%E8%97%8F/">收藏 (1)</a></li>
+    
+    <li><a href="https://stanleylfc.github.io/categories/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/">消息队列 (1)</a></li>
+    
+</ul>
+    </section>
+
+    <section class="widget">
+        <h3 class="widget-title">标签</h3>
+<div class="tagcloud">
+    
+    <a href="https://stanleylfc.github.io/tags/Linux%E8%BF%90%E7%BB%B4/">Linux运维</a>
+    
+    <a href="https://stanleylfc.github.io/tags/bigquery/">bigquery</a>
+    
+    <a href="https://stanleylfc.github.io/tags/es6/">es6</a>
+    
+    <a href="https://stanleylfc.github.io/tags/git/">git</a>
+    
+    <a href="https://stanleylfc.github.io/tags/go/">go</a>
+    
+    <a href="https://stanleylfc.github.io/tags/goloand/">goloand</a>
+    
+    <a href="https://stanleylfc.github.io/tags/hadoop/">hadoop</a>
+    
+    <a href="https://stanleylfc.github.io/tags/java/">java</a>
+    
+    <a href="https://stanleylfc.github.io/tags/linux/">linux</a>
+    
+    <a href="https://stanleylfc.github.io/tags/linux-%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/">linux 网络编程</a>
+    
+    <a href="https://stanleylfc.github.io/tags/python/">python</a>
+    
+    <a href="https://stanleylfc.github.io/tags/redis/">redis</a>
+    
+    <a href="https://stanleylfc.github.io/tags/spring-boot/">spring boot</a>
+    
+    <a href="https://stanleylfc.github.io/tags/vmware/">vmware</a>
+    
+    <a href="https://stanleylfc.github.io/tags/vue/">vue</a>
+    
+    <a href="https://stanleylfc.github.io/tags/webStorm/">webStorm</a>
+    
+    <a href="https://stanleylfc.github.io/tags/%E5%BE%AE%E7%A7%AF%E5%88%86/">微积分</a>
+    
+    <a href="https://stanleylfc.github.io/tags/%E6%94%B6%E8%97%8F/">收藏</a>
+    
+    <a href="https://stanleylfc.github.io/tags/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/">消息队列</a>
+    
+</div>
+    </section>
+
+    
+
+    <section class="widget">
+        <h3 class="widget-title">其它</h3>
+        <ul class="widget-list">
+            <li><a href="https://stanleylfc.github.io/index.xml">文章 RSS</a></li>
+        </ul>
+    </section>
+</div>
+            </div>
+        </div>
+    </div>
+    <footer id="footer">
+    <div class="container">
+        &copy; 2020 <a href="https://stanleylfc.github.io">stanley的博客 By </a>.
+        Powered by <a rel="nofollow noreferer noopener" href="https://gohugo.io" target="_blank">Hugo</a>.
+        <a href="https://www.flysnow.org/" target="_blank">Theme</a> based on <a href="https://github.com/flysnow-org/maupassant-hugo" target="_blank">maupassant</a>.
+        
+    </div>
+</footer>
+
+
+    
+    <script type="text/javascript">
+        window.MathJax = {
+            tex2jax: {
+                inlineMath: [['$', '$']],
+                processEscapes: true
+                }
+            };
+    </script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
+
+
+<a id="rocket" href="#top"></a>
+<script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>
+
+
+
+    <script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
+
+
+
+
+    <script src='/js/douban.js'></script>
+
+</body>
+
+</html>

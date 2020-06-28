@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>java on stanley的博客</title>
+    <link>https://stanleylfc.github.io/categories/java/</link>
+    <description>Recent content in java on stanley的博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 20 May 2020 21:00:00 +0800</lastBuildDate>
+    
+	<atom:link href="https://stanleylfc.github.io/categories/java/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>java 实战（一）| java 环境安装</title>
+      <link>https://stanleylfc.github.io/post/%E7%BC%96%E7%A8%8B/java/2020-05-21-java-java-install/</link>
+      <pubDate>Wed, 20 May 2020 21:00:00 +0800</pubDate>
+      
+      <guid>https://stanleylfc.github.io/post/%E7%BC%96%E7%A8%8B/java/2020-05-21-java-java-install/</guid>
+      <description>1. 安装Java 1.1 下载JDK 1.2 配置环境变量 安装好JDK后，通过&amp;rdquo;/usr/libexec/java_home -V&amp;quot;查看安装路径 在mac上配置Java环境变量 vim ~/.zshrc export JAVA_HOME=&amp;quot;/Library/Java/JavaVirtualMachines/jdk1.8.0_201.jdk/Contents/Home&amp;quot; CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar PATH=$JAVA_HOME/bin:$PATH export JAVA_HOME export CLASSPATH export PATH 测试配置 $ java -version 2. 安装idea 3. 安装tomcat 3.1 下载 登录Apache Tomcat</description>
+    </item>
+    
+  </channel>
+</rss>

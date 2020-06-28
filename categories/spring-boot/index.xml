@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>spring boot on stanley的博客</title>
+    <link>https://stanleylfc.github.io/categories/spring-boot/</link>
+    <description>Recent content in spring boot on stanley的博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 20 May 2020 21:00:00 +0800</lastBuildDate>
+    
+	<atom:link href="https://stanleylfc.github.io/categories/spring-boot/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>java sprint boot实战（一）| </title>
+      <link>https://stanleylfc.github.io/post/%E7%BC%96%E7%A8%8B/java/2020-05-22-java-spring-boot/</link>
+      <pubDate>Wed, 20 May 2020 21:00:00 +0800</pubDate>
+      
+      <guid>https://stanleylfc.github.io/post/%E7%BC%96%E7%A8%8B/java/2020-05-22-java-spring-boot/</guid>
+      <description>1. spring boot 创建 2. maven spring boot helloworld 2.1 创建一个maven工程 启用maven 自动加载 2.2 导入spring 相关依赖 &amp;lt;parent&amp;gt; &amp;lt;groupId&amp;gt;org.springframework.boot&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;spring-boot-starter-parent&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;2.0.5.RELEASE&amp;lt;/version&amp;gt; &amp;lt;/parent&amp;gt; &amp;lt;dependencies&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.springframework.boot&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;spring-boot-starter-web&amp;lt;/artifactId&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;/dependencies&amp;gt; 2.3 编写主程序,启动spring boot应用 import org.springframework.boot.SpringApplication; import org.springframework.boot.autoconfigure.SpringBootApplication; @SpringBootApplication public class HelloWorldMainApplication { public static void main(String[] args) { SpringApplication.run(HelloWorldMainApplication.class, args); } } 2.4 编写相关controller, service import org.springframework.boot.SpringApplication; import org.springframework.boot.autoconfigure.SpringBootApplication; @SpringBootApplication public class HelloWorldMainApplication { public static void main(String[] args) { SpringApplication.run(HelloWorldMainApplication.class, args); } } 2.5 运行主程序 2.6</description>
+    </item>
+    
+  </channel>
+</rss>

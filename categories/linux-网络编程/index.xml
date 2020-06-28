@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>linux 网络编程 on stanley的博客</title>
+    <link>https://stanleylfc.github.io/categories/linux-%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/</link>
+    <description>Recent content in linux 网络编程 on stanley的博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 09 May 2020 07:00:00 +0800</lastBuildDate>
+    
+	<atom:link href="https://stanleylfc.github.io/categories/linux-%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>linux 网络编程实战（二）| socket编程</title>
+      <link>https://stanleylfc.github.io/post/linux/linux-%E5%BC%80%E5%8F%91/2020-05-09-socket/</link>
+      <pubDate>Sat, 09 May 2020 07:00:00 +0800</pubDate>
+      
+      <guid>https://stanleylfc.github.io/post/linux/linux-%E5%BC%80%E5%8F%91/2020-05-09-socket/</guid>
+      <description>1. scoket 什么是socket socket 可以看成是用户进程与内核网络协议栈的编程接口 socket 不仅可以用于本机的进程间通信，还可以用于网络不同主机的进程间通信 Application Application Socket Socket TCP TCP Ip channel(Ethernet) &amp;mdash; ip(rounter) &amp;mdash; channel IP 2.IPv4 套接口地址结构 &amp;lt;netinet/in.h&amp;gt; struct sockaddr_in { uint8_t sin_len //结构体的长度 sa_family_t sin_family // 地址家族 in_port sin_port // 端口 struct in_addr sin_addr // ip v4 地址 char sin_zero[8]; // } 3 通用地址结构 4.网络字节序</description>
+    </item>
+    
+    <item>
+      <title>linux 网络编程实战（一））| tcpip</title>
+      <link>https://stanleylfc.github.io/post/linux/linux-%E5%BC%80%E5%8F%91/2020-05-08-tcpip/</link>
+      <pubDate>Fri, 08 May 2020 21:00:00 +0800</pubDate>
+      
+      <guid>https://stanleylfc.github.io/post/linux/linux-%E5%BC%80%E5%8F%91/2020-05-08-tcpip/</guid>
+      <description>2. 以太网帧格式 2.1 以太网的封装格式（RFC 894) | 目的地址 6 | 源地址 6 | 类型 2 | 数据 [46 1500] | CRC 4 | 数据 长度至少46字节 最多1500字节 最大传输单元MTU / 路径 MTU 发送端：封装 打上对应层的协议 接收端：分用（解封） 2.1.1 类型和数据分解 ip数据报（MTU)： | 类型0800 | ip 数据报 [46 1500] | ARP数据报</description>
+    </item>
+    
+  </channel>
+</rss>

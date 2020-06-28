@@ -81,63 +81,231 @@
     <article class="post">
         <header>
             <h1 class="post-title">
-                <a href="https://stanleylfc.github.io/post/python/2020-04-02-python-docker/" title="python 实战（三）| python 用docker安装">python 实战（三）| python 用docker安装</a>
+                <a href="https://stanleylfc.github.io/post/%E7%BC%96%E7%A8%8B/golang/2020-05-05-golang-probuf/" title="go 实战（十三）| go probuf">go 实战（十三）| go probuf</a>
             </h1>
         </header>
         <date class="post-meta meta-date">
-            2020年4月2日
+            2020年5月5日
         </date>
         
         <div class="post-meta">
             <span>|</span>
             
-            <span class="meta-category"><a href='https://stanleylfc.github.io/categories/Python'>Python</a></span>
+            <span class="meta-category"><a href='https://stanleylfc.github.io/categories/go'>go</a></span>
             
         </div>
-        
-        <div class="post-content">
-            基础环境 - Linux - Python 3.8 - Docker 1. 容器 docker $ docker pull ubuntu $ docker images REPOSITORY TAG IMAGE ID CREATED SIZE ubuntu latest 4e5021d210f6 13 days ago 64.2MB 创建容器 $ docker create -ti --privileged --name py3 -p 10000:80 -p 10001:8888 -v /mac/py3:/root/py3 -w /root ubuntu bash -l 启动 $ docker start -ai py3 Docker 后台运行的快捷键是：Ctrl P + Ctrl Q 安装 更新源，安装 Python 3.8 $ apt update $ apt install curl $ apt install python3.8 python3.8-distutils 安装 pip 包管理器 $ curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py $ python3.8 get-pip.py $ pip3 -V pip 20.0.2 from /usr/local/lib/python3.8/dist-packages/pip (python 3.8) 安装附加工具 $ pip3 install ipython ipdb……
-        </div>
-        <p class="readmore"><a href="https://stanleylfc.github.io/post/python/2020-04-02-python-docker/">阅读全文</a></p>
-    </article>
-    
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://stanleylfc.github.io/post/python/2020-04-01-python-venv/" title="python 实战（二）| virtualenv">python 实战（二）| virtualenv</a>
-            </h1>
-        </header>
-        <date class="post-meta meta-date">
-            2020年4月1日
-        </date>
-        
-        <div class="post-meta">
-            <span>|</span>
-            
-            <span class="meta-category"><a href='https://stanleylfc.github.io/categories/Python'>Python</a></span>
-            
-        </div>
-        
-        <div class="post-content">
-            1.安装virtualenv pip install virtualenv #(python2) pip3 install virtualenv #(python3) 2.创建venv python3 -m venv venv venv就是虚拟环境的文件夹，通常取名venv(用户自定义)。 --no-site-packages表示不添加系统里面python已安装的第三方库 3.启动虚拟环境并安装第三方库 venv\Script\activate #(windows) source venv/bin/activate #(linux/macos) pip install xxx 4.部署到服务器，环境……
-        </div>
-        <p class="readmore"><a href="https://stanleylfc.github.io/post/python/2020-04-01-python-venv/">阅读全文</a></p>
-    </article>
-    
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://stanleylfc.github.io/post/%E5%BE%AE%E7%A7%AF%E5%88%86/%E6%9E%81%E9%99%90%E5%92%8C%E8%BF%9E%E7%BB%AD%E6%80%A7/" title=""></a>
-            </h1>
-        </header>
-        <date class="post-meta meta-date">
-            1年1月1日
-        </date>
         
         <div class="post-content">
             ……
         </div>
-        <p class="readmore"><a href="https://stanleylfc.github.io/post/%E5%BE%AE%E7%A7%AF%E5%88%86/%E6%9E%81%E9%99%90%E5%92%8C%E8%BF%9E%E7%BB%AD%E6%80%A7/">阅读全文</a></p>
+        <p class="readmore"><a href="https://stanleylfc.github.io/post/%E7%BC%96%E7%A8%8B/golang/2020-05-05-golang-probuf/">阅读全文</a></p>
+    </article>
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://stanleylfc.github.io/post/linux/2020-05-03-linux-systemd/" title="linux 服务实战（一）| Systemd">linux 服务实战（一）| Systemd</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2020年5月3日
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://stanleylfc.github.io/categories/linux'>linux</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            1. 配置文件 1.1 查看配置文件 $ systemctl cat sshd.service [Unit] Description=OpenSSH server daemon Documentation=man:sshd(8) man:sshd_config(5) After=network.target sshd-keygen.service Wants=sshd-keygen.service [Service] EnvironmentFile=/etc/sysconfig/sshd ExecStart=/usr/sbin/sshd -D $OPTIONS ExecReload=/bin/kill -HUP $MAINPID Type=simple KillMode=process Restart=on-failure RestartSec=42s [Install] WantedBy=multi-user.target 1.2 [Unit] 区块：启动顺序与依赖关系 After字段：表示如果network.target或sshd-keygen.service需要启动，那么sshd.service应该在它们之后启动。 Wants字段：表示ss……
+        </div>
+        <p class="readmore"><a href="https://stanleylfc.github.io/post/linux/2020-05-03-linux-systemd/">阅读全文</a></p>
+    </article>
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://stanleylfc.github.io/post/%E8%BF%90%E7%BB%B4/2019-12-11-linux%E8%BF%90%E7%BB%B4-ansible/" title="Linux运维 实战（一）| ansible">Linux运维 实战（一）| ansible</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2020年5月1日
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://stanleylfc.github.io/categories/Linux%E8%BF%90%E7%BB%B4'>Linux运维</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            1. ansible 2. ansible 基本介绍 2.1 ansible 组件架构 2.2 ansbile 配置文件 2.3 ansible inventory 2.4 ansible ad-hoc模块 # ansible all -m shell -a &quot;rm /opt/hadoop-2.7.7.tar.gz&quot; // 拷贝配置文件 ansible all -m copy -a &quot;src=/opt/hadoop-2.7.7.tar.gz dest=/opt owner=hadoop group=hadoop mode=0755&quot; ansible all -m unarchive -a &quot;src=/opt/hadoop-2.7.7.tar.gz dest=/opt/ copy=no mode=0755&quot; ansible all -m file -a &quot;path=/root/hadoop/dfs/name state=directory mode=755&quot; ansible all -m command -a &quot;&quot; 3.ansible playbook 4.ansible变量详解 5.ansible Task 任务控制 6.ansible jinja2 7.ansible Roels构建中线企业集群架构……
+        </div>
+        <p class="readmore"><a href="https://stanleylfc.github.io/post/%E8%BF%90%E7%BB%B4/2019-12-11-linux%E8%BF%90%E7%BB%B4-ansible/">阅读全文</a></p>
+    </article>
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://stanleylfc.github.io/post/%E5%A4%A7%E6%95%B0%E6%8D%AE/2020-04-30-hive/" title="hadoop 实战（二）| hive 安装">hadoop 实战（二）| hive 安装</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2020年4月30日
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://stanleylfc.github.io/categories/hadoop'>hadoop</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            1. hive 介绍与安装 1.6 Hive提示警告SSL 是hive的配置文件是.XML格式，而在xml文件中&amp;amp；才表示&amp; &lt;property&gt; &lt;name&gt;javax.jdo.option.ConnectionURL&lt;/name&gt; &lt;value&gt;jdbc:mysql://localhost:3306/hive?createDatabaseIfNotExist=true&amp;amp;useSSL=false&lt;/value&gt; &lt;description&gt;JDBC connect string for a JDBC metastore&lt;/description&gt; &lt;/property&gt; 2. hive 使用命令 2.1 hive 启动 [hadoop@centos702 apache-hive]$ ./bin/hive 2.2 命令显示所有数据库 hive&gt; show databases; 2.3 退出hive hive&gt; quit; 3. hive DDL 3.1 显示表和创建表 hive&gt; use db_hive hive&gt; show tables; hive&gt; create table pokes(foo int,bar string); 3.2 插入数据 hive&gt; insert into pokes(foo,bar)……
+        </div>
+        <p class="readmore"><a href="https://stanleylfc.github.io/post/%E5%A4%A7%E6%95%B0%E6%8D%AE/2020-04-30-hive/">阅读全文</a></p>
+    </article>
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://stanleylfc.github.io/post/%E7%BC%96%E7%A8%8B/golang/2020-04-30-goalng-%E5%8C%8501/" title="go 包练习（一）| go viper cron cobra">go 包练习（一）| go viper cron cobra</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2020年4月28日
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://stanleylfc.github.io/categories/go'>go</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            1.读取配置文件viper https://github.com/spf13/viper // 部分代码 cfgFile := &#34;/etc/local/go.yaml&#34; _, err := os.Stat(cfgFile) if err != nil { t.Fatal(fmt.Sprintf(&#34;-_- miss : %s -_- &#34;, cfgFile)) } f, err := os.Open(cfgFile) if err != nil { log.Fatal(errors.ErrorStack(err)) } defer f.Close() viper.SetConfigType(&#34;yaml&#34;) if err = viper.ReadConfig(f); err != nil { log.Fatal(errors.ErrorStack(err)) } viper.Get(&#34;name&#34;) 2.定时任务cron github.com/gogits/cron 3.子命令cobra……
+        </div>
+        <p class="readmore"><a href="https://stanleylfc.github.io/post/%E7%BC%96%E7%A8%8B/golang/2020-04-30-goalng-%E5%8C%8501/">阅读全文</a></p>
+    </article>
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://stanleylfc.github.io/post/%E7%BC%96%E7%A8%8B/golang/2020-04-28-golang-gpc/" title="go 实战（十二）| go grpc开发">go 实战（十二）| go grpc开发</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2020年4月28日
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://stanleylfc.github.io/categories/go'>go</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            1. RPC 远程调用 https://github.com/grpc/grpc-go go get -u google.golang.org/grpc 2. Protobuf Google Protocol Buffer 2.1 安装 protobuf 下载对应版本解压后配置环境变量 https://github.com/protocolbuffers/protobuf/releases 2.2 protocol 格式教程 https://developers.google.com/protocol-buffers/docs/gotutorial 3. 中间文件 3.1 安装插件 在GOPATH的bin目录下生产可执行文件.protobuf的编译器插件protoc-gen-go go get github.com/golang/protobuf/protoc-gen-go 3.2书写中间文件 syntax=&quot;proto3&quot; package services message ProdRequest { int32 prod_id=1 } message ProdResponse { int32 prod_stock=1 } 3.3 编译安装 在pbfil……
+        </div>
+        <p class="readmore"><a href="https://stanleylfc.github.io/post/%E7%BC%96%E7%A8%8B/golang/2020-04-28-golang-gpc/">阅读全文</a></p>
+    </article>
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://stanleylfc.github.io/post/%E7%BC%96%E7%A8%8B/golang/2020-04-27-golang-web%E5%BC%80%E5%8F%91/" title="go 实战（十一）| go web开发">go 实战（十一）| go web开发</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2020年4月27日
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://stanleylfc.github.io/categories/go'>go</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            1.web服务器 1.1 创建web服务器 只要调用ListenAndServe 并传入网络地址以及负责处理请求的处理器（handler）作为参数就可以了 // http.ListenAndServe(&quot;&quot;, nil) 1.2 带有附加配置的Web服务器 server := http.Server{ Addr: &quot;127.0.0.1:8080&quot;, Handler: nil, } server.ListenAndServe() 2.处理器 一个处理器就是一个拥有ServeHTTP 方法的接口。 任何接口只要拥有一个Se……
+        </div>
+        <p class="readmore"><a href="https://stanleylfc.github.io/post/%E7%BC%96%E7%A8%8B/golang/2020-04-27-golang-web%E5%BC%80%E5%8F%91/">阅读全文</a></p>
+    </article>
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://stanleylfc.github.io/post/%E5%A4%A7%E6%95%B0%E6%8D%AE/2020-04-27-hadoop/" title="hadoop 实战（一）| hadoop 安装">hadoop 实战（一）| hadoop 安装</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2020年4月27日
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://stanleylfc.github.io/categories/hadoop'>hadoop</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            1.环境准备 1.1 服务器规划 # -u root -p centosdata 172.16.232.130 centos701 172.16.232.131 centos702 172.16.232.132 centos703 1.2 关闭所有服务器的防火墙 systemctl stop firewalld.service # 停止firewall。 systemctl disable firewalld.service # 禁止firewall开机启动。 firewall-cmd --state # 查看默认防火墙装状态(关闭后显示notrunning, 开启显示running)。 ansible all -m shell -a 'firewall-cmd --state' 1.3 关闭服务器的SLNEX vim /etc/selinux/config SELINUX=disabled 1.4 配置时间同……
+        </div>
+        <p class="readmore"><a href="https://stanleylfc.github.io/post/%E5%A4%A7%E6%95%B0%E6%8D%AE/2020-04-27-hadoop/">阅读全文</a></p>
+    </article>
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://stanleylfc.github.io/post/%E6%94%B6%E8%97%8F/2020-05-07-redis-cluster%E5%AE%89%E8%A3%85/" title="hadoop 实战（三）| redis cluster 安装">hadoop 实战（三）| redis cluster 安装</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2020年4月27日
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://stanleylfc.github.io/categories/hadoop'>hadoop</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            Redis Cluster的两种搭建和简单使用 Redis Cluster是Redis官方的一个高可用分布式解决方案。Redis Cluster中共有2 ^ 14（16384）个槽，创建集群后，需要将这些槽均分给各个节点。 准备节点 节点配置 Redis集群一般由多个节点组成，节点数量至少为 6 个，才能保证组成完整……
+        </div>
+        <p class="readmore"><a href="https://stanleylfc.github.io/post/%E6%94%B6%E8%97%8F/2020-05-07-redis-cluster%E5%AE%89%E8%A3%85/">阅读全文</a></p>
+    </article>
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://stanleylfc.github.io/post/%E7%BC%96%E7%A8%8B/web%E5%89%8D%E7%AB%AF/vue/2020-04-25-vue-component/" title="vue 实战（二）| 组件">vue 实战（二）| 组件</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2020年4月25日
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://stanleylfc.github.io/categories/vue'>vue</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            ……
+        </div>
+        <p class="readmore"><a href="https://stanleylfc.github.io/post/%E7%BC%96%E7%A8%8B/web%E5%89%8D%E7%AB%AF/vue/2020-04-25-vue-component/">阅读全文</a></p>
     </article>
     
     
@@ -164,7 +332,23 @@
         <a href="https://stanleylfc.github.io/page/3/">3</a>
     </li>
     
+    <li >
+        <a href="https://stanleylfc.github.io/page/4/">4</a>
+    </li>
+    
+    <li >
+        <a href="https://stanleylfc.github.io/page/5/">5</a>
+    </li>
+    
+    <li >
+        <a href="https://stanleylfc.github.io/page/6/">6</a>
+    </li>
+    
 
+    
+    <li class="next">
+        <a href="https://stanleylfc.github.io/page/4/">下一页</a>
+    </li>
     
 </ol>
 
@@ -189,43 +373,43 @@
 <ul class="widget-list">
     
     <li>
-        <a href="https://stanleylfc.github.io/post/golang/2020-05-05-golang-probuf/" title="go 实战（十三）| go probuf">go 实战（十三）| go probuf</a>
+        <a href="https://stanleylfc.github.io/post/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%B8%88/2020-06-03-bigquery-command/" title="bigquery 实战（二）| bigquery 命令">bigquery 实战（二）| bigquery 命令</a>
     </li>
     
     <li>
-        <a href="https://stanleylfc.github.io/post/golang/2020-04-30-goalng-%E5%8C%8501/" title="go 包练习（一）| go viper cron cobra">go 包练习（一）| go viper cron cobra</a>
+        <a href="https://stanleylfc.github.io/post/%E8%BF%90%E7%BB%B4/2020-05-09-linux%E8%BF%90%E7%BB%B4-jenkins/" title="Linux运维 实战（二）| jenkins">Linux运维 实战（二）| jenkins</a>
     </li>
     
     <li>
-        <a href="https://stanleylfc.github.io/post/golang/2020-04-28-golang-gpc/" title="go 实战（十二）| go grpc开发">go 实战（十二）| go grpc开发</a>
+        <a href="https://stanleylfc.github.io/post/%E7%BC%96%E7%A8%8B/golang/2020-06-01-golang-goland/" title="go 实战（一）| go goloand">go 实战（一）| go goloand</a>
     </li>
     
     <li>
-        <a href="https://stanleylfc.github.io/post/golang/2020-04-27-golang-web%E5%BC%80%E5%8F%91/" title="go 实战（十一）| go web开发">go 实战（十一）| go web开发</a>
+        <a href="https://stanleylfc.github.io/post/%E8%BF%90%E7%BB%B4/2020-06-01-linux%E8%BF%90%E7%BB%B4-promethus/" title="Linux运维 实战（五）| promethus">Linux运维 实战（五）| promethus</a>
     </li>
     
     <li>
-        <a href="https://stanleylfc.github.io/post/vue/2020-04-23-vue-vue/" title="vue 实战（一）| vue">vue 实战（一）| vue</a>
+        <a href="https://stanleylfc.github.io/post/%E8%BF%90%E7%BB%B4/2019-12-20-linux%E8%BF%90%E7%BB%B4-rsyslog/" title="Linux运维 实战（六）| rsyslog">Linux运维 实战（六）| rsyslog</a>
     </li>
     
     <li>
-        <a href="https://stanleylfc.github.io/post/vue/2020-04-23-vue-vuecli/" title="vue 实战（三）| vuecli">vue 实战（三）| vuecli</a>
+        <a href="https://stanleylfc.github.io/post/%E8%BF%90%E7%BB%B4/2020-06-01-linux%E8%BF%90%E7%BB%B4-grafana/" title="Linux运维 实战（四）| grafana">Linux运维 实战（四）| grafana</a>
     </li>
     
     <li>
-        <a href="https://stanleylfc.github.io/post/vue/2020-04-22-vue-node/" title="vue 实战（二）| node">vue 实战（二）| node</a>
+        <a href="https://stanleylfc.github.io/post/%E8%BF%90%E7%BB%B4/2019-12-15-linux%E8%BF%90%E7%BB%B4-fluentd/" title="Linux运维 实战（三）| fluentd">Linux运维 实战（三）| fluentd</a>
     </li>
     
     <li>
-        <a href="https://stanleylfc.github.io/post/git/2020-04-22-git-%E4%BD%BF%E7%94%A8%E8%A7%84%E8%8C%83/" title="git 实战（二）| git 提交分支">git 实战（二）| git 提交分支</a>
+        <a href="https://stanleylfc.github.io/post/%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8/2020-05-19-redis-cluster/" title="redis 实战（一）| redis 集群搭建">redis 实战（一）| redis 集群搭建</a>
     </li>
     
     <li>
-        <a href="https://stanleylfc.github.io/post/golang/2020-04-16-golang-%E5%86%85%E5%AD%98%E8%AF%A6%E8%A7%A3/" title="go 实战（七）| 内存详解">go 实战（七）| 内存详解</a>
+        <a href="https://stanleylfc.github.io/post/%E4%B8%AD%E9%97%B4%E4%BB%B6/2020-05-22-rocketmq-rocket-%E4%BF%9D%E8%AF%81%E6%B6%88%E6%81%AF%E4%B8%8D%E4%B8%A2%E5%A4%B1/" title="rocket 实战（三）| RocketMQ保证消息不丢失">rocket 实战（三）| RocketMQ保证消息不丢失</a>
     </li>
     
     <li>
-        <a href="https://stanleylfc.github.io/post/golang/2020-04-16-golang-goroutine%E5%8E%9F%E7%90%86/" title="go 实战（九）| goroutine原理">go 实战（九）| goroutine原理</a>
+        <a href="https://stanleylfc.github.io/post/%E7%BC%96%E7%A8%8B/java/2020-05-22-java-spring-boot/" title="java sprint boot实战（一）| ">java sprint boot实战（一）| </a>
     </li>
     
 </ul>
@@ -237,19 +421,43 @@
         <h3 class="widget-title">分类</h3>
 <ul class="widget-list">
     
+    <li><a href="https://stanleylfc.github.io/categories/Linux%E8%BF%90%E7%BB%B4/">Linux运维 (6)</a></li>
+    
     <li><a href="https://stanleylfc.github.io/categories/Python/">Python (5)</a></li>
     
-    <li><a href="https://stanleylfc.github.io/categories/git/">git (1)</a></li>
+    <li><a href="https://stanleylfc.github.io/categories/bigquery/">bigquery (1)</a></li>
+    
+    <li><a href="https://stanleylfc.github.io/categories/es6/">es6 (5)</a></li>
+    
+    <li><a href="https://stanleylfc.github.io/categories/git/">git (2)</a></li>
     
     <li><a href="https://stanleylfc.github.io/categories/go/">go (8)</a></li>
     
-    <li><a href="https://stanleylfc.github.io/categories/hadoop/">hadoop (2)</a></li>
+    <li><a href="https://stanleylfc.github.io/categories/goloand/">goloand (1)</a></li>
     
-    <li><a href="https://stanleylfc.github.io/categories/linux/">linux (1)</a></li>
+    <li><a href="https://stanleylfc.github.io/categories/hadoop/">hadoop (3)</a></li>
     
-    <li><a href="https://stanleylfc.github.io/categories/vmware/">vmware (1)</a></li>
+    <li><a href="https://stanleylfc.github.io/categories/java/">java (1)</a></li>
     
-    <li><a href="https://stanleylfc.github.io/categories/vue/">vue (4)</a></li>
+    <li><a href="https://stanleylfc.github.io/categories/linux/">linux (5)</a></li>
+    
+    <li><a href="https://stanleylfc.github.io/categories/linux-%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/">linux 网络编程 (2)</a></li>
+    
+    <li><a href="https://stanleylfc.github.io/categories/redis/">redis (2)</a></li>
+    
+    <li><a href="https://stanleylfc.github.io/categories/spring-boot/">spring boot (1)</a></li>
+    
+    <li><a href="https://stanleylfc.github.io/categories/vmware/">vmware (2)</a></li>
+    
+    <li><a href="https://stanleylfc.github.io/categories/vue/">vue (5)</a></li>
+    
+    <li><a href="https://stanleylfc.github.io/categories/webStorm/">webStorm (1)</a></li>
+    
+    <li><a href="https://stanleylfc.github.io/categories/%E5%BE%AE%E7%A7%AF%E5%88%86/">微积分 (2)</a></li>
+    
+    <li><a href="https://stanleylfc.github.io/categories/%E6%94%B6%E8%97%8F/">收藏 (1)</a></li>
+    
+    <li><a href="https://stanleylfc.github.io/categories/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/">消息队列 (1)</a></li>
     
 </ul>
     </section>
@@ -258,19 +466,43 @@
         <h3 class="widget-title">标签</h3>
 <div class="tagcloud">
     
+    <a href="https://stanleylfc.github.io/tags/Linux%E8%BF%90%E7%BB%B4/">Linux运维</a>
+    
+    <a href="https://stanleylfc.github.io/tags/bigquery/">bigquery</a>
+    
+    <a href="https://stanleylfc.github.io/tags/es6/">es6</a>
+    
     <a href="https://stanleylfc.github.io/tags/git/">git</a>
     
     <a href="https://stanleylfc.github.io/tags/go/">go</a>
     
+    <a href="https://stanleylfc.github.io/tags/goloand/">goloand</a>
+    
     <a href="https://stanleylfc.github.io/tags/hadoop/">hadoop</a>
+    
+    <a href="https://stanleylfc.github.io/tags/java/">java</a>
     
     <a href="https://stanleylfc.github.io/tags/linux/">linux</a>
     
+    <a href="https://stanleylfc.github.io/tags/linux-%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/">linux 网络编程</a>
+    
     <a href="https://stanleylfc.github.io/tags/python/">python</a>
+    
+    <a href="https://stanleylfc.github.io/tags/redis/">redis</a>
+    
+    <a href="https://stanleylfc.github.io/tags/spring-boot/">spring boot</a>
     
     <a href="https://stanleylfc.github.io/tags/vmware/">vmware</a>
     
     <a href="https://stanleylfc.github.io/tags/vue/">vue</a>
+    
+    <a href="https://stanleylfc.github.io/tags/webStorm/">webStorm</a>
+    
+    <a href="https://stanleylfc.github.io/tags/%E5%BE%AE%E7%A7%AF%E5%88%86/">微积分</a>
+    
+    <a href="https://stanleylfc.github.io/tags/%E6%94%B6%E8%97%8F/">收藏</a>
+    
+    <a href="https://stanleylfc.github.io/tags/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/">消息队列</a>
     
 </div>
     </section>

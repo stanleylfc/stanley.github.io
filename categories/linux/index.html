@@ -90,11 +90,80 @@
     <article class="post">
         <header>
             <h1 class="post-title">
-                <a href="https://stanleylfc.github.io/post/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/2020-05-06-linux-syslog/">linux 实战（一）| syslog</a>
+                <a href="https://stanleylfc.github.io/post/linux/2020-05-10-linux-base/">linux 基础实战（一）| linux 基本命令</a>
             </h1>
         </header>
         <date class="post-meta meta-date">
-            2020年4月3日
+            2020年5月10日
+        </date>
+        
+        <div class="post-meta meta-category">
+            |
+            
+            <a href='https://stanleylfc.github.io/categories/linux'>linux</a>
+            
+        </div>
+        
+        <div class="post-content">
+            1. 用户管理 1.1 查询某个用户是否存在 $ id -u root 1.2 用户ssh 免密码失败 $ tail -10f /var/log/secure Authentication refused: bad ownership or modes for file /home/xxxxxx/.ssh/authorized_keys # 解决方法：chmod 600 /home/hadoop/.ssh/authorized_keys 1.3 机器时钟同步 # 安装ntpdate工具 $ yum -y install ntp ntpdate # 设置系统时间与网络时间同步 $ ntpdate 0.asia.pool.ntp.org # 将系统时间写入硬件时间 $ hwclock --systohc 修改时区 # 1.查看当前时区 date -R # 2.修改设置时区 方法……
+            <p class="readmore"><a href="https://stanleylfc.github.io/post/linux/2020-05-10-linux-base/">阅读全文</a></p>
+        </div>
+    </article>
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://stanleylfc.github.io/post/linux/2020-05-14-linux-%E8%B0%83%E4%BC%98/">linux 调优实战（一）| RocketMQ 调优</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2020年5月10日
+        </date>
+        
+        <div class="post-meta meta-category">
+            |
+            
+            <a href='https://stanleylfc.github.io/categories/linux'>linux</a>
+            
+        </div>
+        
+        <div class="post-content">
+            1.RocketMQ集群进行OS内核参数调整 1.1 vm.max_map_count 中间件系统可以开启的线程的数量 默认值是65536， 建议可以把这个参数调大10倍，比如655360这样的值，保证中间件可以开启足够多的线程。 $ echo 'vm.max_map_count=655360' &gt;&gt; /etc/sysctl.conf 1.2 vm.swappiness $ echo 'vm.swappiness=10' &gt;&gt; /etc/sysctl.conf 1.3 vm.overcommit_memory 中间件系统申请内存的时候，os内核会检查可用内存是否足够 vm.overcommit_memory 这个参数……
+            <p class="readmore"><a href="https://stanleylfc.github.io/post/linux/2020-05-14-linux-%E8%B0%83%E4%BC%98/">阅读全文</a></p>
+        </div>
+    </article>
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://stanleylfc.github.io/post/linux/2020-05-08-linux-sshd/">linux 服务实战（二）| syslog</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2020年5月8日
+        </date>
+        
+        <div class="post-meta meta-category">
+            |
+            
+            <a href='https://stanleylfc.github.io/categories/linux'>linux</a>
+            
+        </div>
+        
+        <div class="post-content">
+            1. 系统中的ssh与sshd服务 1.1 概念简介 openssh在主机中开启了openssh服务，那么就对外开放了远程连接的接口 1.2 架构模式 openssh的服务端：sshd openssh的客户端：ssh 2. 服务端 查看sshd服务状态 service sshd status 停止sshd服务 service sshd stop 启动sshd服务 service sshd start 2.1 修改端口 默……
+            <p class="readmore"><a href="https://stanleylfc.github.io/post/linux/2020-05-08-linux-sshd/">阅读全文</a></p>
+        </div>
+    </article>
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://stanleylfc.github.io/post/linux/2020-05-06-linux-syslog/">linux 服务实战（三）| syslog</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2020年5月6日
         </date>
         
         <div class="post-meta meta-category">
@@ -106,7 +175,30 @@
         
         <div class="post-content">
             1. 安装 一般来说centos都自带了rsyslog, 通过源码包来安装 源码包下载地址:http://www.rsyslog.com/downloads/download-v8-stable/ 使用yum sudo yum install rsyslog 2. 开启我们的rsyslog远程服务 2.1 编辑配置文件 sudo vim /etc/rsyslog.conf 并将以下注释打开 # Provides UDP……
-            <p class="readmore"><a href="https://stanleylfc.github.io/post/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/2020-05-06-linux-syslog/">阅读全文</a></p>
+            <p class="readmore"><a href="https://stanleylfc.github.io/post/linux/2020-05-06-linux-syslog/">阅读全文</a></p>
+        </div>
+    </article>
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://stanleylfc.github.io/post/linux/2020-05-03-linux-systemd/">linux 服务实战（一）| Systemd</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2020年5月3日
+        </date>
+        
+        <div class="post-meta meta-category">
+            |
+            
+            <a href='https://stanleylfc.github.io/categories/linux'>linux</a>
+            
+        </div>
+        
+        <div class="post-content">
+            1. 配置文件 1.1 查看配置文件 $ systemctl cat sshd.service [Unit] Description=OpenSSH server daemon Documentation=man:sshd(8) man:sshd_config(5) After=network.target sshd-keygen.service Wants=sshd-keygen.service [Service] EnvironmentFile=/etc/sysconfig/sshd ExecStart=/usr/sbin/sshd -D $OPTIONS ExecReload=/bin/kill -HUP $MAINPID Type=simple KillMode=process Restart=on-failure RestartSec=42s [Install] WantedBy=multi-user.target 1.2 [Unit] 区块：启动顺序与依赖关系 After字段：表示如果network.target或sshd-keygen.service需要启动，那么sshd.service应该在它们之后启动。 Wants字段：表示ss……
+            <p class="readmore"><a href="https://stanleylfc.github.io/post/linux/2020-05-03-linux-systemd/">阅读全文</a></p>
         </div>
     </article>
     
@@ -136,43 +228,43 @@
 <ul class="widget-list">
     
     <li>
-        <a href="https://stanleylfc.github.io/post/golang/2020-05-05-golang-probuf/" title="go 实战（十三）| go probuf">go 实战（十三）| go probuf</a>
+        <a href="https://stanleylfc.github.io/post/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%B8%88/2020-06-03-bigquery-command/" title="bigquery 实战（二）| bigquery 命令">bigquery 实战（二）| bigquery 命令</a>
     </li>
     
     <li>
-        <a href="https://stanleylfc.github.io/post/golang/2020-04-30-goalng-%E5%8C%8501/" title="go 包练习（一）| go viper cron cobra">go 包练习（一）| go viper cron cobra</a>
+        <a href="https://stanleylfc.github.io/post/%E8%BF%90%E7%BB%B4/2020-05-09-linux%E8%BF%90%E7%BB%B4-jenkins/" title="Linux运维 实战（二）| jenkins">Linux运维 实战（二）| jenkins</a>
     </li>
     
     <li>
-        <a href="https://stanleylfc.github.io/post/golang/2020-04-28-golang-gpc/" title="go 实战（十二）| go grpc开发">go 实战（十二）| go grpc开发</a>
+        <a href="https://stanleylfc.github.io/post/%E7%BC%96%E7%A8%8B/golang/2020-06-01-golang-goland/" title="go 实战（一）| go goloand">go 实战（一）| go goloand</a>
     </li>
     
     <li>
-        <a href="https://stanleylfc.github.io/post/golang/2020-04-27-golang-web%E5%BC%80%E5%8F%91/" title="go 实战（十一）| go web开发">go 实战（十一）| go web开发</a>
+        <a href="https://stanleylfc.github.io/post/%E8%BF%90%E7%BB%B4/2020-06-01-linux%E8%BF%90%E7%BB%B4-promethus/" title="Linux运维 实战（五）| promethus">Linux运维 实战（五）| promethus</a>
     </li>
     
     <li>
-        <a href="https://stanleylfc.github.io/post/vue/2020-04-23-vue-vue/" title="vue 实战（一）| vue">vue 实战（一）| vue</a>
+        <a href="https://stanleylfc.github.io/post/%E8%BF%90%E7%BB%B4/2019-12-20-linux%E8%BF%90%E7%BB%B4-rsyslog/" title="Linux运维 实战（六）| rsyslog">Linux运维 实战（六）| rsyslog</a>
     </li>
     
     <li>
-        <a href="https://stanleylfc.github.io/post/vue/2020-04-23-vue-vuecli/" title="vue 实战（三）| vuecli">vue 实战（三）| vuecli</a>
+        <a href="https://stanleylfc.github.io/post/%E8%BF%90%E7%BB%B4/2020-06-01-linux%E8%BF%90%E7%BB%B4-grafana/" title="Linux运维 实战（四）| grafana">Linux运维 实战（四）| grafana</a>
     </li>
     
     <li>
-        <a href="https://stanleylfc.github.io/post/vue/2020-04-22-vue-node/" title="vue 实战（二）| node">vue 实战（二）| node</a>
+        <a href="https://stanleylfc.github.io/post/%E8%BF%90%E7%BB%B4/2019-12-15-linux%E8%BF%90%E7%BB%B4-fluentd/" title="Linux运维 实战（三）| fluentd">Linux运维 实战（三）| fluentd</a>
     </li>
     
     <li>
-        <a href="https://stanleylfc.github.io/post/git/2020-04-22-git-%E4%BD%BF%E7%94%A8%E8%A7%84%E8%8C%83/" title="git 实战（二）| git 提交分支">git 实战（二）| git 提交分支</a>
+        <a href="https://stanleylfc.github.io/post/%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8/2020-05-19-redis-cluster/" title="redis 实战（一）| redis 集群搭建">redis 实战（一）| redis 集群搭建</a>
     </li>
     
     <li>
-        <a href="https://stanleylfc.github.io/post/golang/2020-04-16-golang-%E5%86%85%E5%AD%98%E8%AF%A6%E8%A7%A3/" title="go 实战（七）| 内存详解">go 实战（七）| 内存详解</a>
+        <a href="https://stanleylfc.github.io/post/%E4%B8%AD%E9%97%B4%E4%BB%B6/2020-05-22-rocketmq-rocket-%E4%BF%9D%E8%AF%81%E6%B6%88%E6%81%AF%E4%B8%8D%E4%B8%A2%E5%A4%B1/" title="rocket 实战（三）| RocketMQ保证消息不丢失">rocket 实战（三）| RocketMQ保证消息不丢失</a>
     </li>
     
     <li>
-        <a href="https://stanleylfc.github.io/post/golang/2020-04-16-golang-goroutine%E5%8E%9F%E7%90%86/" title="go 实战（九）| goroutine原理">go 实战（九）| goroutine原理</a>
+        <a href="https://stanleylfc.github.io/post/%E7%BC%96%E7%A8%8B/java/2020-05-22-java-spring-boot/" title="java sprint boot实战（一）| ">java sprint boot实战（一）| </a>
     </li>
     
 </ul>
@@ -184,19 +276,43 @@
         <h3 class="widget-title">分类</h3>
 <ul class="widget-list">
     
+    <li><a href="https://stanleylfc.github.io/categories/Linux%E8%BF%90%E7%BB%B4/">Linux运维 (6)</a></li>
+    
     <li><a href="https://stanleylfc.github.io/categories/Python/">Python (5)</a></li>
     
-    <li><a href="https://stanleylfc.github.io/categories/git/">git (1)</a></li>
+    <li><a href="https://stanleylfc.github.io/categories/bigquery/">bigquery (1)</a></li>
+    
+    <li><a href="https://stanleylfc.github.io/categories/es6/">es6 (5)</a></li>
+    
+    <li><a href="https://stanleylfc.github.io/categories/git/">git (2)</a></li>
     
     <li><a href="https://stanleylfc.github.io/categories/go/">go (8)</a></li>
     
-    <li><a href="https://stanleylfc.github.io/categories/hadoop/">hadoop (2)</a></li>
+    <li><a href="https://stanleylfc.github.io/categories/goloand/">goloand (1)</a></li>
     
-    <li><a href="https://stanleylfc.github.io/categories/linux/">linux (1)</a></li>
+    <li><a href="https://stanleylfc.github.io/categories/hadoop/">hadoop (3)</a></li>
     
-    <li><a href="https://stanleylfc.github.io/categories/vmware/">vmware (1)</a></li>
+    <li><a href="https://stanleylfc.github.io/categories/java/">java (1)</a></li>
     
-    <li><a href="https://stanleylfc.github.io/categories/vue/">vue (4)</a></li>
+    <li><a href="https://stanleylfc.github.io/categories/linux/">linux (5)</a></li>
+    
+    <li><a href="https://stanleylfc.github.io/categories/linux-%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/">linux 网络编程 (2)</a></li>
+    
+    <li><a href="https://stanleylfc.github.io/categories/redis/">redis (2)</a></li>
+    
+    <li><a href="https://stanleylfc.github.io/categories/spring-boot/">spring boot (1)</a></li>
+    
+    <li><a href="https://stanleylfc.github.io/categories/vmware/">vmware (2)</a></li>
+    
+    <li><a href="https://stanleylfc.github.io/categories/vue/">vue (5)</a></li>
+    
+    <li><a href="https://stanleylfc.github.io/categories/webStorm/">webStorm (1)</a></li>
+    
+    <li><a href="https://stanleylfc.github.io/categories/%E5%BE%AE%E7%A7%AF%E5%88%86/">微积分 (2)</a></li>
+    
+    <li><a href="https://stanleylfc.github.io/categories/%E6%94%B6%E8%97%8F/">收藏 (1)</a></li>
+    
+    <li><a href="https://stanleylfc.github.io/categories/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/">消息队列 (1)</a></li>
     
 </ul>
     </section>
@@ -205,19 +321,43 @@
         <h3 class="widget-title">标签</h3>
 <div class="tagcloud">
     
+    <a href="https://stanleylfc.github.io/tags/Linux%E8%BF%90%E7%BB%B4/">Linux运维</a>
+    
+    <a href="https://stanleylfc.github.io/tags/bigquery/">bigquery</a>
+    
+    <a href="https://stanleylfc.github.io/tags/es6/">es6</a>
+    
     <a href="https://stanleylfc.github.io/tags/git/">git</a>
     
     <a href="https://stanleylfc.github.io/tags/go/">go</a>
     
+    <a href="https://stanleylfc.github.io/tags/goloand/">goloand</a>
+    
     <a href="https://stanleylfc.github.io/tags/hadoop/">hadoop</a>
+    
+    <a href="https://stanleylfc.github.io/tags/java/">java</a>
     
     <a href="https://stanleylfc.github.io/tags/linux/">linux</a>
     
+    <a href="https://stanleylfc.github.io/tags/linux-%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/">linux 网络编程</a>
+    
     <a href="https://stanleylfc.github.io/tags/python/">python</a>
+    
+    <a href="https://stanleylfc.github.io/tags/redis/">redis</a>
+    
+    <a href="https://stanleylfc.github.io/tags/spring-boot/">spring boot</a>
     
     <a href="https://stanleylfc.github.io/tags/vmware/">vmware</a>
     
     <a href="https://stanleylfc.github.io/tags/vue/">vue</a>
+    
+    <a href="https://stanleylfc.github.io/tags/webStorm/">webStorm</a>
+    
+    <a href="https://stanleylfc.github.io/tags/%E5%BE%AE%E7%A7%AF%E5%88%86/">微积分</a>
+    
+    <a href="https://stanleylfc.github.io/tags/%E6%94%B6%E8%97%8F/">收藏</a>
+    
+    <a href="https://stanleylfc.github.io/tags/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/">消息队列</a>
     
 </div>
     </section>
